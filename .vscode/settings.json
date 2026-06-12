@@ -1,3 +1,4 @@
 {
-    "html.format.wrapLineLength": 170
+  "html.format.wrapLineLength": 170,
+  "makefile.configureOnOpen": false
 }
