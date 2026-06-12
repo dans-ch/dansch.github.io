@@ -1,4 +1,4 @@
-# 🎨 DSCamargo Design System
+# 🎨 DanSch Design System
 
 Sistema de design unificado para todas as propriedades web de Daniel Scheidemantel Camargo.
 
@@ -25,12 +25,13 @@ design-system/
 
 ```html
 <!-- No <head> do HTML -->
-<link rel="stylesheet" href="design-system/variables.css">
+<link rel="stylesheet" href="design-system/variables.css" />
 ```
 
 Ou via CSS:
+
 ```css
-@import url('design-system/variables.css');
+@import url("design-system/variables.css");
 ```
 
 ### 2. Fontes (System Font Stack)
@@ -39,7 +40,9 @@ Não é necessário importar fontes externas. Usa as fontes nativas de cada sist
 
 ```css
 /* Já incluído no variables.css */
-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+font-family:
+  -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+  Arial, sans-serif;
 ```
 
 ### 3. Usar as variáveis
@@ -66,29 +69,33 @@ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica N
 ## 🎯 Resumo Rápido
 
 ### Cores Principais
-| Uso | Variável | Hex |
-|-----|----------|-----|
-| **Principal** | `--primary-600` | #4B79A1 |
-| **Inovação** | `--cyan-500` | #06B6D4 |
-| **Humanidade** | `--violet-500` | #8B5CF6 |
-| **Texto** | `--gray-800` | #1F2937 |
-| **Fundo** | `--gray-50` | #F9FAFB |
+
+| Uso            | Variável        | Hex     |
+| -------------- | --------------- | ------- |
+| **Principal**  | `--primary-600` | #4B79A1 |
+| **Inovação**   | `--cyan-500`    | #06B6D4 |
+| **Humanidade** | `--violet-500`  | #8B5CF6 |
+| **Texto**      | `--gray-800`    | #1F2937 |
+| **Fundo**      | `--gray-50`     | #F9FAFB |
 
 ### Fontes
+
 - **Principal:** `var(--font-family-primary)` → System Font Stack
 - **Código:** `var(--font-family-mono)` → System Mono Stack
 
 ### Espaçamento Comum
+
 - `--space-4` (16px) - Padding padrão
 - `--space-6` (24px) - Gap entre cards
 - `--space-20` (80px) - Padding de seções
 
 ### Border Radius (REGRA OBRIGATÓRIA)
-| Elemento | Variável |
-|----------|----------|
-| **Botões** | `--radius-full` (redondo) |
-| **Cards/Containers** | `--radius-xl` (16px) |
-| **Inputs** | `--radius-md` (8px) |
+
+| Elemento             | Variável                  |
+| -------------------- | ------------------------- |
+| **Botões**           | `--radius-full` (redondo) |
+| **Cards/Containers** | `--radius-xl` (16px)      |
+| **Inputs**           | `--radius-md` (8px)       |
 
 ---
 
@@ -112,7 +119,9 @@ Ao criar nova página, verificar:
 ## 🤖 Para IAs
 
 ### Contexto
-Este Design System define a identidade visual de **DSCamargo**, um desenvolvedor de software brasileiro. O estilo é:
+
+Este Design System define a identidade visual de **DanSch**, um desenvolvedor de software brasileiro. O estilo é:
+
 - **Tom:** Formal, técnico, corporativo
 - **Visual:** Moderno, detalhado, profissional
 - **Cores:** Azul como base, ciano para inovação, violeta para humanidade
@@ -121,6 +130,7 @@ Este Design System define a identidade visual de **DSCamargo**, um desenvolvedor
 - **Layout:** Mobile-first, cantos arredondados
 
 ### Regras Importantes
+
 1. **NÃO usar:** laranja, amarelo, vermelho (exceto erros)
 2. **Gradientes:** apenas em CTAs e destaques
 3. **Contraste:** sempre alto (WCAG AA mínimo)
@@ -128,6 +138,7 @@ Este Design System define a identidade visual de **DSCamargo**, um desenvolvedor
 5. **Capellaris:** segue mesma identidade
 
 ### Variáveis Mais Usadas
+
 ```css
 /* Cores */
 var(--primary-600)      /* Ações principais */
@@ -152,6 +163,7 @@ var(--duration-normal)  /* transições */
 ## 📝 Changelog
 
 ### v1.0.0 (Janeiro 2026)
+
 - Criação inicial do Design System
 - Definição de paleta de cores
 - Especificação tipográfica (Ubuntu)

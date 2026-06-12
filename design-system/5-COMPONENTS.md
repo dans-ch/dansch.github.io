@@ -1,12 +1,12 @@
-# 🧩 Components - DSCamargo Design System
+# 🧩 Components - DanSch Design System
 
 ## Regra de Border Radius
 
-| Tipo de Elemento | Border Radius | Variável |
-|------------------|---------------|----------|
-| **Botões (clicáveis)** | Totalmente redondo | `--radius-full` |
-| **Cards, Caixas, Containers** | Arredondamento suave | `--radius-xl` |
-| **Inputs de formulário** | Arredondamento médio | `--radius-md` |
+| Tipo de Elemento              | Border Radius        | Variável        |
+| ----------------------------- | -------------------- | --------------- |
+| **Botões (clicáveis)**        | Totalmente redondo   | `--radius-full` |
+| **Cards, Caixas, Containers** | Arredondamento suave | `--radius-xl`   |
+| **Inputs de formulário**      | Arredondamento médio | `--radius-md`   |
 
 > ⚠️ **IMPORTANTE:** Todos os botões devem usar `border-radius: var(--radius-full)` para manter consistência visual.
 
@@ -15,6 +15,7 @@
 ## Botões
 
 ### Hierarquia de Botões
+
 1. **Primary** - Ação principal (1 por seção)
 2. **Secondary** - Ações alternativas
 3. **Outline** - Ações terciárias
@@ -23,6 +24,7 @@
 ### Especificações
 
 #### Primary Button
+
 ```css
 .btn-primary {
   background: var(--primary-600);
@@ -43,6 +45,7 @@
 ```
 
 #### Innovation Button (Gradiente - Uso em Destaques)
+
 ```css
 .btn-innovation {
   background: var(--gradient-innovation);
@@ -62,6 +65,7 @@
 ```
 
 #### Outline Button
+
 ```css
 .btn-outline {
   background: transparent;
@@ -80,24 +84,28 @@
 ```
 
 ### Tamanhos de Botão
-| Tamanho | Padding | Font Size | Border Radius |
-|---------|---------|-----------|---------------|
-| Small | `8px 16px` | 14px | `--radius-full` |
-| Medium | `12px 24px` | 16px | `--radius-full` |
-| Large | `16px 32px` | 18px | `--radius-full` |
+
+| Tamanho | Padding     | Font Size | Border Radius   |
+| ------- | ----------- | --------- | --------------- |
+| Small   | `8px 16px`  | 14px      | `--radius-full` |
+| Medium  | `12px 24px` | 16px      | `--radius-full` |
+| Large   | `16px 32px` | 18px      | `--radius-full` |
 
 ---
 
 ## Cards
 
 ### Card Padrão
+
 ```css
 .card {
   background: var(--white);
   border-radius: var(--radius-xl); /* Containers usam --radius-xl */
   padding: var(--space-6);
   box-shadow: var(--shadow-md);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .card:hover {
@@ -107,6 +115,7 @@
 ```
 
 ### Card de Destaque (Featured)
+
 ```css
 .card-featured {
   background: var(--gradient-primary);
@@ -118,6 +127,7 @@
 ```
 
 ### Card com Borda
+
 ```css
 .card-bordered {
   background: var(--white);
@@ -136,6 +146,7 @@
 ## Navegação
 
 ### Header Principal
+
 ```css
 .header {
   background: rgba(31, 41, 55, 0.95);
@@ -155,6 +166,7 @@
 ```
 
 ### Nav Links
+
 ```css
 .nav-link {
   color: rgba(255, 255, 255, 0.8);
@@ -176,6 +188,7 @@
 ## Formulários
 
 ### Input Padrão
+
 ```css
 .form-input {
   width: 100%;
@@ -195,6 +208,7 @@
 ```
 
 ### Label
+
 ```css
 .form-label {
   display: block;
@@ -210,6 +224,7 @@
 ## Badges
 
 ### Badge Padrão
+
 ```css
 .badge {
   display: inline-flex;
@@ -228,9 +243,13 @@
 }
 
 .badge-innovation {
-  background: linear-gradient(135deg, rgba(139,92,246,0.2), rgba(6,182,212,0.2));
+  background: linear-gradient(
+    135deg,
+    rgba(139, 92, 246, 0.2),
+    rgba(6, 182, 212, 0.2)
+  );
   color: var(--violet-600);
-  border: 1px solid rgba(139,92,246,0.3);
+  border: 1px solid rgba(139, 92, 246, 0.3);
 }
 
 .badge-new {

@@ -1,5 +1,5 @@
 # ===========================================
-# DSCamargo Portfolio - Makefile
+# DanSch Portfolio - Makefile
 # ===========================================
 
 .PHONY: serve dev stop open help
@@ -9,7 +9,7 @@ PORT ?= 8080
 
 # Default target
 help:
-	@echo "DSCamargo Portfolio - Available commands:"
+	@echo "DanSch Portfolio - Available commands:"
 	@echo ""
 	@echo "  make serve    - Start local server on port $(PORT)"
 	@echo "  make dev      - Start server and open browser"
