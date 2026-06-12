@@ -1216,12 +1216,104 @@ footer .fab:hover {
 }
 
 /* Profile Section */
+/* Profile Section with Cosmic-Cybernetic Aura Effect */
+.cv-profile-img-container {
+  position: relative;
+  display: inline-block;
+  width: 160px;
+  height: 160px;
+  margin: 0 auto;
+  border-radius: 50%;
+  padding: 5px;
+  background: transparent;
+  transition: transform var(--duration-normal) var(--ease-out);
+}
+
+/* Glowing breathing backdrop */
+.cv-profile-img-container::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(135deg, var(--cyan-500), var(--blue-600), var(--purple-600));
+  border-radius: 50%;
+  z-index: -1;
+  opacity: 0.6;
+  filter: blur(8px);
+  animation: cosmic-breathing 4s ease-in-out infinite alternate;
+  transition: opacity var(--duration-normal) ease, filter var(--duration-normal) ease;
+}
+
+/* Cybernetic animated rotating ring */
+.cv-profile-img-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 2px dashed rgba(6, 182, 212, 0.8); /* Cyan-500 tint */
+  border-radius: 50%;
+  animation: cyber-rotate 20s linear infinite;
+  pointer-events: none;
+  transition: scale var(--duration-normal) var(--ease-out), border-color var(--duration-normal) ease;
+}
+
 .cv-profile-img {
-  width: 150px;
-  height: 150px;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  border: 3px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.85);
+  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.8), 0 4px 15px rgba(0, 0, 0, 0.5);
+  position: relative;
+  z-index: 1;
+  transition: border-color var(--duration-normal) ease;
+}
+
+/* Hover effects */
+.cv-profile-img-container:hover {
+  transform: scale(1.05) rotate(3deg);
+}
+
+.cv-profile-img-container:hover::before {
+  opacity: 0.95;
+  filter: blur(15px);
+}
+
+.cv-profile-img-container:hover::after {
+  border-color: rgba(168, 85, 247, 1); /* Purple glow transition */
+  scale: 1.08;
+  animation-duration: 8s; /* Spins faster on hover */
+}
+
+.cv-profile-img-container:hover .cv-profile-img {
+  border-color: var(--cyan-400);
+}
+
+/* Keyframes for the effects */
+@keyframes cosmic-breathing {
+  0% {
+    transform: scale(0.96);
+    filter: blur(6px);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1.04);
+    filter: blur(12px);
+    opacity: 0.85;
+  }
+}
+
+@keyframes cyber-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .cv-info-grid {
