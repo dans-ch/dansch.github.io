@@ -421,6 +421,7 @@ code, pre {
 .floating-modal {
   position: relative;
   padding: var(--space-16) 0;
+  padding-bottom: 0;
   margin: 0 auto;
   max-width: 1400px;
 }

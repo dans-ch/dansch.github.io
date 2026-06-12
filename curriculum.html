@@ -114,6 +114,11 @@
                                     <i class="fas fa-graduation-cap me-1"></i> Education
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#teaching">
+                                    <i class="fas fa-chalkboard-teacher me-1"></i> Teaching
+                                </a>
+                            </li>
                         </ul>
                         <div class="d-flex ms-3 social-icons">
                             <a href="http://github.com/danielfloripa" class="me-2 text-light"><i class="fab fa-github"></i></a>
@@ -180,9 +185,9 @@
             <div class="modal-glass-card">
                 <div class="container">
                     <h2 class="cv-section-title"><i class="fas fa-file-alt me-2"></i>Professional Summary</h2>
-                    <p class="cv-text lead">Results-driven Software Engineer with 8+ years of experience in Software Development, Cloud Computing, DevOps, and System
-                        Integration. Passionate about creating efficient solutions that enhance user experience while maintaining high standards of quality and security.
-                        Strong background in project management and team leadership with a track record of successful product deliveries.</p>
+                    <p class="cv-text lead">Applied AI Engineer and Senior Full-Stack Developer with 8+ years of experience building and operating scalable, high-traffic systems across cloud environments (AWS, GCP). Specialised in deploying production-grade LLM-powered agentic platforms and modernising legacy microservices architectures to drive business efficiency.</p>
+                    <p class="cv-text">Strong track record in the full software lifecycle—from technical scoping and solution architecture to deployment and post-implementation iteration. Proven ability to translate complex business requirements into high-performance technical solutions, with a deep focus on cloud-native patterns, data pipelines, and MLOps.</p>
+                    <p class="cv-text">Geneva-based, experienced in multi-cultural and remote-first engineering teams. 13 peer-reviewed publications in distributed systems and cloud computing; passionate about open source and AI-driven automation.</p>
                 </div>
             </div>
         </section>
@@ -196,71 +201,74 @@
                     <div class="cv-timeline">
                         <div class="cv-timeline-item">
                             <div class="cv-job-header">
-                                <h4>Senior Software Engineer</h4>
+                                <h4>Founder & Lead Applied AI Engineer</h4>
+                                <span class="cv-badge-current">Current</span>
+                            </div>
+                            <h5 class="cv-company"><a href="https://capellaris.dans.ch" target="_blank">Capellaris AI</a> <small class="text-muted">(SaaS, self-funded)</small></h5>
+                            <p class="cv-date">March 2025 - Present</p>
+                            <ul class="cv-list">
+                                <li>Designed, built and operate a production-grade, LLM-agnostic multi-tenant SaaS platform end-to-end — covering marketing, finance and legal automation use cases for enterprise customers.</li>
+                                <li>Full-stack delivery: Python/FastAPI backend, Node.js middleware layer, React front-end, PostgreSQL + pgvector, Redis, Supabase, Cloudflare WAF; GCP infrastructure (CloudRun, Firebase); OAuth 2.0, IAM, secrets management and tenant isolation.</li>
+                                <li>Built a reusable agent-orchestration layer (CrewAI + MCP) with embeddings, hybrid search (pgvector + BM25), chunking, reranking and tool-calling; integrated Anthropic Claude, OpenAI and Gemini APIs behind a unified multi-LLM abstraction.</li>
+                                <li>Implemented full MLOps lifecycle: prompt versioning, model evaluation, observability (Cloud Logging) and continuous delivery (GitLab CI/CD).</li>
+                                <li>Pilot enterprise customer live in production; direct technical account management — requirement scoping, integration support and product iteration based on customer feedback.</li>
+                            </ul>
+                        </div>
+
+                        <div class="cv-timeline-item">
+                            <div class="cv-job-header">
+                                <h4>Senior Software Engineer – Platform & Data APIs</h4>
                                 <span class="cv-badge-current">Current</span>
                             </div>
                             <h5 class="cv-company"><a href="https://www.mercadolivre.com.br" target="_blank">Mercado Livre</a></h5>
                             <p class="cv-date">August 2025 - Present</p>
                             <ul class="cv-list">
-                                <li>Systems for logistics in Python, Go and React.</li>
-                                <li>ETL pipelines, Data pipelines, analysis and science.</li>
-                                <li>Microservices and APIs in GCP Cloud Functions / Cloud Run / Docker.</li>
-                                <li>DevOps and cloud architecture management with Fury (GCP/AWS).</li>
+                                <li>Design, build and operate internal platform APIs for large-scale logistics operations serving millions of daily transactions; cross-functional Scrum team of 7, on-call rotation, incident management and post-mortems.</li>
+                                <li>Develop Python (FastAPI) and Go services; contribute to React-based internal tooling; own full production lifecycle on containerised multi-cloud infrastructure (Docker, AWS/GCP via MELI’s internal Fury platform).</li>
+                                <li>Integrate Claude and OpenAI APIs into production workflows as autonomous decision-support agents for logistics capacity planning; mentor team members on AI integration patterns and backend best practices.</li>
+                                <li>Build and maintain CI/CD pipelines (GitHub Actions) with automated testing, observability (structured logging, metrics, alerting) and progressive rollout strategies.</li>
+                                <li>Design ETL pipelines (Python/Pandas/Polars on BigQuery) feeding demand forecasting and capacity planning simulators used by commercial and operations teams for high-volume, data-driven decision-support.</li>
                             </ul>
                         </div>
 
                         <div class="cv-timeline-item">
                             <div class="cv-job-header">
-                                <h4>Founder</h4>
-                                <span class="cv-badge-current">Current</span>
+                                <h4>Senior Full Stack / Platform Engineer</h4>
                             </div>
-                            <h5 class="cv-company"><a href="capellaris/index.html" target="_blank">Capellaris AI</a></h5>
-                            <p class="cv-date">March 2025 - Present</p>
-                            <ul class="cv-list">
-                                <li>Development of AI-powered solutions for business intelligence and automation</li>
-                                <li>Lean Startup methodology and Agile development</li>
-                                <li>Designing system architecture for scalable AI agent management</li>
-                                <li>Implementing continuous deployment pipelines and development workflows</li>
-                                <li>Creating integrations with existing enterprise systems</li>
-                            </ul>
-                        </div>
-
-                        <div class="cv-timeline-item">
-                            <div class="cv-job-header">
-                                <h4>Senior Full Stack Developer</h4>
-                            </div>
-                            <h5 class="cv-company"><a href="https://www.buscaonibus.com.br" target="_blank">BuscaÔnibus</a></h5>
+                            <h5 class="cv-company"><a href="https://www.buscaonibus.com.br" target="_blank">Buscaônibus / DeÔnibus / Travelier</a></h5>
                             <p class="cv-date">April 2021 - August 2025</p>
                             <ul class="cv-list">
-                                <li>Full stack development Python (Django/Flask/FastAPI), React Native (mobile) and Node JS.</li>
-                                <li>Microservices and APIs in GCP Cloud Functions / Cloud Run / Docker.</li>
-                                <li>DevOps and cloud architecture management with GCP.</li>
-                                <li>Reduced infrastructure costs by 40% through optimization and serverless adoption</li>
+                                <li>Primary owner of a high-traffic travel search and ticketing platform processing millions of passenger queries: design, development, maintenance and on-call support.</li>
+                                <li>Operated and monetised passenger demand and pricing data pipelines — aggregating real-time availability, route coverage and fare data across hundreds of bus operators to power commercial analytics and revenue optimisation.</li>
+                                <li>Led full platform modernisation: Python 2.7/App Engine to Python 3.12/FastAPI/CloudRun (Docker), cutting average API latency by 25% and GCP infrastructure cost by 40%; directly improved search response quality and conversion.</li>
+                                <li>Designed and shipped a route intelligence and demand analytics layer (BigQuery + Looker Studio) used by business stakeholders to evaluate route performance, passenger volume trends and pricing opportunities.</li>
+                                <li>Built Gemini-based AI agents for internal operations and demand-signal processing via reusable backend APIs.</li>
+                                <li>Mentored junior engineers on Python best practices, API design and cloud-native deployment.</li>
                             </ul>
                         </div>
 
                         <div class="cv-timeline-item">
                             <div class="cv-job-header">
-                                <h4>Software Engineer (Integrations)</h4>
+                                <h4>Software Engineer – Integrations & CI/CD</h4>
                             </div>
-                            <h5 class="cv-company"><a href="https://www.portobelloshop.com.br" target="_blank">Portobello Shop</a></h5>
+                            <h5 class="cv-company"><a href="https://www.portobelloshop.com.br" target="_blank">Portobello Group</a></h5>
                             <p class="cv-date">December 2019 - April 2021</p>
                             <ul class="cv-list">
-                                <li>Development of simulators (Django, Postgres on Heroku)</li>
-                                <li>Python-based microservices (AWS, Azure, Kubernetes)</li>
-                                <li>Salesforce administrator and developer</li>
+                                <li>Built Python/Django backend integrations between Salesforce, on-prem ERPs and downstream microservices; designed data pipelines for the commercial analytics stack.</li>
+                                <li>Operated Kubernetes CI/CD pipelines (Rancher + Jenkins) with Docker; maintained MSSQL Server (job scheduling, data pipeline architecture).</li>
+                                <li>Led technical design and stakeholder support for company-wide Salesforce rollout; developed a full financial simulator embedded in Salesforce with a Python backend.</li>
                             </ul>
                         </div>
 
                         <div class="cv-timeline-item">
                             <div class="cv-job-header">
-                                <h4>Full Stack Developer</h4>
+                                <h4>Software Developer – Automation & Cloud</h4>
                             </div>
-                            <h5 class="cv-company"><a href="https://stormtecnologia.com.br" target="_blank">Stormtech</a></h5>
-                            <p class="cv-date">October 2018 - November 2019</p>
+                            <h5 class="cv-company">Stormtech <small class="text-muted">(consumer loans, regulated)</small></h5>
+                            <p class="cv-date">August 2018 - November 2019</p>
                             <ul class="cv-list">
-                                <li>Development of banking RPA bots and web scrapers (Selenium, Scrapy)</li>
-                                <li>API development (Flask), AWS serverless architecture</li>
+                                <li>Developed Python automations and data pipeline integrations with a PHP monolith in a regulated financial environment.</li>
+                                <li>Built and operated an AWS-native platform (EC2, Lambda, Step Functions, DynamoDB, RDS-MySQL, Route53); tracked and resolved production incidents in a fast-paced support context.</li>
                             </ul>
                         </div>
 
@@ -273,7 +281,7 @@
                             <ul class="cv-list">
                                 <li>Developed energy monitoring solutions for data centers (GreenHop project)</li>
                                 <li>Created algorithms for virtual machine consolidation (CHAVE project)</li>
-                                <li>Published research papers in international conferences</li>
+                                <li>Published 13 peer-reviewed research papers in international conferences</li>
                             </ul>
                         </div>
                     </div>
@@ -282,63 +290,95 @@
         </section>
 
         <!-- Skills Modal -->
-        <section id="skills" class="floating-modal cv-modal">
+        <section id="skills" class="floating-modal cv-modal cv-modal-large">
             <div class="modal-glass-card">
                 <div class="container">
                     <h2 class="cv-section-title"><i class="fas fa-code me-2"></i>Skills</h2>
 
                     <div class="row">
-                        <div class="col-md-4 mb-4">
-                            <h5 class="cv-skill-title">Programming Languages</h5>
+                        <div class="col-md-6 col-lg-4 mb-4">
+                            <h5 class="cv-skill-title">AI / LLM Engineering</h5>
                             <div class="cv-skill-badges">
-                                <span class="cv-badge">JavaScript</span>
+                                <span class="cv-badge cv-badge-highlight">Claude</span>
+                                <span class="cv-badge cv-badge-highlight">OpenAI</span>
+                                <span class="cv-badge cv-badge-highlight">Gemini</span>
+                                <span class="cv-badge">CrewAI</span>
+                                <span class="cv-badge">MCP</span>
+                                <span class="cv-badge">pgvector</span>
+                                <span class="cv-badge">RAG</span>
+                                <span class="cv-badge">MLOps</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-4">
+                            <h5 class="cv-skill-title">Back-end &amp; APIs</h5>
+                            <div class="cv-skill-badges">
                                 <span class="cv-badge">Python</span>
-                                <span class="cv-badge">C/C++</span>
-                                <span class="cv-badge">Shell Script</span>
-                            </div>
-                        </div>
-                        <div class="col-md-4 mb-4">
-                            <h5 class="cv-skill-title">Frontend Technologies</h5>
-                            <div class="cv-skill-badges">
-                                <span class="cv-badge">React Native</span>
-                                <span class="cv-badge">HTML5</span>
-                                <span class="cv-badge">CSS3</span>
-                                <span class="cv-badge">SASS</span>
-                            </div>
-                        </div>
-                        <div class="col-md-4 mb-4">
-                            <h5 class="cv-skill-title">Backend Technologies</h5>
-                            <div class="cv-skill-badges">
-                                <span class="cv-badge">Django</span>
-                                <span class="cv-badge">Flask/FastAPI</span>
+                                <span class="cv-badge">FastAPI</span>
+                                <span class="cv-badge">Go</span>
                                 <span class="cv-badge">Node.js</span>
+                                <span class="cv-badge">REST</span>
+                                <span class="cv-badge">gRPC</span>
+                                <span class="cv-badge">Django / Flask</span>
                             </div>
                         </div>
-                        <div class="col-md-4 mb-4">
-                            <h5 class="cv-skill-title">Cloud & DevOps</h5>
+                        <div class="col-md-6 col-lg-4 mb-4">
+                            <h5 class="cv-skill-title">Front-end</h5>
                             <div class="cv-skill-badges">
-                                <span class="cv-badge cv-badge-highlight">GCP</span>
-                                <span class="cv-badge cv-badge-highlight">AWS</span>
-                                <span class="cv-badge cv-badge-highlight">Azure</span>
-                                <span class="cv-badge">Docker</span>
+                                <span class="cv-badge">React</span>
+                                <span class="cv-badge">React Native</span>
+                                <span class="cv-badge">TypeScript</span>
+                                <span class="cv-badge">Next.js</span>
+                                <span class="cv-badge">HTML5 / CSS3</span>
                             </div>
                         </div>
-                        <div class="col-md-4 mb-4">
-                            <h5 class="cv-skill-title">Databases</h5>
+                        <div class="col-md-6 col-lg-4 mb-4">
+                            <h5 class="cv-skill-title">Databases &amp; Storage</h5>
                             <div class="cv-skill-badges">
                                 <span class="cv-badge">PostgreSQL</span>
                                 <span class="cv-badge">MySQL</span>
                                 <span class="cv-badge">Redis</span>
+                                <span class="cv-badge">BigQuery</span>
+                                <span class="cv-badge">Cloud Spanner</span>
                                 <span class="cv-badge">DynamoDB</span>
                             </div>
                         </div>
-                        <div class="col-md-4 mb-4">
-                            <h5 class="cv-skill-title">Other Skills</h5>
+                        <div class="col-md-6 col-lg-4 mb-4">
+                            <h5 class="cv-skill-title">Cloud &amp; Infrastructure</h5>
                             <div class="cv-skill-badges">
-                                <span class="cv-badge cv-badge-highlight">AI Integration</span>
-                                <span class="cv-badge">System Design</span>
-                                <span class="cv-badge">Agile</span>
-                                <span class="cv-badge">Leadership</span>
+                                <span class="cv-badge cv-badge-highlight">GCP</span>
+                                <span class="cv-badge cv-badge-highlight">AWS</span>
+                                <span class="cv-badge">Docker</span>
+                                <span class="cv-badge">Kubernetes</span>
+                                <span class="cv-badge">Cloudflare</span>
+                                <span class="cv-badge">Terraform</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-4">
+                            <h5 class="cv-skill-title">CI/CD &amp; Observability</h5>
+                            <div class="cv-skill-badges">
+                                <span class="cv-badge">GitHub Actions</span>
+                                <span class="cv-badge">GitLab CI/CD</span>
+                                <span class="cv-badge">Jenkins</span>
+                                <span class="cv-badge">Cloud Logging</span>
+                                <span class="cv-badge">CloudWatch</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-4">
+                            <h5 class="cv-skill-title">Data &amp; Analytics</h5>
+                            <div class="cv-skill-badges">
+                                <span class="cv-badge">Pandas</span>
+                                <span class="cv-badge">Polars</span>
+                                <span class="cv-badge">Looker Studio</span>
+                                <span class="cv-badge">ETL</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-4">
+                            <h5 class="cv-skill-title">Customer-Facing</h5>
+                            <div class="cv-skill-badges">
+                                <span class="cv-badge cv-badge-highlight">Pre-sales Scoping</span>
+                                <span class="cv-badge">Solution Design</span>
+                                <span class="cv-badge">Pilot Management</span>
+                                <span class="cv-badge">Technical Support</span>
                             </div>
                         </div>
                     </div>
@@ -388,17 +428,17 @@
                             <h2 class="cv-section-title"><i class="fas fa-certificate me-2"></i>Certifications</h2>
                             <div class="cv-cert-grid">
                                 <div class="cv-cert-item">
-                                    <i class="fas fa-award cv-cert-icon"></i>
+                                    <i class="fab fa-aws cv-cert-icon"></i>
                                     <div>
-                                        <h5>AWS Solutions Architect</h5>
-                                        <p>Amazon Web Services, 2016</p>
+                                        <h5>AWS Technical Essentials</h5>
+                                        <p>Amazon Web Services &mdash; São Paulo, SP &mdash; 2017</p>
                                     </div>
                                 </div>
                                 <div class="cv-cert-item">
-                                    <i class="fas fa-award cv-cert-icon"></i>
+                                    <i class="fas fa-cloud cv-cert-icon"></i>
                                     <div>
-                                        <h5>Salesforce Administrator</h5>
-                                        <p>Salesforce, 2021</p>
+                                        <h5>Salesforce Platform Developer I</h5>
+                                        <p>Salesforce Bootcamp &mdash; 2021</p>
                                     </div>
                                 </div>
                             </div>
@@ -426,6 +466,65 @@
                             <h6>Santa Catarina State University (UDESC)</h6>
                             <p class="cv-date">2011 - 2016</p>
                             <p class="cv-text">Focus: Software Engineering and System Development</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Teaching & Research Projects Modal -->
+        <section id="teaching" class="floating-modal cv-modal">
+            <div class="modal-glass-card">
+                <div class="container">
+                    <h2 class="cv-section-title"><i class="fas fa-chalkboard-teacher me-2"></i>Teaching &amp; Research Projects</h2>
+                    <p class="cv-text mb-4">Volunteer teaching and research activities at <strong>Santa Catarina State University (UDESC)</strong> — 2013 to 2016.</p>
+
+                    <div class="cv-timeline">
+                        <div class="cv-timeline-item">
+                            <div class="cv-job-header">
+                                <h4>Programming with Open Source Hardware — Arduino in C++</h4>
+                            </div>
+                            <h5 class="cv-company">UDESC — Colmeia &amp; LabP2D</h5>
+                            <p class="cv-date">2013 – 2016</p>
+                            <ul class="cv-list mb-3">
+                                <li>Taught introductory and advanced Arduino programming in C++ to undergraduate students.</li>
+                                <li>Covered embedded systems concepts, sensor integration, and hardware automation.</li>
+                                <li>Applied in research projects such as GreenHop (data center environmental monitoring).</li>
+                            </ul>
+                            <div class="cv-course-downloads">
+                                <a href="files/courses/apostila_curso_arduino.pdf" target="_blank" class="btn btn-outline-light btn-sm me-2 mb-2"><i class="fas fa-file-pdf me-1"></i> Download Apostila</a>
+                                <a href="files/courses/slides_curso_arduino.pdf" target="_blank" class="btn btn-outline-light btn-sm me-2 mb-2"><i class="fas fa-file-powerpoint me-1"></i> Slides Curso</a>
+                                <a href="files/courses/slides_curso_rxtx_arduino.pdf" target="_blank" class="btn btn-outline-light btn-sm me-2 mb-2"><i class="fas fa-file-powerpoint me-1"></i> Slides RX/TX</a>
+                                <a href="files/courses/slides_palestra_arduino.pdf" target="_blank" class="btn btn-outline-light btn-sm mb-2"><i class="fas fa-file-powerpoint me-1"></i> Slides Palestra</a>
+                            </div>
+                        </div>
+
+                        <div class="cv-timeline-item">
+                            <div class="cv-job-header">
+                                <h4>Version Control with Git</h4>
+                            </div>
+                            <h5 class="cv-company">UDESC — Colmeia &amp; LabP2D</h5>
+                            <p class="cv-date">2013 – 2016</p>
+                            <ul class="cv-list">
+                                <li>Taught Git fundamentals and collaborative workflows to research lab members.</li>
+                                <li>Topics included branching strategies, pull requests, and open source contribution practices.</li>
+                            </ul>
+                        </div>
+
+                        <div class="cv-timeline-item">
+                            <div class="cv-job-header">
+                                <h4>Scientific Document Preparation with LaTeX</h4>
+                            </div>
+                            <h5 class="cv-company">UDESC — Colmeia &amp; LabP2D</h5>
+                            <p class="cv-date">2013 – 2016</p>
+                            <ul class="cv-list mb-3">
+                                <li>Instructed students on LaTeX typesetting for academic papers, theses, and conference submissions.</li>
+                                <li>Covered BibTeX references, mathematical notation, and IEEE/ACM formatting templates.</li>
+                            </ul>
+                            <div class="cv-course-downloads">
+                                <a href="files/courses/apostila_latex.pdf" target="_blank" class="btn btn-outline-light btn-sm me-2 mb-2"><i class="fas fa-file-pdf me-1"></i> Download Apostila</a>
+                                <a href="files/courses/slides_latex.pdf" target="_blank" class="btn btn-outline-light btn-sm mb-2"><i class="fas fa-file-powerpoint me-1"></i> Download Slides</a>
+                            </div>
                         </div>
                     </div>
                 </div>
