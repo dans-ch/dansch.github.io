@@ -8,15 +8,17 @@
       }
     },
     "color": {
-      "value": ["#ffffff", "#00B0FF", "#64FFDA", "#E0E7FF"]
+      "value": [
+        "#ffffff",
+        "#00B0FF",
+        "#64FFDA",
+        "#E0E7FF"
+      ]
     },
     "shape": {
-      "type": ["circle", "star", "image"],
-      "image": {
-        "src": "https://www.dans.ch/assets/images/capellaris-star.svg",
-        "width": 100,
-        "height": 100
-      },
+      "type": [
+        "circle"
+      ],
       "stroke": {
         "width": 0,
         "color": "#000000"
