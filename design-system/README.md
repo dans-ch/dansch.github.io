@@ -1,178 +1,82 @@
-# 🎨 DanSch Design System
+# DanSch Design System
 
-Sistema de design unificado para todas as propriedades web de Daniel Scheidemantel Camargo.
+Design tokens for the dans.ch web properties.
 
-## 📁 Estrutura
+## Two systems, on purpose
 
-```
-design-system/
-├── README.md                 # Este arquivo
-├── variables.css             # Todas as variáveis CSS prontas para uso
-├── 1-BRAND-FOUNDATION.md     # Missão, valores, tom de voz
-├── 2-COLOR-PALETTE.md        # Cores primárias, secundárias, semânticas
-├── 3-TYPOGRAPHY.md           # Famílias de fontes, escalas, pesos
-├── 4-SPACING-LAYOUT.md       # Grid, espaçamentos, breakpoints
-├── 5-COMPONENTS.md           # Botões, cards, forms, navegação
-├── 6-ANIMATIONS.md           # Efeitos, transições, durações
-└── 7-ICONS-IMAGERY.md        # Estilo de ícones, uso de imagens
-```
+| File | Used by | Theme |
+| --- | --- | --- |
+| `variables.css` | Main site — `index.html`, `curriculum.html`, `chave.html`, `greenhop.html`, `thanks.html`, `files/`, `cloud/` | Dark technical (2026) |
+| `legacy.css` | Capellaris subsite — `capellaris/assets/style.css` | Light Bootstrap-era (pre-2026) |
+
+`legacy.css` is the previous shared file, frozen. Capellaris still depends on
+its base element styles, `.rounded-*` / `.shadow-*` / `.text-white` utilities
+and the `pulse` / `glow-pulse` keyframes. **Never import both files into the
+same document** — they define conflicting `body` and heading styles.
+
+The numbered documents in this folder (`1-BRAND-FOUNDATION.md` … `7-ICONS-IMAGERY.md`)
+describe the legacy system and remain accurate for Capellaris only.
 
 ---
 
-## 🚀 Quick Start
+## The 2026 dark system
 
-### 1. Importar as variáveis CSS
+Load the tokens before any other stylesheet:
 
 ```html
-<!-- No <head> do HTML -->
-<link rel="stylesheet" href="design-system/variables.css" />
+<link rel="stylesheet" href="design-system/variables.css">
+<link rel="stylesheet" href="assets/style.css">
 ```
 
-Ou via CSS:
+### Principles
 
-```css
-@import url("design-system/variables.css");
-```
+1. **Hairlines, not glass.** Regions separate with `1px solid var(--line)` and
+   whitespace. No stacked translucent panels, no blur except the sticky header.
+2. **One accent.** `--accent` (cyan) appears on links, the active section node,
+   the walker and small mono labels. Primary buttons are white on black; the
+   accent is never the default button colour.
+3. **Small radii.** `--r-2` (4px) is the default. Large radii were what made
+   the previous design read as playful.
+4. **Mono carries metadata.** Eyebrows, section indices, dates, tags and field
+   labels are JetBrains Mono, uppercase, `--ls-label`. Prose is Inter.
+5. **Motion is a signal, not decoration.** Reveals, the rail progress and the
+   walker all respond to scroll position; everything collapses under
+   `prefers-reduced-motion`.
 
-### 2. Fontes (System Font Stack)
+### Surfaces
 
-Não é necessário importar fontes externas. Usa as fontes nativas de cada sistema:
+| Token | Value | Use |
+| --- | --- | --- |
+| `--bg` | `#08090b` | Page ground |
+| `--bg-soft` | `#0c0e12` | Inset cells inside a grid |
+| `--surface` | `#101318` | Cards, the booking panel |
+| `--surface-2` | `#161a21` | Card hover, the walker shell |
+| `--line` / `--line-2` / `--line-3` | white @ 8.5% / 15.5% / 26% | Hairlines, borders, markers |
 
-```css
-/* Já incluído no variables.css */
-font-family:
-  -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
-  Arial, sans-serif;
-```
+### Text
 
-### 3. Usar as variáveis
+`--text` `#edeff2` · `--text-2` `#9ba3ae` (body copy, leads) · `--text-3` `#697180`
+(mono labels, metadata). Never put `--text-3` on `--surface-2` or lighter.
 
-```css
-.meu-botao {
-  background: var(--primary-600);
-  color: var(--white);
-  padding: var(--space-3) var(--space-6);
-  border-radius: var(--radius-md);
-  font-family: var(--font-family-primary);
-  transition: all var(--duration-normal) var(--ease-out);
-}
+### Accent
 
-.meu-botao:hover {
-  background: var(--primary-700);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
-}
-```
+`--accent` `#22d3ee` · `--accent-2` `#67e8f9` (hover) · `--accent-deep` `#0e7490`
+(gradient tail) · `--accent-wash` / `--accent-line` for tinted fills and borders.
 
----
+### Type scale
 
-## 🎯 Resumo Rápido
+Every step is fluid — `--fs-display`, `--fs-h1` … `--fs-label`. Do not hard-code
+`font-size` in page CSS; pick a step. Families: `--font-sans` (Inter),
+`--font-mono` (JetBrains Mono).
 
-### Cores Principais
+### Spacing & layout
 
-| Uso            | Variável        | Hex     |
-| -------------- | --------------- | ------- |
-| **Principal**  | `--primary-600` | #4B79A1 |
-| **Inovação**   | `--cyan-500`    | #06B6D4 |
-| **Humanidade** | `--violet-500`  | #8B5CF6 |
-| **Texto**      | `--gray-800`    | #1F2937 |
-| **Fundo**      | `--gray-50`     | #F9FAFB |
+4px base: `--s-1` … `--s-32`. `--section-y` is the rhythm between top-level
+sections. `--container` 1200px, `--container-narrow` 880px, `--gutter` fluid.
 
-### Fontes
+`--rail-w` is the left gutter reserved for the walker; it collapses to `0` below
+1181px, where the rail, walker and section nodes are hidden entirely.
 
-- **Principal:** `var(--font-family-primary)` → System Font Stack
-- **Código:** `var(--font-family-mono)` → System Mono Stack
+### Motion
 
-### Espaçamento Comum
-
-- `--space-4` (16px) - Padding padrão
-- `--space-6` (24px) - Gap entre cards
-- `--space-20` (80px) - Padding de seções
-
-### Border Radius (REGRA OBRIGATÓRIA)
-
-| Elemento             | Variável                  |
-| -------------------- | ------------------------- |
-| **Botões**           | `--radius-full` (redondo) |
-| **Cards/Containers** | `--radius-xl` (16px)      |
-| **Inputs**           | `--radius-md` (8px)       |
-
----
-
-## 📋 Checklist de Implementação
-
-Ao criar nova página, verificar:
-
-- [ ] Importou `variables.css`?
-- [ ] Está usando `var(--font-family-primary)`?
-- [ ] Cores seguem a paleta definida?
-- [ ] Botões usam `--radius-md`?
-- [ ] Cards usam `--radius-lg`?
-- [ ] Transições usam `--duration-normal`?
-- [ ] GSAP ScrollTrigger está configurado?
-- [ ] Elementos têm classes `gsap-fade-up`?
-- [ ] Imagens têm `loading="lazy"`?
-- [ ] Layout é mobile-first?
-
----
-
-## 🤖 Para IAs
-
-### Contexto
-
-Este Design System define a identidade visual de **DanSch**, um desenvolvedor de software brasileiro. O estilo é:
-
-- **Tom:** Formal, técnico, corporativo
-- **Visual:** Moderno, detalhado, profissional
-- **Cores:** Azul como base, ciano para inovação, violeta para humanidade
-- **Fonte:** System Font Stack (nativa de cada SO)
-- **Animações:** Sutis, baseadas em scroll (GSAP)
-- **Layout:** Mobile-first, cantos arredondados
-
-### Regras Importantes
-
-1. **NÃO usar:** laranja, amarelo, vermelho (exceto erros)
-2. **Gradientes:** apenas em CTAs e destaques
-3. **Contraste:** sempre alto (WCAG AA mínimo)
-4. **Animações:** suaves, max 800ms
-5. **Capellaris:** segue mesma identidade
-
-### Variáveis Mais Usadas
-
-```css
-/* Cores */
-var(--primary-600)      /* Ações principais */
-var(--gradient-innovation)  /* CTAs especiais */
-
-/* Tipografia */
-var(--font-family-primary)
-var(--font-weight-bold)
-
-/* Espaçamento */
-var(--space-4)   /* padding padrão */
-var(--space-20)  /* padding seções */
-
-/* Outros */
-var(--radius-lg)        /* cards */
-var(--shadow-lg)        /* elevação */
-var(--duration-normal)  /* transições */
-```
-
----
-
-## 📝 Changelog
-
-### v1.0.0 (Janeiro 2026)
-
-- Criação inicial do Design System
-- Definição de paleta de cores
-- Especificação tipográfica (Ubuntu)
-- Sistema de espaçamento
-- Componentes base
-- Guia de animações
-- Documentação completa
-
----
-
-**Criado por:** Daniel Scheidemantel Camargo  
-**Última atualização:** Janeiro 2026
+`--ease` / `--ease-out`, `--t-fast` 140ms, `--t-base` 240ms, `--t-slow` 620ms.

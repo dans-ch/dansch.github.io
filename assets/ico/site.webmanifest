@@ -12,14 +12,14 @@
     }
   ],
   "start_url": "/index.html",
-  "display": "fullscreen",
+  "display": "standalone",
   "description": "Personal Website Daniel Scheidemantel Camargo",
   "dir": "ltr",
   "name": "www.dans.ch",
   "orientation": "any",
   "scope": "/",
   "short_name": "DanSch",
-  "theme_color": "#4B79A1",
+  "theme_color": "#08090b",
   "categories": [
     "business",
     "education",
@@ -70,5 +70,6 @@
   "display_override": [
     "window-controls-overlay",
     ""
-  ]
+  ],
+  "background_color": "#08090b"
 }

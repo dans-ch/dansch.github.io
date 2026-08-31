@@ -1,74 +1,65 @@
-// Service worker for Daniel Camargo's website
-const CACHE_NAME = 'daniel-camargo-site-v2';
-const urlsToCache = [
+// Service worker for dans.ch
+// Bumped whenever the asset set changes so old caches are evicted.
+const CACHE = 'dansch-v4';
+
+const PRECACHE = [
   '/',
   '/index.html',
   '/curriculum.html',
   '/greenhop.html',
   '/chave.html',
   '/thanks.html',
-  '/capellaris/*',
-  '/assets/images/*',
+  '/design-system/variables.css',
   '/assets/style.css',
-  '/assets/script.js',
-  '/assets/particles.json'
+  '/assets/app.js'
 ];
 
-// Install a service worker
 self.addEventListener('install', event => {
-  // Perform install steps
   event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(cache => {
-        console.log('Opened cache');
-        return cache.addAll(urlsToCache);
-      })
+    caches.open(CACHE)
+      // A single missing entry must not fail the whole install.
+      .then(cache => Promise.allSettled(PRECACHE.map(url => cache.add(url))))
+      .then(() => self.skipWaiting())
   );
 });
 
-// Cache and return requests
-self.addEventListener('fetch', event => {
-  event.respondWith(
-    caches.match(event.request)
-      .then(response => {
-        // Cache hit - return response
-        if (response) {
-          return response;
-        }
-        return fetch(event.request).then(
-          response => {
-            // Check if we received a valid response
-            if(!response || response.status !== 200 || response.type !== 'basic') {
-              return response;
-            }
-
-            // Clone the response
-            const responseToCache = response.clone();
-
-            caches.open(CACHE_NAME)
-              .then(cache => {
-                cache.put(event.request, responseToCache);
-              });
-
-            return response;
-          }
-        );
-      })
-  );
-});
-
-// Update a service worker
 self.addEventListener('activate', event => {
-  const cacheWhitelist = [CACHE_NAME];
   event.waitUntil(
-    caches.keys().then(cacheNames => {
-      return Promise.all(
-        cacheNames.map(cacheName => {
-          if (cacheWhitelist.indexOf(cacheName) === -1) {
-            return caches.delete(cacheName);
-          }
+    caches.keys()
+      .then(names => Promise.all(names.filter(n => n !== CACHE).map(n => caches.delete(n))))
+      .then(() => self.clients.claim())
+  );
+});
+
+// Network-first for documents so content updates land immediately;
+// cache-first for static assets.
+self.addEventListener('fetch', event => {
+  const req = event.request;
+  if (req.method !== 'GET') return;
+
+  const url = new URL(req.url);
+  if (url.origin !== location.origin) return;
+
+  if (req.mode === 'navigate') {
+    event.respondWith(
+      fetch(req)
+        .then(res => {
+          const copy = res.clone();
+          caches.open(CACHE).then(c => c.put(req, copy));
+          return res;
         })
-      );
-    })
+        .catch(() => caches.match(req).then(hit => hit || caches.match('/index.html')))
+    );
+    return;
+  }
+
+  event.respondWith(
+    caches.match(req).then(hit => hit || fetch(req).then(res => {
+      if (res.ok && res.type === 'basic') {
+        const copy = res.clone();
+        caches.open(CACHE).then(c => c.put(req, copy));
+      }
+      return res;
+    }))
   );
 });

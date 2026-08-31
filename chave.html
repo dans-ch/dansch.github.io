@@ -1,519 +1,474 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 
 <head>
-    <title>CHAVE Project - Daniel Scheidemantel Camargo</title>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Daniel Scheidemantel Camargo" />
-    <meta name="description" content="CHAVE - Consolidation and High Availability on Virtualized Environments" />
-    <meta name="keywords" content="CHAVE,Virtualization,High Availability,Energy Efficiency,Daniel Camargo,Cloud Computing" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CHAVE Project — Daniel Scheidemantel Camargo</title>
+    <meta name="description" content="CHAVE — Consolidation and High Availability on Virtualized Environments. Energy-aware VM placement, availability risk models and multi-objective optimisation for cloud infrastructure.">
+    <meta name="author" content="Daniel Scheidemantel Camargo">
+    <meta name="referrer" content="origin">
+    <link rel="canonical" href="https://www.dans.ch/chave.html">
 
-    <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/ico/apple-touch-icon.png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Daniel Scheidemantel Camargo">
+    <meta property="og:locale" content="en">
+    <meta property="og:title" content="CHAVE Project — Daniel Scheidemantel Camargo">
+    <meta property="og:description" content="CHAVE — Consolidation and High Availability on Virtualized Environments. Energy-aware VM placement, availability risk models and multi-objective optimisation for cloud infrastructure.">
+    <meta property="og:url" content="https://www.dans.ch/chave.html">
+    <meta name="twitter:card" content="summary">
+
+    <link rel="icon" href="assets/ico/favicon.svg" type="image/svg+xml">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/ico/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/ico/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/ico/apple-touch-icon.png">
     <link rel="manifest" href="assets/ico/site.webmanifest">
-    <link rel="mask-icon" href="assets/ico/safari-pinned-tab.svg" color="#5bbad5">
-    <meta name="msapplication-TileColor" content="#00a300">
-    <meta name="theme-color" content="#ffffff">
-    <meta name="msapplication-TileImage" content="assets/ico/ms-icon-144x144.png">
+    <meta name="theme-color" content="#08090b">
+    <meta name="color-scheme" content="dark">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- Custom CSS -->
+    <link rel="stylesheet" href="design-system/variables.css">
     <link rel="stylesheet" href="assets/style.css">
 
     <!-- Google Tag Manager -->
     <script>(function (w, d, s, l, i) {
-            w[l] = w[l] || []; w[l].push({
-                'gtm.start':
-                    new Date().getTime(), event: 'gtm.js'
-            }); var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+            w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+            var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
         })(window, document, 'script', 'dataLayer', 'GTM-WXLHS7J8');</script>
     <!-- End Google Tag Manager -->
 </head>
 
 <body>
     <!-- Google Tag Manager (noscript) -->
-    <noscript>
-        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WXLHS7J8" height="0" width="0" style="display:none;visibility:hidden">
-        </iframe>
-    </noscript>
-    <!-- End Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WXLHS7J8" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
 
-    <!-- Header -->
-    <div id="header" class="fixed-top shadow-sm">
+    <!-- Icon sprite, inlined from assets/icons.svg. Embedded rather than
+         fetched so icons survive file:// and a JS-less load. -->
+    <svg class="sprite" style="display:none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+      <!-- Stroke icons (24x24, 1.6 stroke, inherit currentColor) -->
+      <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+      <symbol id="i-arrow-down" viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></symbol>
+      <symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="M8 16 16 8M9 8h7v7"/></symbol>
+      <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></symbol>
+      <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v11M7.5 10 12 14.5 16.5 10M4 18.5h16"/></symbol>
+      <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="16" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="m4.5 12.5 5 5 10-11"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="m3.5 7 8.5 6 8.5-6"/></symbol>
+      <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.5 3.5h-2a2 2 0 0 0-2 2.2 17 17 0 0 0 15.8 15.8 2 2 0 0 0 2.2-2v-2a1.6 1.6 0 0 0-1.3-1.6l-2.5-.5a1.6 1.6 0 0 0-1.6.7l-.8 1.2a13 13 0 0 1-5.8-5.8l1.2-.8a1.6 1.6 0 0 0 .7-1.6l-.5-2.5a1.6 1.6 0 0 0-1.4-1.1Z"/></symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></symbol>
+      <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 3v5h5"/></symbol>
+      <symbol id="i-terminal" viewBox="0 0 24 24"><rect x="2.5" y="4" width="19" height="16" rx="2"/><path d="m7 10 3 2.5L7 15M13 15h4"/></symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+
+      <!-- Brand marks (filled) -->
+      <symbol id="i-github" viewBox="0 0 24 24"><path d="M12 1.8a10.2 10.2 0 0 0-3.23 19.88c.51.1.7-.22.7-.49l-.01-1.9c-2.6.5-3.27-.63-3.48-1.21-.12-.3-.63-1.23-1.07-1.48-.36-.2-.88-.67-.02-.69.81-.01 1.39.75 1.58 1.06.93 1.56 2.4 1.12 2.99.85.09-.67.36-1.12.66-1.38-2.3-.26-4.7-1.15-4.7-5.11 0-1.13.4-2.06 1.06-2.78-.1-.26-.46-1.32.1-2.74 0 0 .87-.27 2.85 1.06a9.6 9.6 0 0 1 5.18 0c1.97-1.34 2.84-1.06 2.84-1.06.57 1.42.21 2.48.1 2.74a4 4 0 0 1 1.07 2.78c0 3.98-2.42 4.85-4.72 5.1.37.33.7.95.7 1.92l-.01 2.85c0 .27.19.6.7.5A10.2 10.2 0 0 0 12 1.8Z"/></symbol>
+      <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5ZM3 9.5h4v11H3v-11Zm6.5 0h3.83v1.5h.05a4.2 4.2 0 0 1 3.78-2.08c4.04 0 4.79 2.66 4.79 6.11v5.47h-4v-4.85c0-1.16-.02-2.65-1.61-2.65-1.62 0-1.87 1.26-1.87 2.56v4.94h-4v-11Z"/></symbol>
+      <symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.94L2 22.5l5.7-1.5A9.9 9.9 0 1 0 12.04 2Zm0 1.8a8.1 8.1 0 1 1-4.15 15.06l-.3-.18-3.36.88.9-3.28-.2-.32A8.1 8.1 0 0 1 12.04 3.8Zm-3.6 4.05c-.18 0-.47.07-.72.34-.25.27-.95.93-.95 2.26s.98 2.62 1.11 2.8c.14.18 1.9 3.02 4.7 4.1 2.32.9 2.8.72 3.3.68.5-.05 1.6-.65 1.83-1.29.22-.63.22-1.17.16-1.29-.07-.11-.25-.18-.52-.31-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.13-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.14-.42-2.17-1.34-.8-.71-1.34-1.6-1.5-1.87-.16-.27-.02-.41.12-.55.12-.12.27-.31.4-.47.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.47-.07-.14-.6-1.47-.83-2.01-.21-.52-.43-.45-.6-.46l-.5-.01Z"/></symbol>
+      <symbol id="i-scholar" viewBox="0 0 24 24"><path d="M12 2 1 8l11 6 9-4.9v6.4h2V8L12 2ZM5 13.2v4.3c0 1.8 3.1 3.5 7 3.5s7-1.7 7-3.5v-4.3l-7 3.8-7-3.8Z"/></symbol>
+    </svg>
+
+    <div id="bg-net" aria-hidden="true"></div>
+    <div class="bg-veil" aria-hidden="true"></div>
+
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
         <div class="container">
-            <nav class="navbar navbar-expand-lg navbar-dark">
-                <div class="container-fluid">
-                    <a class="navbar-brand d-flex align-items-center" href="index.html">
-                        <img src="assets/images/dsc_white.svg" alt="Daniel Camargo" class="rounded-circle me-2" width="40" height="40">
-                        <span>DanSch</span>
-                    </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav ms-auto">
-                            <li class="nav-item">
-                                <a class="nav-link" href="index.html">
-                                    <i class="fas fa-home me-1"></i> Home
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="capellaris/index.html">
-                                    <i class="fas fa-rocket me-1"></i> Capellaris
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="curriculum.html">
-                                    <i class="fas fa-comment-alt me-1"></i> Curriculum
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="https://blog.dscamargo.com.br">
-                                    <i class="fas fa-edit me-1"></i> Blog
-                                </a>
-                            </li>
-                        </ul>
-                        <div class="d-flex ms-3 social-icons">
-                            <a href="http://github.com/danielfloripa" class="me-2 text-light"><i class="fab fa-github"></i></a>
-                            <a href="https://www.linkedin.com/in/daniel13" class="me-2 text-light"><i class="fab fa-linkedin"></i></a>
-                            <a href="http://api.whatsapp.com/send?phone=41779680561&text=From%20site%20dans.ch" class="text-light"><i
-                                    class="fab fa-whatsapp"></i></a>
-                        </div>
-                    </div>
+            <a class="brand" href="index.html">
+                <img src="assets/images/dsc_white.svg" alt="" width="24" height="24">
+                <span>DANSCH</span>
+            </a>
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"
+                aria-label="Toggle navigation"><span></span></button>
+            <nav class="nav" id="site-nav" aria-label="Primary">
+                <ul>
+                    <li><a href="index.html#work" aria-current="page">Work</a></li>
+                    <li><a href="capellaris/index.html" class="is-flagged">Capellaris</a></li>
+                    <li><a href="index.html#papers">Publications</a></li>
+                    <li><a href="curriculum.html">CV</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                    <li><a href="https://blog.dscamargo.com.br" target="_blank" rel="noopener">Blog</a></li>
+                </ul>
+                <div class="header-social">
+                    <a href="https://www.linkedin.com/in/daniel13" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="icon icon--18 icon--solid" aria-hidden="true"><use href="#i-linkedin"></use></svg></a>
+                    <a href="https://api.whatsapp.com/send?phone=41779680561&amp;text=Contact%20from%20dans.ch" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="icon icon--18 icon--solid" aria-hidden="true"><use href="#i-whatsapp"></use></svg></a>
                 </div>
             </nav>
         </div>
-    </div>
+    </header>
 
-    <!-- Project Header -->
-    <section class="project-header">
-        <div class="container py-4">
-            <div class="row align-items-center">
-                <div class="col-lg-8">
-                    <h1 class="display-4 fw-bold">CHAVE Project</h1>
-                    <p class="lead mb-4">Consolidation and High Availability on Virtualized Environments</p>
-                    <div class="d-flex flex-wrap">
-                        <span class="badge bg-primary me-2 mb-2 py-2 px-3">Cloud Computing</span>
-                        <span class="badge bg-primary me-2 mb-2 py-2 px-3">Virtualization</span>
-                        <span class="badge bg-primary me-2 mb-2 py-2 px-3">Energy Efficiency</span>
-                        <span class="badge bg-primary me-2 mb-2 py-2 px-3">High Availability</span>
-                        <span class="badge bg-primary me-2 mb-2 py-2 px-3">Virtual Machine Management</span>
+    <main id="main">
+
+        <section class="page-head">
+            <div class="container">
+                <p class="breadcrumb"><a href="index.html">Home</a> <svg class="icon icon--16" aria-hidden="true"><use href="#i-chevron-right"></use></svg> <span>CHAVE Project</span></p>
+                <div class="project-head-grid">
+                    <div>
+                        <h1>CHAVE Project</h1>
+                        <p class="lead mb-6">Consolidation and High Availability on Virtualized Environments &mdash; reducing energy consumption in cloud infrastructure without sacrificing service availability.</p>
+                        <div class="tag-row"><span class="tag">Cloud Computing</span><span class="tag">Virtualization</span><span class="tag">Energy Efficiency</span><span class="tag">High Availability</span><span class="tag">VM Management</span></div>
                     </div>
-                </div>
-                <div class="col-lg-4 text-center mt-4 mt-lg-0">
-                    <img src="assets/images/chave.png" alt="CHAVE Project" class="project-logo">
+                    <img src="assets/images/chave.png" alt="CHAVE Project" loading="lazy">
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Project Details -->
-    <section class="py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8">
-                    <h2 class="mb-4">Project Overview</h2>
-                    <p class="lead">CHAVE is a research project that proposes an innovative approach to virtual machine management that balances energy efficiency with
-                        high availability in cloud computing environments.</p>
+        <div class="container rail-host">
+            <div class="rail" aria-hidden="true">
+                <div class="rail-progress"></div>
+                <div class="walker">
+                    <svg viewBox="0 0 48 60" role="presentation" focusable="false">
+                        <circle class="bot-halo" cx="24" cy="30" r="12" />
+                        <path class="bot-line" d="M24 8.5v4.5" />
+                        <circle class="bot-led" cx="24" cy="6" r="2.4" />
+                        <g class="bot-arm bot-arm--l"><path class="bot-limb" d="M14.5 35v9.5" /></g>
+                        <g class="bot-arm bot-arm--r"><path class="bot-limb" d="M33.5 35v9.5" /></g>
+                        <rect class="bot-shell" x="11" y="13" width="26" height="17" rx="5" />
+                        <rect class="bot-visor" x="15" y="17.5" width="18" height="8" rx="4" />
+                        <circle class="bot-eye" cx="20" cy="21.5" r="1.7" />
+                        <circle class="bot-eye" cx="28" cy="21.5" r="1.7" />
+                        <rect class="bot-shell" x="14" y="32" width="20" height="16" rx="4" />
+                        <path class="bot-line" d="M18.5 37.5h11M18.5 41.5h7" />
+                        <g class="bot-leg bot-leg--l"><path class="bot-limb" d="M19.5 48v9" /></g>
+                        <g class="bot-leg bot-leg--r"><path class="bot-limb" d="M28.5 48v9" /></g>
+                    </svg>
+                </div>
+            </div>
 
-                    <p>The project addresses a fundamental challenge in cloud infrastructure: how to reduce energy consumption through virtual machine consolidation while
-                        maintaining sufficient service availability. By developing new algorithms and metrics, CHAVE provides a framework for optimizing resource
-                        allocation in virtualized environments.</p>
+            <section id="overview" class="section" data-node>
+                <header class="section-head">
+                    <span class="node"></span>
+                    <span class="label">01 &mdash; Overview</span>
+                    <h2>Project overview</h2>
+                </header>
 
-                    <div class="my-5">
-                        <h3>Key Innovations</h3>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item d-flex">
-                                <i class="fas fa-lightbulb text-warning me-3 mt-1"></i>
-                                <div>
-                                    <strong>Energy-Aware VM Placement Algorithm</strong>
-                                    <p class="mb-0">Novel placement strategies that consider both power consumption and performance metrics</p>
-                                </div>
-                            </li>
-                            <li class="list-group-item d-flex">
-                                <i class="fas fa-lightbulb text-warning me-3 mt-1"></i>
-                                <div>
-                                    <strong>Availability Risk Assessment</strong>
-                                    <p class="mb-0">Mathematical models to quantify the risk of service unavailability during VM consolidation</p>
-                                </div>
-                            </li>
-                            <li class="list-group-item d-flex">
-                                <i class="fas fa-lightbulb text-warning me-3 mt-1"></i>
-                                <div>
-                                    <strong>Dynamic Workload Analysis</strong>
-                                    <p class="mb-0">Real-time monitoring and prediction of VM resource demands to optimize placement decisions</p>
-                                </div>
-                            </li>
-                            <li class="list-group-item d-flex">
-                                <i class="fas fa-lightbulb text-warning me-3 mt-1"></i>
-                                <div>
-                                    <strong>Multi-Objective Optimization</strong>
-                                    <p class="mb-0">Balancing conflicting goals of energy efficiency, performance, and availability</p>
-                                </div>
-                            </li>
-                            <li class="list-group-item d-flex">
-                                <i class="fas fa-lightbulb text-warning me-3 mt-1"></i>
-                                <div>
-                                    <strong>Migration Cost Modeling</strong>
-                                    <p class="mb-0">Assessment of the overhead and impact of VM migrations on system performance</p>
-                                </div>
-                            </li>
+                <div class="project-layout">
+                    <div class="prose" data-reveal>
+                        <p class="lead">CHAVE is a research project that proposes an innovative approach to
+                            virtual machine management, balancing energy efficiency with high availability in cloud
+                            computing environments.</p>
+                        <p>The project addresses a fundamental challenge in cloud infrastructure: how to reduce energy
+                            consumption through virtual machine consolidation while maintaining sufficient service
+                            availability. By developing new algorithms and metrics, CHAVE provides a framework for
+                            optimizing resource allocation in virtualized environments.</p>
+
+                        <h3>Key innovations</h3>
+                        <ul>
+                            <li><strong>Energy-aware VM placement algorithm</strong> &mdash; placement strategies that
+                                consider both power consumption and performance metrics.</li>
+                            <li><strong>Availability risk assessment</strong> &mdash; mathematical models to quantify
+                                the risk of service unavailability during VM consolidation.</li>
+                            <li><strong>Dynamic workload analysis</strong> &mdash; real-time monitoring and prediction
+                                of VM resource demands to optimize placement decisions.</li>
+                            <li><strong>Multi-objective optimization</strong> &mdash; balancing the conflicting goals of
+                                energy efficiency, performance, and availability.</li>
+                            <li><strong>Migration cost modeling</strong> &mdash; assessment of the overhead and impact
+                                of VM migrations on system performance.</li>
+                        </ul>
+
+                        <h3>Technical architecture</h3>
+                        <p>The CHAVE framework consists of several interconnected components:</p>
+                        <div class="spec-grid">
+                            <div>
+                                <h4>Core components</h4>
+                                <ul>
+                                    <li>Resource Monitor &mdash; collects and analyzes VM and host metrics</li>
+                                    <li>Consolidation Engine &mdash; implements VM placement algorithms</li>
+                                    <li>Risk Analyzer &mdash; evaluates availability risks</li>
+                                    <li>Decision Manager &mdash; orchestrates VM migrations</li>
+                                    <li>Performance Validator &mdash; ensures SLA compliance</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4>Integration points</h4>
+                                <ul>
+                                    <li>OpenStack and VMware adapters</li>
+                                    <li>Power measurement interfaces</li>
+                                    <li>Workload prediction engine</li>
+                                    <li>Historical data analytics</li>
+                                    <li>Event notification system</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <h3>Research outcomes</h3>
+                        <ul class="pub-list" style="list-style:none">
+                        <li class="pub-item">
+                            <div>
+                                <p class="pub-title">CHAVE: Consolidation with High Availability on Virtualized Environments</p>
+                                <p class="pub-meta"><span>Master&rsquo;s dissertation &middot; UDESC &middot; 2018</span></p>
+                            </div>
+                            <div class="pub-actions">
+                                <a class="btn btn--ghost btn--sm" href="files/works/2017-DEP.pdf"><svg class="icon icon--16" aria-hidden="true"><use href="#i-download"></use></svg> PDF</a>
+                            </div>
+                        </li>
+                        <li class="pub-item">
+                            <div>
+                                <p class="pub-title">Uma Proposta de Orquestra&ccedil;&atilde;o de Nuvem Computacional Baseada em Consolida&ccedil;&atilde;o, Elasticidade e Disponibilidade</p>
+                                <p class="pub-meta"><span>ERAD-RS &middot; 2017</span></p>
+                            </div>
+                            <div class="pub-actions">
+                                <a class="btn btn--ghost btn--sm" href="files/publications/2017_Camargo_ERAD-RS.pdf"><svg class="icon icon--16" aria-hidden="true"><use href="#i-download"></use></svg> PDF</a>
+                            </div>
+                        </li>
+                        <li class="pub-item">
+                            <div>
+                                <p class="pub-title">MeHarCEn: A Method of Harmonizing Energy Consumption in Data Centers</p>
+                                <p class="pub-meta"><span>RITA &middot; 2017</span></p>
+                            </div>
+                            <div class="pub-actions">
+                                <a class="btn btn--ghost btn--sm" href="files/publications/2017_Camargo_RITA.pdf"><svg class="icon icon--16" aria-hidden="true"><use href="#i-download"></use></svg> PDF</a>
+                            </div>
+                        </li>
                         </ul>
                     </div>
-
-                    <h3 class="mb-4">Technical Architecture</h3>
-                    <p>The CHAVE framework consists of several interconnected components:</p>
-
-                    <div class="row mb-4">
-                        <div class="col-md-6">
-                            <h5><i class="fas fa-puzzle-piece me-2 text-primary"></i>Core Components</h5>
-                            <ul>
-                                <li>Resource Monitor - Collects and analyzes VM and host metrics</li>
-                                <li>Consolidation Engine - Implements VM placement algorithms</li>
-                                <li>Risk Analyzer - Evaluates availability risks</li>
-                                <li>Decision Manager - Orchestrates VM migrations</li>
-                                <li>Performance Validator - Ensures SLA compliance</li>
-                            </ul>
-                        </div>
-                        <div class="col-md-6">
-                            <h5><i class="fas fa-cogs me-2 text-primary"></i>Integration Points</h5>
-                            <ul>
-                                <li>OpenStack and VMware adapters</li>
-                                <li>Power measurement interfaces</li>
-                                <li>Workload prediction engine</li>
-                                <li>Historical data analytics</li>
-                                <li>Event notification system</li>
-                            </ul>
+                    <aside class="project-aside" data-reveal>
+                    <div class="card">
+                        <h3>Project snapshot</h3>
+                        <ul class="detail-list mt-8">
+                            <li><span class="k">Status</span><span class="v">Completed</span></li>
+                            <li><span class="k">Duration</span><span class="v">2016 &ndash; 2018</span></li>
+                            <li><span class="k">Role</span><span class="v">Principal researcher</span></li>
+                            <li><span class="k">Supervisor</span><span class="v">Prof. Dr. Mauricio A. Pillon</span></li>
+                            <li><span class="k">Articles</span><span class="v">6</span></li>
+                        </ul>
+                        <div class="btn-row mt-8">
+                            <a class="btn btn--ghost btn--sm" href="https://github.com/danielfloripa/chave" target="_blank" rel="noopener">
+                                <svg class="icon icon--16 icon--solid" aria-hidden="true"><use href="#i-github"></use></svg> GitHub repository</a>
                         </div>
                     </div>
-
-                    <div class="mb-5">
-                        <h3>Research Outcomes</h3>
-                        <p>The project has produced significant contributions to the field of cloud resource management:</p>
-
-                        <div class="card mb-3">
-                            <div class="card-body">
-                                <h5 class="card-title">CHAVE: Consolidation with High Availability on Virtualized Environments</h5>
-                                <p class="card-text">Master's Dissertation, UDESC, 2018</p>
-                                <a href="files/works/2017-DEP.pdf" class="btn btn-outline-primary">
-                                    <i class="fas fa-download me-2"></i>Download Dissertation
-                                </a>
+                    <div class="card">
+                        <h3>Technologies</h3>
+                        <div class="tag-row mt-8"><span class="tag">Python</span><span class="tag">OpenStack</span><span class="tag">VMware</span><span class="tag">Docker</span><span class="tag">Zabbix</span><span class="tag">GreenHop</span><span class="tag">Predictive Analytics</span><span class="tag">NoSQL</span><span class="tag">Network Simulation</span><span class="tag">Statistical Analysis</span></div>
+                    </div>
+                    <div class="card">
+                        <h3>Related projects</h3>
+                        <div class="mt-8">
+                        <a class="mini-link" href="greenhop.html">
+                            <img src="assets/images/greenhop.png" alt="" loading="lazy" width="34" height="34">
+                            <div>
+                                <h4>GreenHop</h4>
+                                <p>Open source energy and environmental monitoring</p>
                             </div>
-                        </div>
-
-                        <div class="card mb-3">
-                            <div class="card-body">
-                                <h5 class="card-title">Uma Proposta de Orquestração de Nuvem Computacional Baseada em Consolidação, Elasticidade e Disponibilidade</h5>
-                                <p class="card-text">ERAD-RS (2017)</p>
-                                <a href="files/publications/2017_Camargo_ERAD-RS.pdf" class="btn btn-outline-primary">
-                                    <i class="fas fa-download me-2"></i>Download Paper
-                                </a>
+                        </a>
+                        <a class="mini-link" href="index.html#work">
+                            <img src="assets/images/openstack.png" alt="" loading="lazy" width="34" height="34">
+                            <div>
+                                <h4>LabP2D OpenStack</h4>
+                                <p>Auto-deploy and measure OpenStack cloud resources</p>
                             </div>
-                        </div>
-
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">MeHarCEn: A Method of Harmonizing Energy Consumption in Data Centers</h5>
-                                <p class="card-text">RITA (2017)</p>
-                                <a href="files/publications/2017_Camargo_RITA.pdf" class="btn btn-outline-primary">
-                                    <i class="fas fa-download me-2"></i>Download Paper
-                                </a>
-                            </div>
+                        </a>
                         </div>
                     </div>
+                    </aside>
+                </div>
+            </section>
 
-                    <h3>Experimental Results</h3>
-                    <p>Tests conducted using OpenStack cloud environments demonstrated that the CHAVE approach can:</p>
+            <section id="results" class="section" data-node>
+                <header class="section-head">
+                    <span class="node"></span>
+                    <span class="label">02 &mdash; Results</span>
+                    <h2>Experimental results</h2>
+                    <p class="section-aside">Measured on OpenStack cloud environments</p>
+                </header>
+                <div class="metric-grid" data-reveal>
+                    <div class="metric">
+                        <strong>25%</strong>
+                        <span>Energy reduction compared to traditional VM allocation approaches</span>
+                    </div>
+                    <div class="metric">
+                        <strong>99.95%</strong>
+                        <span>Service availability maintained while optimizing resource usage</span>
+                    </div>
+                </div>
+            </section>
 
-                    <div class="row mb-4">
-                        <div class="col-md-6">
-                            <div class="card h-100 bg-light">
-                                <div class="card-body text-center">
-                                    <h1 class="display-4 text-success mb-3">25%</h1>
-                                    <p class="card-text">Energy reduction compared to traditional VM allocation approaches</p>
-                                </div>
-                            </div>
+            <section id="publications" class="section" data-node>
+                <header class="section-head">
+                    <span class="node"></span>
+                    <span class="label">03 &mdash; Research</span>
+                    <h2>Related publications</h2>
+                </header>
+                <ul class="pub-list" data-reveal>
+                    <li class="pub-item">
+                        <div>
+                            <p class="pub-title">Uma ferramenta para an&aacute;lise do impacto da migra&ccedil;&atilde;o
+                                de m&aacute;quinas virtuais</p>
+                            <p class="pub-meta"><span>REC</span><span>2017</span></p>
+                            <p class="muted" style="font-size:var(--fs-sm);margin-top:var(--s-2)">Analysis of the impact
+                                of virtual machine migration on network and system performance, considering different
+                                hypervisors and VM configurations.</p>
                         </div>
-                        <div class="col-md-6">
-                            <div class="card h-100 bg-light">
-                                <div class="card-body text-center">
-                                    <h1 class="display-4 text-success mb-3">99.95%</h1>
-                                    <p class="card-text">Service availability maintained while optimizing resource usage</p>
-                                </div>
-                            </div>
+                        <div class="pub-actions"><a class="btn btn--ghost btn--sm"
+                                href="files/works/2017_REC.pdf"><svg class="icon icon--16" aria-hidden="true"><use href="#i-download"></use></svg> PDF</a></div>
+                    </li>
+                    <li class="pub-item">
+                        <div>
+                            <p class="pub-title">Consolida&ccedil;&atilde;o de m&aacute;quinas virtuais com alta
+                                disponibilidade: uma revis&atilde;o bibliogr&aacute;fica sistem&aacute;tica</p>
+                            <p class="pub-meta"><span>MEP</span><span>2017</span></p>
+                            <p class="muted" style="font-size:var(--fs-sm);margin-top:var(--s-2)">Systematic literature
+                                review on virtual machine consolidation strategies that maintain high availability in
+                                cloud environments.</p>
+                        </div>
+                        <div class="pub-actions"><a class="btn btn--ghost btn--sm"
+                                href="files/works/2017_MEP.pdf"><svg class="icon icon--16" aria-hidden="true"><use href="#i-download"></use></svg> PDF</a></div>
+                    </li>
+                    <li class="pub-item">
+                        <div>
+                            <p class="pub-title">An&aacute;lise da consolida&ccedil;&atilde;o de m&aacute;quinas
+                                virtuais nos equipamentos de rede</p>
+                            <p class="pub-meta"><span>SDA</span><span>2016</span></p>
+                            <p class="muted" style="font-size:var(--fs-sm);margin-top:var(--s-2)">Analysis of the impact
+                                of virtual machine consolidation on network equipment and traffic patterns in data
+                                center networks.</p>
+                        </div>
+                        <div class="pub-actions"><a class="btn btn--ghost btn--sm"
+                                href="files/works/2016_SDA.pdf"><svg class="icon icon--16" aria-hidden="true"><use href="#i-download"></use></svg> PDF</a></div>
+                    </li>
+                    <li class="pub-item">
+                        <div>
+                            <p class="pub-title">Problema Bin Packing com Abordagem Heur&iacute;stica First Fit
+                                Decreasing</p>
+                            <p class="pub-meta"><span>PAA</span><span>2016</span></p>
+                            <p class="muted" style="font-size:var(--fs-sm);margin-top:var(--s-2)">Implementation and
+                                analysis of the First Fit Decreasing heuristic for the Bin Packing problem, applied to
+                                virtual machine placement.</p>
+                        </div>
+                        <div class="pub-actions"><a class="btn btn--ghost btn--sm"
+                                href="files/works/2016_PAA.pdf"><svg class="icon icon--16" aria-hidden="true"><use href="#i-download"></use></svg> PDF</a></div>
+                    </li>
+                </ul>
+            </section>
+
+            <section id="booking" class="section" data-node>
+                <header class="section-head">
+                    <span class="node"></span>
+                    <span class="label">04</span>
+                    <h2>Book a call</h2>
+                    <p class="section-aside">Free &middot; no commitment</p>
+                </header>
+                <div class="booking" data-reveal>
+                    <div class="booking-grid">
+                        <div>
+                            <h2>Let&rsquo;s scope your problem in 30 minutes.</h2>
+                            <p class="lead">Bring an architecture you want reviewed, an AI use case you are unsure how to
+                                productionise, or a legacy platform that needs modernising. You leave with a concrete
+                                opinion either way.</p>
+                            <ul class="booking-points">
+                                <li><svg class="icon icon--16" aria-hidden="true"><use href="#i-check"></use></svg><span>Architecture and cloud cost review (AWS &middot; GCP)</span></li>
+                                <li><svg class="icon icon--16" aria-hidden="true"><use href="#i-check"></use></svg><span>LLM / agent platform feasibility and scoping</span></li>
+                                <li><svg class="icon icon--16" aria-hidden="true"><use href="#i-check"></use></svg><span>Legacy microservice and data pipeline modernisation</span></li>
+                                <li><svg class="icon icon--16" aria-hidden="true"><use href="#i-check"></use></svg><span>Held in English, Portuguese or Spanish &mdash; CET timezone</span></li>
+                            </ul>
+                        </div>
+                        <div class="booking-slot">
+                            <svg class="icon icon--18" aria-hidden="true"><use href="#i-calendar"></use></svg>
+                            <p class="duration">30<span> min</span></p>
+                            <a class="btn btn--accent btn--lg" href="https://tidycal.com/danielsupervisao/30-minute-meeting" target="_blank" rel="noopener">
+                                Pick a slot <svg class="icon icon--16" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
+                            </a>
+                            <p class="label">tidycal.com</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4">
-                    <div class="card shadow-sm mb-4">
-                        <div class="card-body">
-                            <h5 class="card-title">Project Snapshot</h5>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item d-flex justify-content-between">
-                                    <span>Status:</span>
-                                    <span class="badge bg-success">Completed</span>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between">
-                                    <span>Duration:</span>
-                                    <span>2016 - 2018</span>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between">
-                                    <span>Role:</span>
-                                    <span>Principal Researcher</span>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between">
-                                    <span>Supervisor:</span>
-                                    <span>Prof. Dr. Mauricio A. Pillon</span>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between">
-                                    <span>Published Articles:</span>
-                                    <span>6</span>
-                                </li>
-                                <li class="list-group-item">
-                                    <span>Source Code:</span>
-                                    <div class="mt-2">
-                                        <a href="https://github.com/danielfloripa/chave" target="_blank" class="btn btn-sm btn-outline-dark w-100">
-                                            <i class="fab fa-github me-2"></i>GitHub Repository
-                                        </a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+            </section>
 
-                    <div class="card shadow-sm mb-4">
-                        <div class="card-header bg-light">
-                            <h5 class="mb-0">Technologies Used</h5>
-                        </div>
-                        <div class="card-body">
-                            <div class="d-flex flex-wrap gap-2">
-                                <span class="badge bg-secondary">Python</span>
-                                <span class="badge bg-secondary">OpenStack</span>
-                                <span class="badge bg-secondary">VMware</span>
-                                <span class="badge bg-secondary">Docker</span>
-                                <span class="badge bg-secondary">Zabbix</span>
-                                <span class="badge bg-secondary">GreenHop</span>
-                                <span class="badge bg-secondary">Predictive Analytics</span>
-                                <span class="badge bg-secondary">NoSQL</span>
-                                <span class="badge bg-secondary">Network Simulation</span>
-                                <span class="badge bg-secondary">Statistical Analysis</span>
-                            </div>
-                        </div>
-                    </div>
+            <section id="contact" class="section" data-node>
+                <header class="section-head">
+                    <span class="node"></span>
+                    <span class="label">05 &mdash; Contact</span>
+                    <h2>Get in touch</h2>
+                    <p class="section-aside">Questions about CHAVE Project?</p>
+                </header>
 
-                    <div class="card shadow-sm">
-                        <div class="card-header bg-light">
-                            <h5 class="mb-0">Related Projects</h5>
+                <form id="contactForm" action="https://formspree.io/f/manozyow" method="POST" novalidate class="measure" data-reveal>
+                    <input type="hidden" name="_subject" value="CHAVE Project Inquiry">
+                    <div class="form-grid">
+                        <div class="field">
+                            <label for="name">Your name</label>
+                            <input type="text" id="name" name="name" autocomplete="name" required>
+                            <span class="error">Please provide your name.</span>
                         </div>
-                        <div class="card-body p-0">
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">
-                                    <a href="greenhop.html" class="d-flex text-decoration-none text-dark">
-                                        <img src="assets/images/greenhop.png" alt="GreenHop" class="me-3" style="width: 50px; height: 50px;">
-                                        <div>
-                                            <h6 class="mb-1">GreenHop</h6>
-                                            <p class="small text-muted mb-0">Open source energy consumption and environmental monitoring</p>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#" class="d-flex text-decoration-none text-dark">
-                                        <img src="assets/images/openstack.png" alt="LabP2D Openstack" class="me-3" style="width: 50px; height: 50px;">
-                                        <div>
-                                            <h6 class="mb-1">LabP2D Openstack</h6>
-                                            <p class="small text-muted mb-0">Auto-deploy, measure OpenStack cloud resources</p>
-                                        </div>
-                                    </a>
-                                </li>
-                            </ul>
+                        <div class="field">
+                            <label for="email">Email address</label>
+                            <input type="email" id="email" name="email" autocomplete="email" required>
+                            <span class="error">Please provide a valid email.</span>
+                        </div>
+                        <div class="field field--full">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" value="CHAVE Project Inquiry" required>
+                            <span class="error">Please provide a subject.</span>
+                        </div>
+                        <div class="field field--full">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                            <span class="error">Please provide a message.</span>
                         </div>
                     </div>
-                </div>
-            </div>
+                    <div class="form-footer">
+                        <button type="submit" class="btn btn--primary btn--lg">Send message
+                            <svg class="icon icon--16" aria-hidden="true"><use href="#i-arrow-right"></use></svg></button>
+                        <p class="form-status" role="status" aria-live="polite"></p>
+                    </div>
+                </form>
+            </section>
+
         </div>
-    </section>
+    </main>
 
-    <!-- Publications -->
-    <section class="py-5 bg-light">
+    <footer class="site-footer">
         <div class="container">
-            <h2 class="text-center mb-5">Related Publications</h2>
-
-            <div class="row">
-                <div class="col-md-6 mb-4">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h5 class="card-title">Uma ferramenta para análise do impacto da migração de máquinas virtuais</h5>
-                            <p class="text-muted">REC (2017)</p>
-                            <p class="card-text">Analysis of the impact of virtual machine migration on network and system performance, considering different hypervisors
-                                and VM configurations.</p>
-                        </div>
-                        <div class="card-footer bg-transparent">
-                            <a href="files/works/2017_REC.pdf" class="btn btn-outline-primary">
-                                <i class="fas fa-download me-2"></i>Download Paper
-                            </a>
-                        </div>
+            <div class="footer-grid">
+                <div>
+                    <h2>About</h2>
+                    <p>Applied AI Engineer and Senior Full-Stack Developer based in Barcelona. Cloud architecture,
+                        LLM-powered platforms, DevSecOps, IoT and system integration — from technical scoping through
+                        to production operation.</p>
+                    <div class="footer-social">
+                        <a href="https://github.com/danielfloripa" target="_blank" rel="noopener" aria-label="GitHub"><svg class="icon icon--18 icon--solid" aria-hidden="true"><use href="#i-github"></use></svg></a>
+                        <a href="https://www.linkedin.com/in/daniel13" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="icon icon--18 icon--solid" aria-hidden="true"><use href="#i-linkedin"></use></svg></a>
+                        <a href="https://api.whatsapp.com/send?phone=41779680561&amp;text=Contact%20from%20dans.ch" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="icon icon--18 icon--solid" aria-hidden="true"><use href="#i-whatsapp"></use></svg></a>
+                        <a href="https://scholar.google.com.br/citations?hl=pt-BR&amp;authuser=1&amp;user=mwcTdEEAAAAJ" target="_blank" rel="noopener" aria-label="Google Scholar"><svg class="icon icon--18 icon--solid" aria-hidden="true"><use href="#i-scholar"></use></svg></a>
                     </div>
                 </div>
-                <div class="col-md-6 mb-4">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h5 class="card-title">Consolidação de máquinas virtuais com alta disponibilidade: uma revisão bibliográfica sistemática</h5>
-                            <p class="text-muted">MEP (2017)</p>
-                            <p class="card-text">Systematic literature review on virtual machine consolidation strategies that maintain high availability in cloud
-                                environments.</p>
-                        </div>
-                        <div class="card-footer bg-transparent">
-                            <a href="files/works/2017_MEP.pdf" class="btn btn-outline-primary">
-                                <i class="fas fa-download me-2"></i>Download Paper
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 mb-4">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h5 class="card-title">Análise da consolidação de máquinas virtuais nos equipamentos de rede</h5>
-                            <p class="text-muted">SDA (2016)</p>
-                            <p class="card-text">Analysis of the impact of virtual machine consolidation on network equipment and traffic patterns in data center
-                                networks.</p>
-                        </div>
-                        <div class="card-footer bg-transparent">
-                            <a href="files/works/2016_SDA.pdf" class="btn btn-outline-primary">
-                                <i class="fas fa-download me-2"></i>Download Paper
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 mb-4">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <h5 class="card-title">Problema Bin Packing com Abordagem Heurística First Fit Decreasing</h5>
-                            <p class="text-muted">PAA (2016)</p>
-                            <p class="card-text">Implementation and analysis of the First Fit Decreasing heuristic for the Bin Packing problem, applied to virtual machine
-                                placement.</p>
-                        </div>
-                        <div class="card-footer bg-transparent">
-                            <a href="files/works/2016_PAA.pdf" class="btn btn-outline-primary">
-                                <i class="fas fa-download me-2"></i>Download Paper
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-5 contact-light-bg">
-        <div class="container">
-            <header class="text-center mb-5">
-                <h2 class="display-5 fw-bold">Get in touch</h2>
-                <p class="lead">Interested in learning more about the CHAVE project?</p>
-            </header>
-
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <form id="contactForm" class="needs-validation">
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="name" required>
-                                    <label for="name">Your Name</label>
-                                    <div class="invalid-feedback">Please provide your name.</div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-floating mb-3">
-                                    <input type="email" class="form-control" id="email" required>
-                                    <label for="email">Email Address</label>
-                                    <div class="invalid-feedback">Please provide a valid email.</div>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="subject" value="CHAVE Project Inquiry" required>
-                                    <label for="subject">Subject</label>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="form-floating mb-3">
-                                    <textarea class="form-control" id="message" style="height: 150px" required></textarea>
-                                    <label for="message">Your Message</label>
-                                    <div class="invalid-feedback">Please provide a message.</div>
-                                </div>
-                            </div>
-                            <div class="col-12 text-center">
-                                <button type="submit" class="btn btn-primary btn-lg px-5">
-                                    <i class="fas fa-paper-plane me-2"></i>Send Message
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="pt-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <h5 class="text-white mb-3">About Daniel</h5>
-                    <p class="mb-3">Software Developer and Researcher with expertise in Cloud Computing, DevOps, IoT, and System Integration.</p>
-                    <div class="d-flex">
-                        <a href="https://github.com/danielfloripa" class="me-3 text-secondary"><i class="fab fa-github fa-2x"></i></a>
-                        <a href="https://www.linkedin.com/in/daniel13" class="me-3 text-secondary"><i class="fab fa-linkedin fa-2x"></i></a>
-                        <a href="http://api.whatsapp.com/send?phone=41779680561&text=From%20site%20dans.ch" class="me-3 text-secondary"><i
-                                class="fab fa-whatsapp fa-2x"></i></a>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <h5 class="text-white mb-3">Quick Links</h5>
-                    <ul class="list-unstyled">
-                        <li class="mb-2"><a href="index.html" class="text-secondary">Home</a></li>
-                        <li class="mb-2"><a href="index.html#portfolio" class="text-secondary">Portfolio</a></li>
-                        <li class="mb-2"><a href="index.html#papers" class="text-secondary">Papers</a></li>
-                        <li class="mb-2"><a href="curriculum.html" class="text-secondary">Curriculum</a></li>
-                        <li class="mb-2"><a href="index.html#about" class="text-secondary">About</a></li>
-                        <li class="mb-2"><a href="index.html#contact" class="text-secondary">Contact</a></li>
+                <div>
+                    <h2>Navigate</h2>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#work">Selected work</a></li>
+                        <li><a href="capellaris/index.html">Capellaris</a></li>
+                        <li><a href="index.html#papers">Publications</a></li>
+                        <li><a href="curriculum.html">Curriculum vitae</a></li>
+                        <li><a href="https://blog.dscamargo.com.br" target="_blank" rel="noopener">Blog</a></li>
                     </ul>
                 </div>
-                <div class="col-md-4 mb-4">
-                    <h5 class="text-white mb-3">Contact Info</h5>
-                    <ul class="list-unstyled">
-                        <li class="mb-2"><i class="fas fa-envelope me-2 text-secondary"></i> hello at dans ch</li>
-                        <li class="mb-2"><i class="fas fa-phone me-2 text-secondary"></i> +41 77 968 0561</li>
-                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2 text-secondary"></i> Geneve, Switzerland</li>
+                <div>
+                    <h2>Contact</h2>
+                    <ul>
+                        <li><a href="https://tidycal.com/danielsupervisao/30-minute-meeting" target="_blank" rel="noopener">Book a 30-min call</a></li>
+                        <li><a href="index.html#contact">hello at dans ch</a></li>
+                        <li><a href="tel:+34674409270">+34 674 40 92 70</a></li>
+                        <li><a href="tel:+41779680561">+41 77 968 0561</a></li>
+                        <li><span class="dim">Barcelona, Spain</span></li>
                     </ul>
                 </div>
             </div>
-            <div class="border-top border-secondary pt-4 mt-3">
-                <div class="row">
-                    <div class="col-md-6 text-center text-md-start">
-                        <p class="mb-0">&copy; 2026 DanSch. All rights reserved.</p>
-                    </div>
-                    <div class="col-md-6 text-center text-md-end">
-                        <p class="mb-0">Designed with <i class="fas fa-heart text-danger"></i></p>
-                    </div>
-                </div>
+            <div class="footer-base">
+                <span>&copy; 2026 Daniel Scheidemantel Camargo</span>
+                <span>Built by hand — HTML, CSS, vanilla JS</span>
             </div>
         </div>
     </footer>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/script.js"></script>
+    <script src="assets/app.js"></script>
 </body>
 
 </html>

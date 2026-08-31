@@ -1,38 +1,195 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-	<title>Curso de Nuvem OpenStack LabP2D</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Curso de Nuvem OpenStack — LabP2D</title>
+    <meta name="description" content="Material do curso de computação em nuvem com OpenStack ministrado no LabP2D (UDESC).">
+    <meta name="author" content="Daniel Scheidemantel Camargo">
+    <meta name="referrer" content="origin">
+    <link rel="canonical" href="https://www.dans.ch/cloud/">
 
-	<!-- Google Tag Manager -->
-	<script>(function (w, d, s, l, i) {
-			w[l] = w[l] || []; w[l].push({
-				'gtm.start':
-					new Date().getTime(), event: 'gtm.js'
-			}); var f = d.getElementsByTagName(s)[0],
-				j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-					'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-		})(window, document, 'script', 'dataLayer', 'GTM-WXLHS7J8');</script>
-	<!-- End Google Tag Manager -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Daniel Scheidemantel Camargo">
+    <meta property="og:locale" content="en">
+    <meta property="og:title" content="Curso de Nuvem OpenStack — LabP2D">
+    <meta property="og:description" content="Material do curso de computação em nuvem com OpenStack ministrado no LabP2D (UDESC).">
+    <meta property="og:url" content="https://www.dans.ch/cloud/">
+    <meta name="twitter:card" content="summary">
+
+    <link rel="icon" href="../assets/ico/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/ico/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/ico/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/ico/apple-touch-icon.png">
+    <link rel="manifest" href="../assets/ico/site.webmanifest">
+    <meta name="theme-color" content="#08090b">
+    <meta name="color-scheme" content="dark">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+
+    <link rel="stylesheet" href="../design-system/variables.css">
+    <link rel="stylesheet" href="../assets/style.css">
+
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+            var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-WXLHS7J8');</script>
+    <!-- End Google Tag Manager -->
 </head>
 
-<body onload="cloud()">
-	<!-- Google Tag Manager (noscript) -->
-	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WXLHS7J8" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-	<!-- End Google Tag Manager (noscript) -->
-	<script type="text/javascript">
-		function cloud() {
-			window.open("https://www.dropbox.com/s/pehc0iyuxivxc7a/SDI_ComputacaoNuvem_Pratico_v2.pdf", '_blank');
-			window.open("https://www.dropbox.com/s/w2rl9tmcx56qwyj/SDI_ComputacaoNuvem_v2.pdf", '_blank');
-		}
-	</script>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WXLHS7J8" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
 
-	<input id="url" value="Clique aqui para acessar os slides do Curso de Nuvem OpenStack" type="button">
-	<script type="text/javascript">
-		document.getElementById("url").onclick = function () {
-			window.open("https://www.dropbox.com/s/pehc0iyuxivxc7a/SDI_ComputacaoNuvem_Pratico_v2.pdf", '_blank');
-			window.open("https://www.dropbox.com/s/w2rl9tmcx56qwyj/SDI_ComputacaoNuvem_v2.pdf", '_blank');
-		}
-	</script>
+    <!-- Icon sprite, inlined from assets/icons.svg. Embedded rather than
+         fetched so icons survive file:// and a JS-less load. -->
+    <svg class="sprite" style="display:none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+      <!-- Stroke icons (24x24, 1.6 stroke, inherit currentColor) -->
+      <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+      <symbol id="i-arrow-down" viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></symbol>
+      <symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="M8 16 16 8M9 8h7v7"/></symbol>
+      <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></symbol>
+      <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v11M7.5 10 12 14.5 16.5 10M4 18.5h16"/></symbol>
+      <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="16" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="m4.5 12.5 5 5 10-11"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="m3.5 7 8.5 6 8.5-6"/></symbol>
+      <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.5 3.5h-2a2 2 0 0 0-2 2.2 17 17 0 0 0 15.8 15.8 2 2 0 0 0 2.2-2v-2a1.6 1.6 0 0 0-1.3-1.6l-2.5-.5a1.6 1.6 0 0 0-1.6.7l-.8 1.2a13 13 0 0 1-5.8-5.8l1.2-.8a1.6 1.6 0 0 0 .7-1.6l-.5-2.5a1.6 1.6 0 0 0-1.4-1.1Z"/></symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></symbol>
+      <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 3v5h5"/></symbol>
+      <symbol id="i-terminal" viewBox="0 0 24 24"><rect x="2.5" y="4" width="19" height="16" rx="2"/><path d="m7 10 3 2.5L7 15M13 15h4"/></symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+
+      <!-- Brand marks (filled) -->
+      <symbol id="i-github" viewBox="0 0 24 24"><path d="M12 1.8a10.2 10.2 0 0 0-3.23 19.88c.51.1.7-.22.7-.49l-.01-1.9c-2.6.5-3.27-.63-3.48-1.21-.12-.3-.63-1.23-1.07-1.48-.36-.2-.88-.67-.02-.69.81-.01 1.39.75 1.58 1.06.93 1.56 2.4 1.12 2.99.85.09-.67.36-1.12.66-1.38-2.3-.26-4.7-1.15-4.7-5.11 0-1.13.4-2.06 1.06-2.78-.1-.26-.46-1.32.1-2.74 0 0 .87-.27 2.85 1.06a9.6 9.6 0 0 1 5.18 0c1.97-1.34 2.84-1.06 2.84-1.06.57 1.42.21 2.48.1 2.74a4 4 0 0 1 1.07 2.78c0 3.98-2.42 4.85-4.72 5.1.37.33.7.95.7 1.92l-.01 2.85c0 .27.19.6.7.5A10.2 10.2 0 0 0 12 1.8Z"/></symbol>
+      <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5ZM3 9.5h4v11H3v-11Zm6.5 0h3.83v1.5h.05a4.2 4.2 0 0 1 3.78-2.08c4.04 0 4.79 2.66 4.79 6.11v5.47h-4v-4.85c0-1.16-.02-2.65-1.61-2.65-1.62 0-1.87 1.26-1.87 2.56v4.94h-4v-11Z"/></symbol>
+      <symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.94L2 22.5l5.7-1.5A9.9 9.9 0 1 0 12.04 2Zm0 1.8a8.1 8.1 0 1 1-4.15 15.06l-.3-.18-3.36.88.9-3.28-.2-.32A8.1 8.1 0 0 1 12.04 3.8Zm-3.6 4.05c-.18 0-.47.07-.72.34-.25.27-.95.93-.95 2.26s.98 2.62 1.11 2.8c.14.18 1.9 3.02 4.7 4.1 2.32.9 2.8.72 3.3.68.5-.05 1.6-.65 1.83-1.29.22-.63.22-1.17.16-1.29-.07-.11-.25-.18-.52-.31-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.13-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.14-.42-2.17-1.34-.8-.71-1.34-1.6-1.5-1.87-.16-.27-.02-.41.12-.55.12-.12.27-.31.4-.47.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.47-.07-.14-.6-1.47-.83-2.01-.21-.52-.43-.45-.6-.46l-.5-.01Z"/></symbol>
+      <symbol id="i-scholar" viewBox="0 0 24 24"><path d="M12 2 1 8l11 6 9-4.9v6.4h2V8L12 2ZM5 13.2v4.3c0 1.8 3.1 3.5 7 3.5s7-1.7 7-3.5v-4.3l-7 3.8-7-3.8Z"/></symbol>
+    </svg>
+
+    <div id="bg-net" aria-hidden="true"></div>
+    <div class="bg-veil" aria-hidden="true"></div>
+
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a class="brand" href="../index.html">
+                <img src="../assets/images/dsc_white.svg" alt="" width="24" height="24">
+                <span>DANSCH</span>
+            </a>
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"
+                aria-label="Toggle navigation"><span></span></button>
+            <nav class="nav" id="site-nav" aria-label="Primary">
+                <ul>
+                    <li><a href="../index.html#work">Work</a></li>
+                    <li><a href="../capellaris/index.html" class="is-flagged">Capellaris</a></li>
+                    <li><a href="../index.html#papers">Publications</a></li>
+                    <li><a href="../curriculum.html">CV</a></li>
+                    <li><a href="../index.html#contact">Contact</a></li>
+                    <li><a href="https://blog.dscamargo.com.br" target="_blank" rel="noopener">Blog</a></li>
+                </ul>
+                <div class="header-social">
+                    <a href="https://www.linkedin.com/in/daniel13" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="icon icon--18 icon--solid" aria-hidden="true"><use href="#i-linkedin"></use></svg></a>
+                    <a href="https://api.whatsapp.com/send?phone=41779680561&amp;text=Contact%20from%20dans.ch" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="icon icon--18 icon--solid" aria-hidden="true"><use href="#i-whatsapp"></use></svg></a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="section" style="min-height:70vh;display:flex;align-items:center;
+            padding-block:calc(var(--header-h) + var(--s-20))">
+            <div class="container container--narrow">
+                <p class="breadcrumb label mb-6"><a href="../index.html">Home</a> &middot; Cursos</p>
+                <h1 class="mb-6">Curso de Nuvem OpenStack &mdash; LabP2D</h1>
+                <p class="lead measure">Material do curso de computa&ccedil;&atilde;o em nuvem com OpenStack
+                    ministrado no LabP2D (UDESC). Duas apostilas: a parte te&oacute;rica e o roteiro pr&aacute;tico.</p>
+
+                <ul class="pub-list mt-12">
+                    <li class="pub-item">
+                        <div>
+                            <p class="pub-title">Computa&ccedil;&atilde;o em Nuvem &mdash; te&oacute;rico</p>
+                            <p class="pub-meta"><span>SDI</span><span>Slides v2</span></p>
+                        </div>
+                        <div class="pub-actions">
+                            <a class="btn btn--ghost btn--sm"
+                                href="https://www.dropbox.com/s/w2rl9tmcx56qwyj/SDI_ComputacaoNuvem_v2.pdf"
+                                target="_blank" rel="noopener"><svg class="icon icon--16" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg> Abrir</a>
+                        </div>
+                    </li>
+                    <li class="pub-item">
+                        <div>
+                            <p class="pub-title">Computa&ccedil;&atilde;o em Nuvem &mdash; pr&aacute;tico</p>
+                            <p class="pub-meta"><span>SDI</span><span>Slides v2</span></p>
+                        </div>
+                        <div class="pub-actions">
+                            <a class="btn btn--ghost btn--sm"
+                                href="https://www.dropbox.com/s/pehc0iyuxivxc7a/SDI_ComputacaoNuvem_Pratico_v2.pdf"
+                                target="_blank" rel="noopener"><svg class="icon icon--16" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg> Abrir</a>
+                        </div>
+                    </li>
+                </ul>
+
+                <div class="btn-row mt-12">
+                    <a class="btn btn--ghost" href="../files/">More course material</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h2>About</h2>
+                    <p>Applied AI Engineer and Senior Full-Stack Developer based in Barcelona. Cloud architecture,
+                        LLM-powered platforms, DevSecOps, IoT and system integration — from technical scoping through
+                        to production operation.</p>
+                    <div class="footer-social">
+                        <a href="https://github.com/danielfloripa" target="_blank" rel="noopener" aria-label="GitHub"><svg class="icon icon--18 icon--solid" aria-hidden="true"><use href="#i-github"></use></svg></a>
+                        <a href="https://www.linkedin.com/in/daniel13" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="icon icon--18 icon--solid" aria-hidden="true"><use href="#i-linkedin"></use></svg></a>
+                        <a href="https://api.whatsapp.com/send?phone=41779680561&amp;text=Contact%20from%20dans.ch" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="icon icon--18 icon--solid" aria-hidden="true"><use href="#i-whatsapp"></use></svg></a>
+                        <a href="https://scholar.google.com.br/citations?hl=pt-BR&amp;authuser=1&amp;user=mwcTdEEAAAAJ" target="_blank" rel="noopener" aria-label="Google Scholar"><svg class="icon icon--18 icon--solid" aria-hidden="true"><use href="#i-scholar"></use></svg></a>
+                    </div>
+                </div>
+                <div>
+                    <h2>Navigate</h2>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../index.html#work">Selected work</a></li>
+                        <li><a href="../capellaris/index.html">Capellaris</a></li>
+                        <li><a href="../index.html#papers">Publications</a></li>
+                        <li><a href="../curriculum.html">Curriculum vitae</a></li>
+                        <li><a href="https://blog.dscamargo.com.br" target="_blank" rel="noopener">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h2>Contact</h2>
+                    <ul>
+                        <li><a href="https://tidycal.com/danielsupervisao/30-minute-meeting" target="_blank" rel="noopener">Book a 30-min call</a></li>
+                        <li><a href="../index.html#contact">hello at dans ch</a></li>
+                        <li><a href="tel:+34674409270">+34 674 40 92 70</a></li>
+                        <li><a href="tel:+41779680561">+41 77 968 0561</a></li>
+                        <li><span class="dim">Barcelona, Spain</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-base">
+                <span>&copy; 2026 Daniel Scheidemantel Camargo</span>
+                <span>Built by hand — HTML, CSS, vanilla JS</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/app.js"></script>
 </body>
 
 </html>

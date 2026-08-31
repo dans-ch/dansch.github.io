@@ -21,7 +21,7 @@
  */
 
 /* Import shared design system variables */
-@import url('../../design-system/variables.css');
+@import url('../../design-system/legacy.css');
 
 :root {
   /* Colors - Primary Blue */
