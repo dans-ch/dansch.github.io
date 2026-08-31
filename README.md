@@ -14,6 +14,7 @@ no package manager. Deployed straight from this repository to GitHub Pages.
 | Behaviour | `assets/app.js` — ~300 lines, no framework |
 | Icons | `assets/icons.svg` sprite, inlined into every page |
 | Type | Inter + JetBrains Mono (Google Fonts) |
+| Brand | `assets/images/dsc_mark.svg` (cyan) — Capellaris keeps the blue `dsc_white.svg` |
 | Background | three.js + Vanta NET, lazy-loaded after first paint |
 | Offline | `sw.js` — network-first for documents, cache-first for assets |
 | Forms | Formspree |
@@ -54,6 +55,11 @@ Any static server works; `make serve` is just `python3 -m http.server`.
   `design-system/legacy.css`. See `design-system/README.md` before touching
   either token file.
 - Bump `CACHE` in `sw.js` whenever the asset set changes.
+- Favicons live in `assets/ico/` and are all derived from the brand path in
+  `assets/images/dsc_white.svg`. `favicon.svg` is the rounded tab tile;
+  `apple-touch-icon.png` and the `android-chrome-*` PNGs bleed to the edge
+  because the OS masks them. A copy of `favicon.ico` sits at the repo root
+  because bots probe `/favicon.ico` regardless of the `<link>` tags.
 - `assets/icons.svg` is the canonical icon source, but each page embeds its
   own copy of the `<symbol>` block (`<svg class="sprite">`, right after the GTM
   noscript). It is embedded rather than fetched so icons survive `file://`

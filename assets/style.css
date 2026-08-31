@@ -188,7 +188,7 @@ a { color: var(--text); text-decoration: none; }
   color: var(--text);
   white-space: nowrap;
 }
-.brand img { width: 24px; height: 24px; opacity: 0.92; }
+.brand img { width: 28px; height: auto; opacity: 0.95; }
 .brand:hover { color: var(--accent); }
 
 .nav { margin-left: auto; display: flex; align-items: center; }

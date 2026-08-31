@@ -1,6 +1,6 @@
 // Service worker for dans.ch
 // Bumped whenever the asset set changes so old caches are evicted.
-const CACHE = 'dansch-v4';
+const CACHE = 'dansch-v5';
 
 const PRECACHE = [
   '/',
