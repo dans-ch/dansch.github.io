@@ -169,6 +169,13 @@ a { color: var(--text); text-decoration: none; }
   -webkit-backdrop-filter: blur(14px) saturate(140%);
   border-bottom-color: var(--line);
 }
+/* While the mobile panel is open the header sits on an opaque sheet, so the
+   blur buys nothing and only complicates positioning. */
+body.nav-open .site-header.is-stuck {
+  background: var(--bg);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
 
 .site-header .container {
   height: 100%;
@@ -278,7 +285,15 @@ a { color: var(--text); text-decoration: none; }
   .nav-toggle { display: block; }
   .nav {
     position: fixed;
-    inset: var(--header-h) 0 0 0;
+    top: var(--header-h);
+    left: 0;
+    right: 0;
+    /* Explicit height, never `bottom: 0`. Once the header is scrolled it gains
+       a backdrop-filter, which makes it the containing block for fixed
+       descendants — and against a 64px-tall header, top+bottom collapses the
+       panel to nothing. A height works out identically either way. */
+    height: 100vh;
+    height: calc(100dvh - var(--header-h));
     margin: 0;
     background: var(--bg);
     padding: var(--s-4) var(--gutter) var(--s-10);
@@ -452,6 +467,68 @@ a { color: var(--text); text-decoration: none; }
   .rail-host { padding-left: var(--gutter); }
 }
 
+/* ---------- 7b. Mobile reading progress ---------- */
+
+/* Below 1181px the left rail is gone, so the walker moves to a progress bar
+   pinned to the bottom of the viewport. Built by app.js, not in the markup. */
+.mprog {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: env(safe-area-inset-bottom, 0px);
+  height: 2px;
+  background: var(--line);
+  z-index: var(--z-rail);
+  pointer-events: none;
+}
+
+.mprog-fill {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--accent-deep) 0%, var(--accent) 88%, var(--accent-2) 100%);
+  box-shadow: 0 0 10px rgba(34, 211, 238, 0.45);
+}
+
+.mprog-bot {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+}
+.mprog-bot svg {
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  /* Shift by the bot's own width in step with progress, so it is flush with
+     the left edge at 0% and the right edge at 100% instead of hanging off. */
+  transform: translateX(calc(var(--t, 0) * -100%));
+  /* The parent is zero-width, so the global svg max-width would collapse it. */
+  max-width: none;
+  width: 26px;
+  height: 32px;
+  overflow: visible;
+}
+
+/* Always powered up here — there is no hero phase to wait through. */
+.mprog .bot-eye { fill: var(--accent-2); filter: drop-shadow(0 0 3px var(--accent)); }
+.mprog .bot-led { fill: var(--accent); animation: bot-blink 2.4s var(--ease) infinite; }
+
+.mprog.is-walking .bot-leg--l,
+.mprog.is-walking .bot-arm--r { animation: step-a 0.62s linear infinite; }
+.mprog.is-walking .bot-leg--r,
+.mprog.is-walking .bot-arm--l { animation: step-b 0.62s linear infinite; }
+
+/* The desktop rail already carries the walker; never show both. */
+@media (min-width: 1181px) { .mprog { display: none; } }
+
+/* Out of the way while the mobile menu is open. */
+body.nav-open .mprog { display: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .mprog-bot { display: none; }
+}
+
 /* ---------- 8. Section head ---------- */
 
 .section-head {
@@ -544,7 +621,10 @@ a { color: var(--text); text-decoration: none; }
 
 .hero-stats {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  /* Explicit column counts, not auto-fit: the cell that starts each row has to
+     lose its left padding so the figure lines up with the headline, and that
+     is only targetable when the count is known. */
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1px;
   margin-top: var(--s-16);
   background: var(--line);
@@ -554,7 +634,13 @@ a { color: var(--text); text-decoration: none; }
   background: var(--bg);
   padding: var(--s-5) var(--s-6);
 }
-.hero-stats div:first-child { padding-left: 0; }
+.hero-stats div:nth-child(4n + 1) { padding-left: 0; }
+
+@media (max-width: 860px) {
+  .hero-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .hero-stats div { padding-left: var(--s-6); }
+  .hero-stats div:nth-child(2n + 1) { padding-left: 0; }
+}
 .hero-stats strong {
   display: block;
   font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem);
@@ -603,6 +689,16 @@ a { color: var(--text); text-decoration: none; }
   position: relative;
   width: min(62%, 300px);
   height: auto;
+}
+
+/* Stack the featured project: mark above, text below at full width.
+   The visual is first in the DOM, so one column is all it takes. */
+@media (max-width: 900px) {
+  .featured { grid-template-columns: 1fr; gap: var(--s-8); }
+  /* A full-width square would eat a whole phone screen for one logo. */
+  .featured-visual { aspect-ratio: 3 / 2; }
+  .featured-visual img,
+  .featured-visual object { width: min(46%, 190px); }
 }
 
 .tag-row { display: flex; flex-wrap: wrap; gap: var(--s-2); }
@@ -1459,7 +1555,7 @@ figure.fig figcaption {
 
 @media print {
   /* Chrome, decorative layers and anything interactive drop out. */
-  #bg-net, .bg-veil, .site-header, .site-footer, .rail, .walker, .node,
+  #bg-net, .bg-veil, .site-header, .site-footer, .rail, .walker, .node, .mprog,
   .booking, form, .skip-link, .btn-row, .hero-terminal, .work-arrow { display: none !important; }
 
   html, body { background: #fff !important; color: #1a1a1a !important; }

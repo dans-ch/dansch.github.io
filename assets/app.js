@@ -25,12 +25,14 @@
       toggle.addEventListener('click', function () {
         var open = nav.classList.toggle('is-open');
         toggle.setAttribute('aria-expanded', String(open));
+        document.body.classList.toggle('nav-open', open);
         document.body.style.overflow = open ? 'hidden' : '';
       });
       nav.addEventListener('click', function (e) {
         if (e.target.closest('a') && nav.classList.contains('is-open')) {
           nav.classList.remove('is-open');
           toggle.setAttribute('aria-expanded', 'false');
+          document.body.classList.remove('nav-open');
           document.body.style.overflow = '';
         }
       });
@@ -142,6 +144,65 @@
       if (!walking) { walking = true; walker.classList.add('is-walking'); }
       clearTimeout(idleTimer);
       idleTimer = setTimeout(stopWalking, 170);
+      if (!queued) { queued = true; requestAnimationFrame(update); }
+    };
+
+    update();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', function () {
+      if (!queued) { queued = true; requestAnimationFrame(update); }
+    }, { passive: true });
+  }
+
+
+  /* The rail and its walker are desktop-only — below 1181px there is no room
+     for a left gutter. Mobile gets the same character walking a reading-progress
+     bar pinned to the bottom of the viewport, built here rather than duplicated
+     into twelve HTML files. */
+  var BOT_SVG =
+    '<svg viewBox="0 0 48 60" role="presentation" focusable="false">' +
+      '<path class="bot-line" d="M24 8.5v4.5"/>' +
+      '<circle class="bot-led" cx="24" cy="6" r="2.4"/>' +
+      '<g class="bot-arm bot-arm--l"><path class="bot-limb" d="M14.5 35v9.5"/></g>' +
+      '<g class="bot-arm bot-arm--r"><path class="bot-limb" d="M33.5 35v9.5"/></g>' +
+      '<rect class="bot-shell" x="11" y="13" width="26" height="17" rx="5"/>' +
+      '<rect class="bot-visor" x="15" y="17.5" width="18" height="8" rx="4"/>' +
+      '<circle class="bot-eye" cx="20" cy="21.5" r="1.7"/>' +
+      '<circle class="bot-eye" cx="28" cy="21.5" r="1.7"/>' +
+      '<rect class="bot-shell" x="14" y="32" width="20" height="16" rx="4"/>' +
+      '<path class="bot-line" d="M18.5 37.5h11M18.5 41.5h7"/>' +
+      '<g class="bot-leg bot-leg--l"><path class="bot-limb" d="M19.5 48v9"/></g>' +
+      '<g class="bot-leg bot-leg--r"><path class="bot-limb" d="M28.5 48v9"/></g>' +
+    '</svg>';
+
+  function initMobileProgress() {
+    if (window.matchMedia('(min-width: 1181px)').matches) return;
+    if (document.querySelector('.mprog')) return;
+
+    var bar = document.createElement('div');
+    bar.className = 'mprog';
+    bar.setAttribute('aria-hidden', 'true');
+    bar.innerHTML = '<div class="mprog-fill"></div><div class="mprog-bot">' + BOT_SVG + '</div>';
+    document.body.appendChild(bar);
+
+    var fill = bar.querySelector('.mprog-fill');
+    var bot = bar.querySelector('.mprog-bot');
+    var queued = false, walking = false, idle = null;
+
+    var update = function () {
+      queued = false;
+      var max = document.documentElement.scrollHeight - window.innerHeight;
+      var t = max > 8 ? clamp(window.scrollY / max, 0, 1) : 0;
+      var pct = (t * 100).toFixed(2) + '%';
+      fill.style.width = pct;
+      bot.style.left = pct;
+      bot.style.setProperty('--t', t.toFixed(4));
+    };
+
+    var onScroll = function () {
+      if (!walking) { walking = true; bar.classList.add('is-walking'); }
+      clearTimeout(idle);
+      idle = setTimeout(function () { walking = false; bar.classList.remove('is-walking'); }, 170);
       if (!queued) { queued = true; requestAnimationFrame(update); }
     };
 
@@ -286,6 +347,7 @@
     initReveal();
     initTypewriter();
     initWalker();
+    initMobileProgress();
     initForm();
     requestAnimationFrame(function () { setTimeout(initBackground, 120); });
     initServiceWorker();

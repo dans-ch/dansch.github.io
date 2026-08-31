@@ -50,6 +50,9 @@ Any static server works; `make serve` is just `python3 -m http.server`.
 ## Notes
 
 - The scroll walker, the rail and the section nodes only render at ≥1181px.
+  Below that the same character walks a reading-progress bar fixed to the
+  bottom of the viewport (`.mprog`), injected by `app.js` rather than
+  duplicated into every page.
 - `prefers-reduced-motion` disables the animated background, the walker
   animation and every reveal transition.
 - Capellaris keeps the previous light theme and imports
