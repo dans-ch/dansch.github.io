@@ -1,6 +1,6 @@
 // Service worker for dans.ch
 // Bumped whenever the asset set changes so old caches are evicted.
-const CACHE = 'dansch-v5';
+const CACHE = 'dansch-v7';
 
 const PRECACHE = [
   '/',
@@ -9,6 +9,7 @@ const PRECACHE = [
   '/greenhop.html',
   '/chave.html',
   '/thanks.html',
+  '/blog/',
   '/design-system/variables.css',
   '/assets/style.css',
   '/assets/app.js'

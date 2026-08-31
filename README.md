@@ -32,6 +32,7 @@ particles.js or GSAP — all removed in the 2026 rebuild.
 | `chave.html`, `greenhop.html` | Research project write-ups |
 | `files/` | Complete publication and course-material archive |
 | `cloud/` | OpenStack course handouts |
+| `blog/` | Writing — index, RSS feed, and `_template.html` (noindex) |
 | `thanks.html` | Post-submission confirmation |
 | `capellaris/` | Separate subsite with its own stylesheet and theme |
 
@@ -54,6 +55,26 @@ Any static server works; `make serve` is just `python3 -m http.server`.
 - Capellaris keeps the previous light theme and imports
   `design-system/legacy.css`. See `design-system/README.md` before touching
   either token file.
+## Publishing a post
+
+There is no build step, so a post is a file:
+
+1. `cp blog/_template.html blog/<slug>.html`
+2. Replace the title, `<meta name="description">`, canonical URL, date and body.
+   Delete the `<meta name="robots">` line and the draft banner.
+3. Add a `<li class="post-item">` to `blog/index.html` (the commented block there
+   shows the shape) and remove the empty state once the first post is live.
+4. Add an `<item>` to `blog/feed.xml` — `pubDate` must be RFC-822, which
+   `date -R` prints.
+5. Add a `<url>` to `sitemap.xml`.
+
+`_template.html` carries `robots: noindex, nofollow` and is disallowed in
+`robots.txt`, so it can live in the repo without being indexed.
+
+The 2010–2013 Blogger archive stays at `blog.dscamargo.com.br`. It is a
+different registrable domain from `dans.ch`, so it never passed authority here;
+it is linked once from the blog index as an archive and nowhere else.
+
 - Bump `CACHE` in `sw.js` whenever the asset set changes.
 - Favicons live in `assets/ico/` and are all derived from the brand path in
   `assets/images/dsc_white.svg`. `favicon.svg` is the rounded tab tile;

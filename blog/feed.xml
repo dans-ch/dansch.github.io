@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Daniel Scheidemantel Camargo — Writing</title>
+    <link>https://www.dans.ch/blog/</link>
+    <atom:link href="https://www.dans.ch/blog/feed.xml" rel="self" type="application/rss+xml"/>
+    <description>Notes on applied AI engineering, cloud architecture and running systems in production.</description>
+    <language>en</language>
+    <managingEditor>hello@dans.ch (Daniel Scheidemantel Camargo)</managingEditor>
+
+    <item>
+      <title>AI is an accelerator, not a decision-maker</title>
+      <link>https://www.dans.ch/blog/ai-is-an-accelerator-not-a-decision-maker.html</link>
+      <guid isPermaLink="true">https://www.dans.ch/blog/ai-is-an-accelerator-not-a-decision-maker.html</guid>
+      <pubDate>Mon, 31 Aug 2026 09:00:00 +0200</pubDate>
+      <category>Engineering</category>
+      <description>I build a platform whose job is running AI agents in production, and I have every commercial reason to say they are close to autonomous. They are not, and the gap does not close with a bigger model.</description>
+    </item>
+    <item>
+      <title>You have to be bad at something again</title>
+      <link>https://www.dans.ch/blog/you-have-to-be-bad-at-something-again.html</link>
+      <guid isPermaLink="true">https://www.dans.ch/blog/you-have-to-be-bad-at-something-again.html</guid>
+      <pubDate>Mon, 31 Aug 2026 09:00:00 +0200</pubDate>
+      <category>Career</category>
+      <description>Competence is pleasant, and it is where learning quietly stops. What a new country does is expose your defaults as defaults — and you can trigger that without a plane ticket.</description>
+    </item>
+    <item>
+      <title>Planning a legacy migration: the rollout is the hard part</title>
+      <link>https://www.dans.ch/blog/planning-a-legacy-migration.html</link>
+      <guid isPermaLink="true">https://www.dans.ch/blog/planning-a-legacy-migration.html</guid>
+      <pubDate>Mon, 31 Aug 2026 09:00:00 +0200</pubDate>
+      <category>Architecture</category>
+      <description>Writing the new system is the part you can estimate. Moving real traffic and real people onto it is where migrations actually die — and it is consistently planned last.</description>
+    </item>
+
+    <!-- Add one <item> per post, newest first. pubDate must be RFC-822:
+         date -R  →  Sun, 14 Sep 2026 09:00:00 +0200
+
+    <item>
+      <title>Título do post</title>
+      <link>https://www.dans.ch/blog/slug-do-post.html</link>
+      <guid isPermaLink="true">https://www.dans.ch/blog/slug-do-post.html</guid>
+      <pubDate>Sun, 14 Sep 2026 09:00:00 +0200</pubDate>
+      <description>Uma ou duas frases de resumo.</description>
+    </item>
+    -->
+  </channel>
+</rss>
