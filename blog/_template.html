@@ -114,14 +114,14 @@
                     <span>Template</span></p>
 
                 <div class="draft-banner measure">
-                    <strong>Template &mdash; n&atilde;o indexado</strong>
-                    Esta p&aacute;gina existe s&oacute; como refer&ecirc;ncia de marca&ccedil;&atilde;o. Copie o arquivo,
-                    renomeie para o slug do post e substitua tudo abaixo. Ela carrega
-                    <code>robots: noindex, nofollow</code>, ent&atilde;o pode ficar no reposit&oacute;rio sem risco.
+                    <strong>Template &mdash; not indexed</strong>
+                    This page exists only as a markup reference. Copy the file, rename it to the post slug and
+                    replace everything below. It carries <code>robots: noindex, nofollow</code>, so it can sit in
+                    the repository safely.
                 </div>
 
                 <div class="post-head">
-                    <h1>T&iacute;tulo do post em uma linha</h1>
+                    <h1>Post title on a single line</h1>
                     <p class="post-meta">
                         <time datetime="2026-01-01">2026-01-01</time>
                         <span class="sep">&middot;</span><span>8 min</span>
@@ -158,34 +158,33 @@
 
             <section class="section">
                 <article class="post" data-reveal>
-                    <p class="lead">Abertura do post: uma ou duas frases que digam ao leitor exatamente o que ele ganha
-                        lendo isso. Use <code>class="lead"</code> aqui.</p>
+                    <p class="lead">The opening: one or two sentences telling the reader exactly what they get out of
+                        this. Use <code>class="lead"</code> here.</p>
 
-                    <p>Par&aacute;grafo normal. O texto fica limitado a cerca de 74 caracteres por linha, que &eacute; a
-                        faixa confort&aacute;vel de leitura. C&oacute;digo no meio da frase fica assim:
-                        <code>uvicorn main:app --reload</code>. Um <a class="link" href="../index.html">link</a> fica
-                        assim.</p>
+                    <p>A normal paragraph. Text is capped at roughly 74 characters per line, the comfortable
+                        reading range. Inline code looks like this: <code>uvicorn main:app --reload</code>. A
+                        <a class="link" href="../index.html">link</a> looks like this.</p>
 
-                    <h2>Um cabe&ccedil;alho de se&ccedil;&atilde;o</h2>
+                    <h2>A section heading</h2>
 
-                    <p>Cada <code>h2</code> ganha uma r&eacute;gua fina em cima, separando as se&ccedil;&otilde;es sem
-                        precisar de caixa nem sombra.</p>
+                    <p>Every <code>h2</code> gets a hairline above it, separating sections without needing a box
+                        or a shadow.</p>
 
                     <ul class="bullets">
-                        <li>Item de lista com marcador de r&eacute;gua, no mesmo estilo do CV.</li>
-                        <li>Use <strong>strong</strong> para o termo que abre o item, seguido da explica&ccedil;&atilde;o.</li>
-                        <li>Terceiro item para mostrar o espa&ccedil;amento.</li>
+                        <li>A list item with a rule marker, in the same style as the CV.</li>
+                        <li>Use <strong>strong</strong> for the term that opens the item, then the explanation.</li>
+                        <li>A third item, to show the spacing.</li>
                     </ul>
 
-                    <h3>Lista numerada</h3>
+                    <h3>Numbered list</h3>
 
                     <ol>
-                        <li>Passos numerados usam contador em ciano, sem o marcador do navegador.</li>
-                        <li>Bom para tutoriais e procedimentos.</li>
-                        <li>O n&uacute;mero fica alinhado &agrave; margem do texto.</li>
+                        <li>Numbered steps use a cyan counter instead of the browser marker.</li>
+                        <li>Good for tutorials and procedures.</li>
+                        <li>The number aligns to the text margin.</li>
                     </ol>
 
-                    <h3>Bloco de c&oacute;digo</h3>
+                    <h3>Code block</h3>
 
                     <pre><code>@app.get("/health")
 async def health() -&gt; dict[str, str]:
@@ -193,26 +192,26 @@ async def health() -&gt; dict[str, str]:
     await db.execute("SELECT 1")
     return {"status": "ok"}</code></pre>
 
-                    <p>Blocos largos rolam na horizontal dentro da pr&oacute;pria caixa &mdash; a p&aacute;gina nunca
-                        rola de lado.</p>
+                    <p>Wide blocks scroll horizontally inside their own box &mdash; the page itself never scrolls
+                        sideways.</p>
 
                     <div class="callout">
-                        <strong>Nota</strong>
-                        <p>Use o callout para uma ressalva ou um aviso que o leitor n&atilde;o pode perder. Um por post,
-                            no m&aacute;ximo dois &mdash; se tudo &eacute; destaque, nada &eacute;.</p>
+                        <strong>Note</strong>
+                        <p>Use the callout for a caveat or a warning the reader cannot miss. One per post, two at
+                            most &mdash; if everything is highlighted, nothing is.</p>
                     </div>
 
                     <blockquote class="pull">
-                        Uma cita&ccedil;&atilde;o ou uma frase que voc&ecirc; quer que fique na cabe&ccedil;a do leitor.
-                        <cite>Fonte, se houver</cite>
+                        A quote, or the one sentence you want left in the reader's head.
+                        <cite>Source, if there is one</cite>
                     </blockquote>
 
-                    <h2>Tabela</h2>
+                    <h2>Table</h2>
 
                     <div class="table-wrap">
                         <table>
                             <thead>
-                                <tr><th>Abordagem</th><th>p95</th><th>Custo/m&ecirc;s</th></tr>
+                                <tr><th>Approach</th><th>p95</th><th>Cost/month</th></tr>
                             </thead>
                             <tbody>
                                 <tr><td>App Engine, Python 2.7</td><td>820 ms</td><td>US$ 100</td></tr>
@@ -221,20 +220,20 @@ async def health() -&gt; dict[str, str]:
                         </table>
                     </div>
 
-                    <h2>Imagem</h2>
+                    <h2>Image</h2>
 
                     <figure class="fig">
-                        <img src="../assets/images/greenhop1.png" alt="Descreva a imagem para quem n&atilde;o a v&ecirc;"
+                        <img src="../assets/images/greenhop1.png" alt="Describe the image for someone who cannot see it"
                             loading="lazy">
-                        <figcaption>Legenda da imagem &mdash; sempre preencha o <code>alt</code>.</figcaption>
+                        <figcaption>Image caption &mdash; always fill in the <code>alt</code>.</figcaption>
                     </figure>
 
-                    <h2>Fechamento</h2>
+                    <h2>Closing</h2>
 
-                    <p>Termine com o que o leitor deve fazer a seguir, ou o que voc&ecirc; ainda n&atilde;o resolveu.</p>
+                    <p>End with what the reader should do next, or with what you have not solved yet.</p>
 
                     <div class="post-nav">
-                        <a class="btn btn--quiet" href="index.html">&larr; Todos os posts</a>
+                        <a class="btn btn--quiet" href="index.html">&larr; All posts</a>
                         <a class="btn btn--ghost" href="https://tidycal.com/danielsupervisao/30-minute-meeting"
                             target="_blank" rel="noopener">
                             <svg class="icon icon--16" aria-hidden="true"><use href="#i-calendar"></use></svg>

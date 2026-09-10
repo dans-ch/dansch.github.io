@@ -37,11 +37,11 @@
          date -R  →  Sun, 14 Sep 2026 09:00:00 +0200
 
     <item>
-      <title>Título do post</title>
-      <link>https://www.dans.ch/blog/slug-do-post.html</link>
-      <guid isPermaLink="true">https://www.dans.ch/blog/slug-do-post.html</guid>
+      <title>Post title</title>
+      <link>https://www.dans.ch/blog/post-slug.html</link>
+      <guid isPermaLink="true">https://www.dans.ch/blog/post-slug.html</guid>
       <pubDate>Sun, 14 Sep 2026 09:00:00 +0200</pubDate>
-      <description>Uma ou duas frases de resumo.</description>
+      <description>One or two sentences of summary.</description>
     </item>
     -->
   </channel>
