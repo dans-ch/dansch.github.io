@@ -1243,7 +1243,7 @@ body.nav-open .mprog { display: none; }
 .post-item {
   position: relative;
   display: grid;
-  grid-template-columns: 8.5rem minmax(0, 1fr) auto;
+  grid-template-columns: 7.5rem 10rem minmax(0, 1fr) auto;
   gap: var(--s-6);
   align-items: baseline;
   padding: var(--s-8) var(--s-4) var(--s-8) 0;
@@ -1274,9 +1274,48 @@ body.nav-open .mprog { display: none; }
 .post-item p { font-size: var(--fs-sm); color: var(--text-2); max-width: 68ch; margin-bottom: var(--s-4); }
 .post-item .work-arrow { align-self: center; }
 
+/* Post artwork. One SVG per post serves both the list thumbnail and the
+   full-width figure on the post itself — vector, so there is no second file
+   and no resolution to pick. */
+.post-thumb {
+  align-self: start;
+  display: block;
+  aspect-ratio: 16 / 10;
+  border: 1px solid var(--line);
+  border-radius: var(--r-2);
+  background: var(--bg-soft);
+  overflow: hidden;
+}
+.post-thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.85;
+  transition: opacity var(--t-base) var(--ease), transform var(--t-slow) var(--ease-out);
+}
+.post-item:hover .post-thumb img { opacity: 1; transform: scale(1.04); }
+
+.post-figure {
+  margin: 0 0 var(--s-10);
+  aspect-ratio: 2.2 / 1;
+  border: 1px solid var(--line);
+  border-radius: var(--r-3);
+  background: var(--bg-soft);
+  overflow: hidden;
+}
+.post-figure img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+@media (max-width: 940px) {
+  .post-item { grid-template-columns: 7.5rem minmax(0, 1fr) auto; }
+  .post-thumb { display: none; }
+}
+
 @media (max-width: 700px) {
   .post-item { grid-template-columns: 1fr; gap: var(--s-3); }
   .post-item .work-arrow { display: none; }
+  .post-thumb { display: block; max-width: 22rem; }
+  .post-figure { aspect-ratio: 16 / 10; }
 }
 
 /* Empty state for a blog with nothing published yet */

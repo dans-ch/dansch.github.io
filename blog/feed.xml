@@ -12,7 +12,7 @@
       <title>AI is an accelerator, not a decision-maker</title>
       <link>https://www.dans.ch/blog/ai-is-an-accelerator-not-a-decision-maker.html</link>
       <guid isPermaLink="true">https://www.dans.ch/blog/ai-is-an-accelerator-not-a-decision-maker.html</guid>
-      <pubDate>Mon, 31 Aug 2026 09:00:00 +0200</pubDate>
+      <pubDate>Mon, 07 Sep 2026 09:00:00 +0200</pubDate>
       <category>Engineering</category>
       <description>I build a platform whose job is running AI agents in production, and I have every commercial reason to say they are close to autonomous. They are not, and the gap does not close with a bigger model.</description>
     </item>
@@ -28,7 +28,7 @@
       <title>Planning a legacy migration: the rollout is the hard part</title>
       <link>https://www.dans.ch/blog/planning-a-legacy-migration.html</link>
       <guid isPermaLink="true">https://www.dans.ch/blog/planning-a-legacy-migration.html</guid>
-      <pubDate>Mon, 31 Aug 2026 09:00:00 +0200</pubDate>
+      <pubDate>Mon, 24 Aug 2026 09:00:00 +0200</pubDate>
       <category>Architecture</category>
       <description>Writing the new system is the part you can estimate. Moving real traffic and real people onto it is where migrations actually die — and it is consistently planned last.</description>
     </item>
