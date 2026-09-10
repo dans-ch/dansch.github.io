@@ -239,6 +239,22 @@ main {
   color: var(--cyan-400);
 }
 
+/* Language switcher. Set apart from the section links with a hairline
+   border, so it reads as a mode toggle rather than one more page. */
+#header .lang-switch .nav-link {
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 999px;
+  padding: 0.3rem 0.85rem;
+  margin-left: 0.5rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+}
+
+#header .lang-switch .nav-link:hover {
+  border-color: var(--cyan-400);
+  color: var(--cyan-400);
+}
+
 #header .social-icons a {
   color: rgba(255, 255, 255, 0.7);
   transition: color 0.2s ease;

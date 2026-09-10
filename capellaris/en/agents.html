@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agents - Capellaris</title>
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="alternate" hreflang="pt-BR" href="https://www.dans.ch/capellaris/agentes.html">
+    <link rel="alternate" hreflang="en" href="https://www.dans.ch/capellaris/en/agents.html">
+    <link rel="alternate" hreflang="x-default" href="https://www.dans.ch/capellaris/agentes.html">
+    <link rel="icon" type="image/svg+xml" href="../../assets/images/capellaris_v3.svg" />
+    <link rel="shortcut icon" href="../assets/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Capellaris" />
+    <link rel="manifest" href="../assets/site.webmanifest" />
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Design System Styles -->
+    <link rel="stylesheet" href="../assets/style.css">
+    <!-- GSAP -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <!-- Mermaid -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-WXLHS7J8');</script>
+</head>
+
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WXLHS7J8" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <!-- Header -->
+    <div id="header" class="fixed-top">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand d-flex align-items-center" href="../../index.html">
+                        <img src="../../assets/images/dsc_white.svg" alt="Daniel Camargo" class="rounded-circle me-2" width="40" height="40">
+                    </a>
+                    <a class="navbar-brand d-flex align-items-center" href="index.html">
+                        <img src="../../assets/images/capellaris_v3.svg" alt="Capellaris" width="32" height="32" class="me-2 header-capellaris-logo">
+                        <span>Capellaris</span>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item"><a class="nav-link" href="index.html"><i class="fas fa-home me-1"></i> Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="architecture.html"><i class="fas fa-sitemap me-1"></i> Architecture</a></li>
+                            <li class="nav-item"><a class="nav-link active" href="agents.html"><i class="fas fa-robot me-1"></i> Agents</a></li>
+                            <li class="nav-item"><a class="nav-link" href="learning.html"><i class="fas fa-brain me-1"></i> Learning</a></li>
+                            <li class="nav-item"><a class="nav-link" href="integrations.html"><i class="fas fa-plug me-1"></i> Integrations</a></li>
+                            <li class="nav-item"><a class="nav-link" href="documentation.html"><i class="fas fa-book me-1"></i> Docs</a></li>
+                            <li class="nav-item"><a class="nav-link" href="https://capellaris.dscamargo.com.br" target="_blank"><i class="fas fa-external-link-alt me-1"></i> Demo</a></li>
+                            <li class="nav-item lang-switch">
+                                <a class="nav-link" href="../agentes.html" hreflang="pt-BR" lang="pt-BR"
+                                    title="Ler esta página em português">
+                                    <i class="fas fa-globe me-1"></i> PT
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="d-flex ms-3 social-icons">
+                            <a href="http://github.com/danielfloripa" class="me-2 text-light"><i class="fab fa-github"></i></a>
+                            <a href="https://www.linkedin.com/in/daniel13" class="me-2 text-light"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section hero-internal">
+        <div class="hero-bg"><div class="hero-gradient"></div></div>
+        <div class="hero-content gsap-fade-up">
+            <div class="capellaris-hero-logo mb-3">
+                <object type="image/svg+xml" data="../../assets/images/capellaris-animated.svg" class="w-24 h-24 mx-auto" aria-label="Capellaris Logo">
+                    <img src="../../assets/images/capellaris.svg" alt="Capellaris" class="w-24 h-24" />
+                </object>
+            </div>
+            <h1 class="text-3xl md:text-4xl font-bold mb-3">Specialised agents</h1>
+            <p class="text-lg max-w-2xl mx-auto opacity-90">
+                The types of AI agent available in the system, and how they collaborate to solve
+                complex tasks.
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+            <!-- Overview -->
+            <section class="mb-16 gsap-fade-up">
+                <h2 class="section-title">Agents at a glance</h2>
+                <div class="bg-white rounded-lg shadow-lg p-6 md:p-8">
+                    <p class="text-gray-600 mb-6">
+                        AI agents are the heart of Capellaris. Each one specialises in a particular area of
+                        knowledge and can work alone or alongside other agents on tasks that need more than
+                        one speciality.
+                    </p>
+
+                    <!-- Agent Ecosystem Diagram -->
+                    <div class="bg-blue-50 p-6 rounded-lg mb-8">
+                        <h3 class="text-xl font-semibold text-blue-800 mb-4">Agent ecosystem</h3>
+                        <div class="mermaid-container bg-white p-4 rounded-lg border border-blue-200">
+                            <pre class="mermaid">
+mindmap
+    root((Capellaris))
+        Marketing
+            Campaigns
+            SEO
+            Content
+            Metrics
+        Finance
+            Budgets
+            Analysis
+            Reporting
+            Forecasts
+        Engineering
+            Code
+            Debugging
+            Documentation
+            Architecture
+        HR
+            Recruiting
+            Training
+            Policies
+            Performance
+        Sales
+            Strategy
+            Pipeline
+            Proposals
+            Forecasts
+        Operations
+            Processes
+            Projects
+            Logistics
+            Quality
+                            </pre>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <div class="flex items-center bg-gray-50 p-3 rounded-lg">
+                            <i class="fas fa-language text-blue-600 text-xl mr-3"></i>
+                            <span class="text-gray-700">Natural language processing</span>
+                        </div>
+                        <div class="flex items-center bg-gray-50 p-3 rounded-lg">
+                            <i class="fas fa-graduation-cap text-green-600 text-xl mr-3"></i>
+                            <span class="text-gray-700">Continuous learning</span>
+                        </div>
+                        <div class="flex items-center bg-gray-50 p-3 rounded-lg">
+                            <i class="fas fa-exchange-alt text-purple-600 text-xl mr-3"></i>
+                            <span class="text-gray-700">Standard communication</span>
+                        </div>
+                        <div class="flex items-center bg-gray-50 p-3 rounded-lg">
+                            <i class="fas fa-bullseye text-red-600 text-xl mr-3"></i>
+                            <span class="text-gray-700">Domain specialisation</span>
+                        </div>
+                        <div class="flex items-center bg-gray-50 p-3 rounded-lg">
+                            <i class="fas fa-user-check text-yellow-600 text-xl mr-3"></i>
+                            <span class="text-gray-700">Human confirmation</span>
+                        </div>
+                        <div class="flex items-center bg-gray-50 p-3 rounded-lg">
+                            <i class="fas fa-users text-indigo-600 text-xl mr-3"></i>
+                            <span class="text-gray-700">Teamwork</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Agent Types -->
+            <section class="mb-16 gsap-fade-up">
+                <h2 class="section-title">Agent types</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Marketing Agent -->
+                    <div class="card hover:shadow-xl transition-shadow">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-blue-100 p-4 rounded-full mr-4">
+                                <i class="fas fa-bullhorn text-blue-600 text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800">Marketing agent</h3>
+                                <span class="text-sm text-blue-600">@agente_marketing</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4">
+                            Specialist in marketing strategy, content creation and campaign metrics.
+                        </p>
+                        <div class="space-y-2">
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Campaign and metrics analysis
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Multi-channel content creation
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                SEO optimisation
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Market research
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Financial Agent -->
+                    <div class="card hover:shadow-xl transition-shadow">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-green-100 p-4 rounded-full mr-4">
+                                <i class="fas fa-chart-line text-green-600 text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800">Finance agent</h3>
+                                <span class="text-sm text-green-600">@agente_financeiro</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4">
+                            Specialist in financial analysis, budget planning and forecasting.
+                        </p>
+                        <div class="space-y-2">
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Financial statement analysis
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Budget preparation
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Feasibility and ROI analysis
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Financial reporting
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Development Agent -->
+                    <div class="card hover:shadow-xl transition-shadow">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-purple-100 p-4 rounded-full mr-4">
+                                <i class="fas fa-code text-purple-600 text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800">Engineering agent</h3>
+                                <span class="text-sm text-purple-600">@agente_dev</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4">
+                            Specialist in code, debugging, review and technical documentation.
+                        </p>
+                        <div class="space-y-2">
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Code review and optimisation
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Debugging and bug identification
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Architecture recommendations
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Technical documentation
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- HR Agent -->
+                    <div class="card hover:shadow-xl transition-shadow">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-red-100 p-4 rounded-full mr-4">
+                                <i class="fas fa-users text-red-600 text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800">HR agent</h3>
+                                <span class="text-sm text-red-600">@agente_rh</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4">
+                            Specialist in human resources, recruiting and people development.
+                        </p>
+                        <div class="space-y-2">
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Job descriptions and openings
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Candidate screening
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Training plans
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                HR policies
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sales Agent -->
+                    <div class="card hover:shadow-xl transition-shadow">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-yellow-100 p-4 rounded-full mr-4">
+                                <i class="fas fa-handshake text-yellow-600 text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800">Sales agent</h3>
+                                <span class="text-sm text-yellow-600">@agente_vendas</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4">
+                            Specialist in commercial strategy, pipeline management and proposals.
+                        </p>
+                        <div class="space-y-2">
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Sales performance analysis
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Commercial strategy
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Commercial proposals
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Sales forecasting
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Operations Agent -->
+                    <div class="card hover:shadow-xl transition-shadow">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-indigo-100 p-4 rounded-full mr-4">
+                                <i class="fas fa-cogs text-indigo-600 text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800">Operations agent</h3>
+                                <span class="text-sm text-indigo-600">@agente_ops</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4">
+                            Specialist in process optimisation, project management and operational efficiency.
+                        </p>
+                        <div class="space-y-2">
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Process mapping
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Project planning
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Efficiency analysis
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                Continuous improvement
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Squad Formation -->
+            <section class="mb-16 gsap-fade-up">
+                <h2 class="section-title">Squad formation</h2>
+
+                <div class="bg-white rounded-lg shadow-lg p-6 md:p-8">
+                    <p class="text-gray-600 mb-6">
+                        One of the defining features of Capellaris is that it forms <strong>squads</strong> &mdash;
+                        temporary teams of agents that collaborate on complex tasks requiring several
+                        specialities.
+                    </p>
+
+                    <!-- Squad Formation Diagram -->
+                    <div class="bg-blue-50 p-6 rounded-lg mb-8">
+                        <h3 class="text-xl font-semibold text-blue-800 mb-4">How a squad comes together</h3>
+                        <div class="mermaid-container bg-white p-4 rounded-lg border border-blue-200">
+                            <pre class="mermaid">
+flowchart LR
+    A[📋 Complex<br/>task] --> B[🔍 Requirements<br/>analysis]
+    B --> C[🎯 Specialities<br/>identified]
+    C --> D[🤖 Agents<br/>selected]
+    D --> E[👤 Lead<br/>assigned]
+    E --> F[📊 Workflow<br/>created]
+    F --> G[⚡ Collaborative<br/>execution]
+    G --> H[✅ Consolidated<br/>result]
+    
+    style A fill:#e3f2fd
+    style H fill:#e8f5e9
+                            </pre>
+                        </div>
+                    </div>
+
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">Example squads</h3>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-gradient-to-br from-blue-50 to-purple-50 p-5 rounded-lg border border-blue-100">
+                            <h4 class="font-semibold text-gray-800 mb-2 flex items-center">
+                                <i class="fas fa-rocket text-blue-600 mr-2"></i>
+                                Product launch squad
+                            </h4>
+                            <p class="text-gray-600 text-sm mb-3">
+                                Plans and runs the launch of a new product.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs">Marketing</span>
+                                <span class="px-2 py-1 bg-green-100 text-green-700 rounded text-xs">Finance</span>
+                                <span class="px-2 py-1 bg-yellow-100 text-yellow-700 rounded text-xs">Sales</span>
+                                <span class="px-2 py-1 bg-indigo-100 text-indigo-700 rounded text-xs">Operations</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-gradient-to-br from-green-50 to-blue-50 p-5 rounded-lg border border-green-100">
+                            <h4 class="font-semibold text-gray-800 mb-2 flex items-center">
+                                <i class="fas fa-chart-pie text-green-600 mr-2"></i>
+                                Market analysis squad
+                            </h4>
+                            <p class="text-gray-600 text-sm mb-3">
+                                Produces a full analysis of a specific market.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs">Marketing</span>
+                                <span class="px-2 py-1 bg-green-100 text-green-700 rounded text-xs">Finance</span>
+                                <span class="px-2 py-1 bg-yellow-100 text-yellow-700 rounded text-xs">Sales</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-gradient-to-br from-purple-50 to-pink-50 p-5 rounded-lg border border-purple-100">
+                            <h4 class="font-semibold text-gray-800 mb-2 flex items-center">
+                                <i class="fas fa-laptop-code text-purple-600 mr-2"></i>
+                                Engineering squad
+                            </h4>
+                            <p class="text-gray-600 text-sm mb-3">
+                                Plans and tracks software projects.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-purple-100 text-purple-700 rounded text-xs">Engineering</span>
+                                <span class="px-2 py-1 bg-green-100 text-green-700 rounded text-xs">Finance</span>
+                                <span class="px-2 py-1 bg-indigo-100 text-indigo-700 rounded text-xs">Operations</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-gradient-to-br from-yellow-50 to-orange-50 p-5 rounded-lg border border-yellow-100">
+                            <h4 class="font-semibold text-gray-800 mb-2 flex items-center">
+                                <i class="fas fa-sync-alt text-yellow-600 mr-2"></i>
+                                Optimisation squad
+                            </h4>
+                            <p class="text-gray-600 text-sm mb-3">
+                                Analyses and optimises internal processes.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-indigo-100 text-indigo-700 rounded text-xs">Operations</span>
+                                <span class="px-2 py-1 bg-green-100 text-green-700 rounded text-xs">Finance</span>
+                                <span class="px-2 py-1 bg-red-100 text-red-700 rounded text-xs">RH</span>
+                                <span class="px-2 py-1 bg-purple-100 text-purple-700 rounded text-xs">Engineering</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Communication -->
+            <section class="gsap-fade-up">
+                <h2 class="section-title">Agent-to-agent communication</h2>
+
+                <div class="bg-white rounded-lg shadow-lg p-6 md:p-8">
+                    <p class="text-gray-600 mb-6">
+                        Agents talk to each other over Google's A2A (Agent-to-Agent) protocol, which keeps
+                        collaboration between specialists efficient and coordinated.
+                    </p>
+
+                    <!-- Communication Flow -->
+                    <div class="bg-purple-50 p-6 rounded-lg mb-8">
+                        <h3 class="text-xl font-semibold text-purple-800 mb-4">Communication flow</h3>
+                        <div class="mermaid-container bg-white p-4 rounded-lg border border-purple-200">
+                            <pre class="mermaid">
+sequenceDiagram
+    participant MKT as 📢 Marketing
+    participant FIN as 💰 Finance
+    participant ORCH as ⚙️ Orchestrator
+    
+    MKT->>ORCH: Requests a cost analysis
+    ORCH->>FIN: Forwards the request
+    FIN->>FIN: Runs the analysis
+    FIN->>ORCH: Returns the result
+    ORCH->>MKT: Delivers the response
+    MKT->>ORCH: Consolidates the final report
+                            </pre>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-gray-800 mb-3 flex items-center">
+                                <i class="fas fa-envelope text-blue-600 mr-2"></i>
+                                Message structure
+                            </h4>
+                            <ul class="space-y-2 text-gray-600 text-sm">
+                                <li><strong>Sender:</strong> who is sending it</li>
+                                <li><strong>Recipient:</strong> the target agent or squad</li>
+                                <li><strong>Content:</strong> text, data or references</li>
+                                <li><strong>Type:</strong> request, response or notification</li>
+                                <li><strong>Context:</strong> anything else it needs</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-gray-800 mb-3 flex items-center">
+                                <i class="fas fa-route text-green-600 mr-2"></i>
+                                Routing process
+                            </h4>
+                            <ol class="space-y-2 text-gray-600 text-sm list-decimal list-inside">
+                                <li>An agent creates the message</li>
+                                <li>The communication system receives it</li>
+                                <li>The router identifies the recipient</li>
+                                <li>The message is delivered to the queue</li>
+                                <li>The recipient processes it and replies</li>
+                                <li>The interaction is recorded</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <h3 class="text-xl font-bold">Capellaris</h3>
+                    <p class="text-gray-400">The distributed brain of your organization.</p>
+                </div>
+                <nav class="flex space-x-4">
+                    <a href="index.html" class="text-gray-400 hover:text-white">Home</a>
+                    <a href="architecture.html" class="text-gray-400 hover:text-white">Architecture</a>
+                    <a href="documentation.html" class="text-gray-400 hover:text-white">Documentation</a>
+                    <a href="https://capellaris.dscamargo.com.br" class="text-gray-400 hover:text-white">Demo</a>
+                </nav>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-700 text-center text-gray-400">
+                <p>&copy; 2026 Capellaris. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        mermaid.initialize({ 
+            startOnLoad: true, 
+            theme: 'base',
+            themeVariables: {
+                primaryColor: '#dbeafe',
+                primaryTextColor: '#1e293b',
+                primaryBorderColor: '#93c5fd',
+                lineColor: '#9ca3af',
+                secondaryColor: '#fce7f3',
+                tertiaryColor: '#f0fdf4',
+                fontFamily: 'inherit',
+                nodeTextColor: '#1e293b',
+                edgeLabelBackground: '#fef3c7'
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const header = document.getElementById('header');
+            if (header) {
+                window.addEventListener('scroll', () => {
+                    header.classList.toggle('scrolled', window.scrollY > 50);
+                });
+            }
+            
+            if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+                gsap.registerPlugin(ScrollTrigger);
+                gsap.utils.toArray('.gsap-fade-up').forEach((el) => {
+                    gsap.fromTo(el, { opacity: 0, y: 50 }, {
+                        opacity: 1, y: 0, duration: 0.8, ease: 'power2.out',
+                        scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' }
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -793,6 +793,14 @@ body.nav-open .mprog { display: none; }
   line-height: var(--lh-normal);
   margin-bottom: var(--s-1);
 }
+/* Papers keep their Portuguese title of record — that is how they are indexed
+   and cited — with an English gloss underneath so the entry is readable. */
+.pub-title-en {
+  font-size: var(--fs-sm);
+  color: var(--text-3);
+  margin-bottom: var(--s-1);
+}
+
 .pub-meta {
   display: flex;
   flex-wrap: wrap;
@@ -1603,7 +1611,7 @@ figure.fig figcaption {
   .pub-title, .lang-name, .job-org, .booking-slot .duration { color: #000 !important; }
 
   p, li, span, .lead, .muted, .dim, .card p, .metric span { color: #333 !important; }
-  .label, .pub-meta, .job-date, .work-index, .footer-base { color: #666 !important; }
+  .label, .pub-meta, .pub-title-en, .job-date, .work-index, .footer-base { color: #666 !important; }
   a { color: #000 !important; text-decoration: underline; }
 
   .card, .skill-group, .tag, .disclosure, .metric,

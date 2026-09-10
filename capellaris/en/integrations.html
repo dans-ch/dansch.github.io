@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integrations - Capellaris</title>
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="alternate" hreflang="pt-BR" href="https://www.dans.ch/capellaris/integracao.html">
+    <link rel="alternate" hreflang="en" href="https://www.dans.ch/capellaris/en/integrations.html">
+    <link rel="alternate" hreflang="x-default" href="https://www.dans.ch/capellaris/integracao.html">
+    <link rel="icon" type="image/svg+xml" href="../../assets/images/capellaris_v3.svg" />
+    <link rel="shortcut icon" href="../assets/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Capellaris" />
+    <link rel="manifest" href="../assets/site.webmanifest" />
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Design System Styles -->
+    <link rel="stylesheet" href="../assets/style.css">
+    <!-- GSAP -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <!-- Mermaid -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-WXLHS7J8');</script>
+</head>
+
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WXLHS7J8" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <!-- Header -->
+    <div id="header" class="fixed-top">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand d-flex align-items-center" href="../../index.html">
+                        <img src="../../assets/images/dsc_white.svg" alt="Daniel Camargo" class="rounded-circle me-2" width="40" height="40">
+                    </a>
+                    <a class="navbar-brand d-flex align-items-center" href="index.html">
+                        <img src="../../assets/images/capellaris_v3.svg" alt="Capellaris" width="32" height="32" class="me-2 header-capellaris-logo">
+                        <span>Capellaris</span>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item"><a class="nav-link" href="index.html"><i class="fas fa-home me-1"></i> Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="architecture.html"><i class="fas fa-sitemap me-1"></i> Architecture</a></li>
+                            <li class="nav-item"><a class="nav-link" href="agents.html"><i class="fas fa-robot me-1"></i> Agents</a></li>
+                            <li class="nav-item"><a class="nav-link" href="learning.html"><i class="fas fa-brain me-1"></i> Learning</a></li>
+                            <li class="nav-item"><a class="nav-link active" href="integrations.html"><i class="fas fa-plug me-1"></i> Integrations</a></li>
+                            <li class="nav-item"><a class="nav-link" href="documentation.html"><i class="fas fa-book me-1"></i> Docs</a></li>
+                            <li class="nav-item"><a class="nav-link" href="https://capellaris.dscamargo.com.br" target="_blank"><i class="fas fa-external-link-alt me-1"></i> Demo</a></li>
+                            <li class="nav-item lang-switch">
+                                <a class="nav-link" href="../integracao.html" hreflang="pt-BR" lang="pt-BR"
+                                    title="Ler esta página em português">
+                                    <i class="fas fa-globe me-1"></i> PT
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="d-flex ms-3 social-icons">
+                            <a href="http://github.com/danielfloripa" class="me-2 text-light"><i class="fab fa-github"></i></a>
+                            <a href="https://www.linkedin.com/in/daniel13" class="me-2 text-light"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section hero-internal">
+        <div class="hero-bg"><div class="hero-gradient"></div></div>
+        <div class="hero-content gsap-fade-up">
+            <div class="capellaris-hero-logo mb-3">
+                <object type="image/svg+xml" data="../../assets/images/capellaris-animated.svg" class="w-24 h-24 mx-auto" aria-label="Capellaris Logo">
+                    <img src="../../assets/images/capellaris.svg" alt="Capellaris" class="w-24 h-24" />
+                </object>
+            </div>
+            <h1 class="text-3xl md:text-4xl font-bold mb-3">Chat integration</h1>
+            <p class="text-lg max-w-2xl mx-auto opacity-90">
+                How Capellaris plugs into Slack and Microsoft Teams so people can work with the agents
+                the way they already talk to colleagues.
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+            <!-- Overview -->
+            <section class="mb-16 gsap-fade-up">
+                <h2 class="section-title">Integration overview</h2>
+                <div class="bg-white rounded-lg shadow-lg p-6 md:p-8">
+                    <p class="text-gray-600 mb-6">
+                        Chat integration is central to Capellaris: people reach the agents through the interface
+                        they already have open all day, rather than through one more tool to learn.
+                    </p>
+
+                    <!-- Integration Architecture -->
+                    <div class="bg-blue-50 p-6 rounded-lg mb-8">
+                        <h3 class="text-xl font-semibold text-blue-800 mb-4">Integration architecture</h3>
+                        <div class="mermaid-container bg-white p-4 rounded-lg border border-blue-200">
+                            <pre class="mermaid">
+graph TB
+    subgraph Platforms["📱 Chat platforms"]
+        SLACK[fa:fa-slack Slack]
+        TEAMS[fa:fa-microsoft Microsoft Teams]
+    end
+    
+    subgraph Connectors["🔌 Connectors"]
+        SC[Slack connector]
+        TC[Teams connector]
+    end
+    
+    subgraph Core["⚙️ Capellaris core"]
+        ROUTER[Message<br/>router]
+        CONFIRM[Human<br/>confirmation]
+        AGENTS[Specialised<br/>agents]
+    end
+    
+    subgraph Formatters["📝 Formatters"]
+        BLOCKS[Interactive<br/>blocks]
+        CARDS[Adaptive<br/>cards]
+    end
+    
+    SLACK --> SC
+    TEAMS --> TC
+    SC --> ROUTER
+    TC --> ROUTER
+    ROUTER --> CONFIRM
+    CONFIRM --> AGENTS
+    AGENTS --> BLOCKS
+    AGENTS --> CARDS
+    BLOCKS --> SC
+    CARDS --> TC
+    
+    style Platforms fill:#e3f2fd
+    style Core fill:#fff3e0
+    style Connectors fill:#e8f5e9
+    style Formatters fill:#f3e5f5
+                            </pre>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <div class="flex items-center bg-gray-50 p-3 rounded-lg">
+                            <i class="fas fa-comment-dots text-blue-600 text-xl mr-3"></i>
+                            <span class="text-gray-700">Interfaces familiares</span>
+                        </div>
+                        <div class="flex items-center bg-gray-50 p-3 rounded-lg">
+                            <i class="fas fa-users text-green-600 text-xl mr-3"></i>
+                            <span class="text-gray-700">Collaboration in channels</span>
+                        </div>
+                        <div class="flex items-center bg-gray-50 p-3 rounded-lg">
+                            <i class="fas fa-history text-purple-600 text-xl mr-3"></i>
+                            <span class="text-gray-700">Conversation context</span>
+                        </div>
+                        <div class="flex items-center bg-gray-50 p-3 rounded-lg">
+                            <i class="fas fa-bell text-yellow-600 text-xl mr-3"></i>
+                            <span class="text-gray-700">Built-in notifications</span>
+                        </div>
+                        <div class="flex items-center bg-gray-50 p-3 rounded-lg">
+                            <i class="fas fa-archive text-red-600 text-xl mr-3"></i>
+                            <span class="text-gray-700">History preserved</span>
+                        </div>
+                        <div class="flex items-center bg-gray-50 p-3 rounded-lg">
+                            <i class="fas fa-shield-alt text-indigo-600 text-xl mr-3"></i>
+                            <span class="text-gray-700">Enterprise security</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Platforms -->
+            <section class="mb-16 gsap-fade-up">
+                <h2 class="section-title">Plataformas Suportadas</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Slack -->
+                    <div class="card hover:shadow-xl transition-shadow">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-purple-100 p-4 rounded-full mr-4">
+                                <i class="fab fa-slack text-purple-600 text-3xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800">Slack</h3>
+                                <span class="text-sm text-purple-600">Full integration</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4">
+                            Full integration across public channels, private channels and direct messages, with rich
+                            message support.
+                        </p>
+                        <div class="space-y-2">
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="fas fa-at text-purple-500 mr-2"></i>
+                                @agent_name mentions
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="fas fa-comment text-purple-500 mr-2"></i>
+                                Direct messages
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="fas fa-stream text-purple-500 mr-2"></i>
+                                Threaded conversations
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="fas fa-th-large text-purple-500 mr-2"></i>
+                                Interactive blocks
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="fas fa-smile text-purple-500 mr-2"></i>
+                                Feedback via reactions
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Microsoft Teams -->
+                    <div class="card hover:shadow-xl transition-shadow">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-blue-100 p-4 rounded-full mr-4">
+                                <i class="fab fa-microsoft text-blue-600 text-3xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800">Microsoft Teams</h3>
+                                <span class="text-sm text-blue-600">Full integration</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4">
+                            Integration with Teams channels and chats, with adaptive cards and action buttons.
+                        </p>
+                        <div class="space-y-2">
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="fas fa-at text-blue-500 mr-2"></i>
+                                @agent_name mentions
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="fas fa-lock text-blue-500 mr-2"></i>
+                                Private chats
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="fas fa-id-card text-blue-500 mr-2"></i>
+                                Adaptive cards
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="fas fa-mouse-pointer text-blue-500 mr-2"></i>
+                                Action buttons
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="fas fa-columns text-blue-500 mr-2"></i>
+                                Custom tabs
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Future Platforms -->
+                <div class="mt-6 bg-gray-50 p-4 rounded-lg border border-gray-200">
+                    <h4 class="font-semibold text-gray-700 mb-3 flex items-center">
+                        <i class="fas fa-road text-gray-500 mr-2"></i>
+                        Next integrations (roadmap)
+                    </h4>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="px-3 py-1 bg-white border border-gray-300 rounded-full text-sm text-gray-600">
+                            <i class="fab fa-discord mr-1"></i> Discord
+                        </span>
+                        <span class="px-3 py-1 bg-white border border-gray-300 rounded-full text-sm text-gray-600">
+                            <i class="fab fa-telegram mr-1"></i> Telegram
+                        </span>
+                        <span class="px-3 py-1 bg-white border border-gray-300 rounded-full text-sm text-gray-600">
+                            <i class="fab fa-whatsapp mr-1"></i> WhatsApp Business
+                        </span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Interaction Flow -->
+            <section class="mb-16 gsap-fade-up">
+                <h2 class="section-title">Interaction flow</h2>
+
+                <div class="bg-white rounded-lg shadow-lg p-6 md:p-8">
+                    <p class="text-gray-600 mb-6">
+                        What a typical exchange between a person and an agent looks like through the connected
+                        chat platforms.
+                    </p>
+
+                    <div class="bg-blue-50 p-6 rounded-lg mb-8">
+                        <h3 class="text-xl font-semibold text-blue-800 mb-4">Example interaction</h3>
+                        <div class="mermaid-container bg-white p-4 rounded-lg border border-blue-200">
+                            <pre class="mermaid">
+sequenceDiagram
+    participant U as 👤 User
+    participant S as 💬 Slack/Teams
+    participant C as 🔌 Connector
+    participant A as 🤖 Agent
+    participant H as ✅ Approver
+    
+    U->>S: @agente_marketing analyse the campaign
+    S->>C: Forwards the message
+    C->>A: Processes the request
+    A->>C: Asks for approval
+    C->>S: Sends an approval card
+    S->>H: Notifies the approver
+    H->>S: Clicks "Approve"
+    S->>C: Confirmation received
+    C->>A: Runs the task
+    A->>C: Returns the analysis
+    C->>S: Formats the response
+    S->>U: Shows the result
+                            </pre>
+                        </div>
+                    </div>
+
+                    <!-- Example Interaction UI -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-semibold text-gray-800 mb-3">1. The request</h4>
+                            <div class="bg-gray-100 p-4 rounded-lg">
+                                <div class="flex items-start mb-3">
+                                    <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white text-sm mr-3">JD</div>
+                                    <div>
+                                        <span class="font-medium text-gray-800">Jane Doe</span>
+                                        <span class="text-gray-500 text-sm ml-2">10:30</span>
+                                    </div>
+                                </div>
+                                <p class="text-gray-700 ml-11">
+                                    <span class="bg-blue-100 text-blue-800 px-1 rounded">@agente_marketing</span> 
+                                    analyse the results of our email campaign from last quarter
+                                </p>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4 class="font-semibold text-gray-800 mb-3">2. The approval request</h4>
+                            <div class="bg-gray-100 p-4 rounded-lg">
+                                <div class="bg-white p-3 rounded border border-blue-300">
+                                    <div class="flex items-center mb-2">
+                                        <i class="fas fa-robot text-blue-600 mr-2"></i>
+                                        <span class="font-medium text-gray-800">Approval request</span>
+                                    </div>
+                                    <p class="text-gray-600 text-sm mb-3">
+                                        The marketing agent would like to analyse campaign data.
+                                    </p>
+                                    <div class="flex gap-2">
+                                        <button class="px-3 py-1 bg-green-500 text-white rounded text-sm">✓ Approve</button>
+                                        <button class="px-3 py-1 bg-red-500 text-white rounded text-sm">✗ Reject</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Human Confirmation -->
+            <section class="gsap-fade-up">
+                <h2 class="section-title">The human confirmation process</h2>
+
+                <div class="bg-white rounded-lg shadow-lg p-6 md:p-8">
+                    <p class="text-gray-600 mb-6">
+                        Human confirmation is what stops an agent taking an action nobody authorised. Control
+                        stays with the operators.
+                    </p>
+
+                    <!-- Confirmation Flow -->
+                    <div class="bg-green-50 p-6 rounded-lg mb-8">
+                        <h3 class="text-xl font-semibold text-green-800 mb-4">Confirmation flow</h3>
+                        <div class="mermaid-container bg-white p-4 rounded-lg border border-green-200">
+                            <pre class="mermaid">
+flowchart LR
+    A[📋 Task<br/>requested] --> B[🔍 Complexity<br/>assessment]
+    B --> C{Approval<br/>level?}
+    C -->|Low| D[👤 User<br/>approves]
+    C -->|Medium| E[👨‍💼 Manager<br/>approves]
+    C -->|Alto| F[👔 Diretoria<br/>Aprova]
+    D --> G[⚡ Execution]
+    E --> G
+    F --> G
+    G --> H[📊 Report]
+    
+    style A fill:#e3f2fd
+    style G fill:#e8f5e9
+    style H fill:#fff3e0
+                            </pre>
+                        </div>
+                    </div>
+
+                    <!-- Approval Levels -->
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">Approval levels</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-500">
+                            <div class="flex items-center mb-2">
+                                <i class="fas fa-shield-alt text-green-600 mr-2"></i>
+                                <h4 class="font-semibold text-green-800">Low</h4>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-2">
+                                Simple tasks with no access to sensitive data.
+                            </p>
+                            <div class="text-xs text-gray-500">
+                                <strong>Examples:</strong> basic analysis, general summaries
+                            </div>
+                        </div>
+
+                        <div class="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-500">
+                            <div class="flex items-center mb-2">
+                                <i class="fas fa-exclamation-triangle text-yellow-600 mr-2"></i>
+                                <h4 class="font-semibold text-yellow-800">Medium</h4>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-2">
+                                Tasks touching internal data that is not sensitive.
+                            </p>
+                            <div class="text-xs text-gray-500">
+                                <strong>Examples:</strong> detailed reports, recommendations
+                            </div>
+                        </div>
+
+                        <div class="bg-red-50 p-4 rounded-lg border-l-4 border-red-500">
+                            <div class="flex items-center mb-2">
+                                <i class="fas fa-lock text-red-600 mr-2"></i>
+                                <h4 class="font-semibold text-red-800">High</h4>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-2">
+                                Tasks touching sensitive or confidential data.
+                            </p>
+                            <div class="text-xs text-gray-500">
+                                <strong>Examples:</strong> financial analysis, customer data
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Security Note -->
+                    <div class="mt-6 bg-blue-50 p-4 rounded-lg border border-blue-200">
+                        <div class="flex items-start">
+                            <i class="fas fa-info-circle text-blue-600 text-xl mr-3 mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold text-blue-800 mb-1">Security and control</h4>
+                                <p class="text-gray-600 text-sm">
+                                    Every approval is logged and auditable. A request left unanswered for 30 minutes is
+                                    escalated or cancelled automatically, so nothing sits pending indefinitely.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <h3 class="text-xl font-bold">Capellaris</h3>
+                    <p class="text-gray-400">The distributed brain of your organization.</p>
+                </div>
+                <nav class="flex space-x-4">
+                    <a href="index.html" class="text-gray-400 hover:text-white">Home</a>
+                    <a href="architecture.html" class="text-gray-400 hover:text-white">Architecture</a>
+                    <a href="documentation.html" class="text-gray-400 hover:text-white">Documentation</a>
+                    <a href="https://capellaris.dscamargo.com.br" class="text-gray-400 hover:text-white">Demo</a>
+                </nav>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-700 text-center text-gray-400">
+                <p>&copy; 2026 Capellaris. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        mermaid.initialize({ 
+            startOnLoad: true, 
+            theme: 'base',
+            themeVariables: {
+                primaryColor: '#dbeafe',
+                primaryTextColor: '#1e293b',
+                primaryBorderColor: '#93c5fd',
+                lineColor: '#9ca3af',
+                secondaryColor: '#fce7f3',
+                tertiaryColor: '#f0fdf4',
+                fontFamily: 'inherit',
+                nodeTextColor: '#1e293b',
+                edgeLabelBackground: '#fef3c7'
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const header = document.getElementById('header');
+            if (header) {
+                window.addEventListener('scroll', () => {
+                    header.classList.toggle('scrolled', window.scrollY > 50);
+                });
+            }
+            
+            if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+                gsap.registerPlugin(ScrollTrigger);
+                gsap.utils.toArray('.gsap-fade-up').forEach((el) => {
+                    gsap.fromTo(el, { opacity: 0, y: 50 }, {
+                        opacity: 1, y: 0, duration: 0.8, ease: 'power2.out',
+                        scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' }
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

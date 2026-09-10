@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Architecture - Capellaris</title>
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="alternate" hreflang="pt-BR" href="https://www.dans.ch/capellaris/arquitetura.html">
+    <link rel="alternate" hreflang="en" href="https://www.dans.ch/capellaris/en/architecture.html">
+    <link rel="alternate" hreflang="x-default" href="https://www.dans.ch/capellaris/arquitetura.html">
+    <link rel="icon" type="image/svg+xml" href="../../assets/images/capellaris_v3.svg" />
+    <link rel="shortcut icon" href="../assets/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Capellaris" />
+    <link rel="manifest" href="../assets/site.webmanifest" />
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Design System Styles -->
+    <link rel="stylesheet" href="../assets/style.css">
+    <!-- GSAP -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <!-- Mermaid -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-WXLHS7J8');</script>
+</head>
+
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WXLHS7J8" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <!-- Header -->
+    <div id="header" class="fixed-top">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand d-flex align-items-center" href="../../index.html">
+                        <img src="../../assets/images/dsc_white.svg" alt="Daniel Camargo" class="rounded-circle me-2" width="40" height="40">
+                    </a>
+                    <a class="navbar-brand d-flex align-items-center" href="index.html">
+                        <img src="../../assets/images/capellaris_v3.svg" alt="Capellaris" width="32" height="32" class="me-2 header-capellaris-logo">
+                        <span>Capellaris</span>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item"><a class="nav-link" href="index.html"><i class="fas fa-home me-1"></i> Home</a></li>
+                            <li class="nav-item"><a class="nav-link active" href="architecture.html"><i class="fas fa-sitemap me-1"></i> Architecture</a></li>
+                            <li class="nav-item"><a class="nav-link" href="agents.html"><i class="fas fa-robot me-1"></i> Agents</a></li>
+                            <li class="nav-item"><a class="nav-link" href="learning.html"><i class="fas fa-brain me-1"></i> Learning</a></li>
+                            <li class="nav-item"><a class="nav-link" href="integrations.html"><i class="fas fa-plug me-1"></i> Integrations</a></li>
+                            <li class="nav-item"><a class="nav-link" href="documentation.html"><i class="fas fa-book me-1"></i> Docs</a></li>
+                            <li class="nav-item"><a class="nav-link" href="https://capellaris.dscamargo.com.br" target="_blank"><i class="fas fa-external-link-alt me-1"></i> Demo</a></li>
+                            <li class="nav-item lang-switch">
+                                <a class="nav-link" href="../arquitetura.html" hreflang="pt-BR" lang="pt-BR"
+                                    title="Ler esta página em português">
+                                    <i class="fas fa-globe me-1"></i> PT
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="d-flex ms-3 social-icons">
+                            <a href="http://github.com/danielfloripa" class="me-2 text-light"><i class="fab fa-github"></i></a>
+                            <a href="https://www.linkedin.com/in/daniel13" class="me-2 text-light"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section hero-internal">
+        <div class="hero-bg"><div class="hero-gradient"></div></div>
+        <div class="hero-content gsap-fade-up">
+            <div class="capellaris-hero-logo mb-3">
+                <object type="image/svg+xml" data="../../assets/images/capellaris-animated.svg" class="w-24 h-24 mx-auto" aria-label="Capellaris Logo">
+                    <img src="../../assets/images/capellaris.svg" alt="Capellaris" class="w-24 h-24" />
+                </object>
+            </div>
+            <h1 class="text-3xl md:text-4xl font-bold mb-3">System architecture</h1>
+            <p class="text-lg max-w-2xl mx-auto opacity-90">
+                The modular architecture behind Capellaris, built for efficient communication between
+                agents and for continuous learning.
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+            <!-- Architecture Overview -->
+            <section class="mb-16 gsap-fade-up">
+                <h2 class="section-title">Architecture overview</h2>
+                <div class="bg-white rounded-lg shadow-lg p-6 md:p-8">
+                    <p class="text-gray-600 mb-6">
+                        Capellaris is built as a set of modules, so new agents and new system integrations can be
+                        added without touching the rest. Each component has one job and talks to the others
+                        through the same standard interface.
+                    </p>
+
+                    <!-- Mermaid Diagram -->
+                    <div class="bg-blue-50 p-6 rounded-lg mb-8">
+                        <h3 class="text-xl font-semibold text-blue-800 mb-4">Architecture diagram</h3>
+                        <div class="mermaid-container bg-white p-4 rounded-lg border border-blue-200">
+                            <pre class="mermaid">
+graph TB
+    subgraph Interface["🖥️ User interface"]
+        CHAT[Chat Platforms<br/>Slack / Teams]
+        API[API REST]
+    end
+    
+    subgraph Core["⚙️ System core"]
+        ROUTER[Message<br/>router]
+        CONFIRM[Human<br/>confirmation]
+        ORCH[Task<br/>orchestrator]
+    end
+    
+    subgraph Agents["🤖 Specialised agents"]
+        MKT[Marketing]
+        FIN[Finance]
+        DEV[Engineering]
+        HR[HR]
+        SALES[Sales]
+        OPS[Operations]
+    end
+    
+    subgraph Learning["🧠 Learning system"]
+        KB[Knowledge<br/>base]
+        ANALYZER[Pattern<br/>analyser]
+        OPTIMIZER[Prompt<br/>optimiser]
+    end
+    
+    CHAT --> ROUTER
+    API --> ROUTER
+    ROUTER --> CONFIRM
+    CONFIRM --> ORCH
+    ORCH --> MKT
+    ORCH --> FIN
+    ORCH --> DEV
+    ORCH --> HR
+    ORCH --> SALES
+    ORCH --> OPS
+    
+    MKT --> KB
+    FIN --> KB
+    DEV --> KB
+    KB --> ANALYZER
+    ANALYZER --> OPTIMIZER
+    OPTIMIZER --> ORCH
+    
+    style Interface fill:#e3f2fd
+    style Core fill:#fff3e0
+    style Agents fill:#e8f5e9
+    style Learning fill:#f3e5f5
+                            </pre>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <div class="flex items-center mb-3">
+                                <i class="fas fa-cubes text-blue-600 text-2xl mr-3"></i>
+                                <h3 class="font-semibold text-blue-800">Modular</h3>
+                            </div>
+                            <p class="text-gray-600">
+                                Independent components with well-defined interfaces, which is what makes the system
+                                maintainable and extensible.
+                            </p>
+                        </div>
+
+                        <div class="bg-green-50 p-4 rounded-lg">
+                            <div class="flex items-center mb-3">
+                                <i class="fas fa-expand-arrows-alt text-green-600 text-2xl mr-3"></i>
+                                <h3 class="font-semibold text-green-800">Scalable</h3>
+                            </div>
+                            <p class="text-gray-600">
+                                Designed to scale horizontally, supporting many agents and many concurrent
+                                tasks.
+                            </p>
+                        </div>
+
+                        <div class="bg-purple-50 p-4 rounded-lg">
+                            <div class="flex items-center mb-3">
+                                <i class="fas fa-puzzle-piece text-purple-600 text-2xl mr-3"></i>
+                                <h3 class="font-semibold text-purple-800">Extensible</h3>
+                            </div>
+                            <p class="text-gray-600">
+                                New agents and new integrations can be added without modifying the
+                                core.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Core Components -->
+            <section class="mb-16 gsap-fade-up">
+                <h2 class="section-title">Main components</h2>
+
+                <div class="space-y-6">
+                    <!-- Core System -->
+                    <div class="card">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-cogs text-blue-600 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-800">System core</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">
+                            The central brain that coordinates everything. It manages agent registration, orchestrates
+                            task execution and holds the system state.
+                        </p>
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-medium text-gray-800 mb-3">Responsibilities:</h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                <div class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span class="text-gray-600">Agent registration and management</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span class="text-gray-600">Task coordination</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span class="text-gray-600">Global state</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <span class="text-gray-600">Configuration management</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Communication System -->
+                    <div class="card">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-purple-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-comments text-purple-600 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-800">Communication system</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">
+                            Handles message exchange between agents on Google's A2A (Agent-to-Agent) protocol, which
+                            keeps the communication standard and efficient.
+                        </p>
+                        
+                        <!-- Communication Flow Diagram -->
+                        <div class="bg-purple-50 p-4 rounded-lg">
+                            <div class="mermaid-container">
+                                <pre class="mermaid">
+sequenceDiagram
+    participant U as User
+    participant R as Router
+    participant A1 as Agent 1
+    participant A2 as Agent 2
+    
+    U->>R: Sends request
+    R->>A1: Routes message
+    A1->>A2: Asks for collaboration
+    A2->>A1: Returns result
+    A1->>R: Consolidated response
+    R->>U: Delivers response
+                                </pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Human Confirmation -->
+                    <div class="card">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-green-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-user-shield text-green-600 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-800">Human confirmation</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">
+                            The safety layer: every action an agent takes is approved by a human operator before it
+                            runs.
+                        </p>
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <div class="mermaid-container">
+                                <pre class="mermaid">
+flowchart LR
+    A[Task requested] --> B{Risk assessment}
+    B -->|Low| C[Simple approval]
+    B -->|Medium| D[Manager approval]
+    B -->|High| E[Board approval]
+    C --> F[Execution]
+    D --> F
+    E --> F
+    F --> G[Report]
+                                </pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Technology Stack -->
+            <section class="gsap-fade-up">
+                <h2 class="section-title">Technology stack</h2>
+
+                <div class="bg-white rounded-lg shadow-lg p-6 md:p-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="text-center p-4 bg-blue-50 rounded-lg">
+                            <i class="fab fa-python text-4xl text-blue-600 mb-3"></i>
+                            <h4 class="font-semibold text-gray-800">Python</h4>
+                            <p class="text-sm text-gray-600">Main language</p>
+                        </div>
+                        
+                        <div class="text-center p-4 bg-green-50 rounded-lg">
+                            <i class="fas fa-bolt text-4xl text-green-600 mb-3"></i>
+                            <h4 class="font-semibold text-gray-800">FastAPI</h4>
+                            <p class="text-sm text-gray-600">Framework web</p>
+                        </div>
+                        
+                        <div class="text-center p-4 bg-purple-50 rounded-lg">
+                            <i class="fas fa-database text-4xl text-purple-600 mb-3"></i>
+                            <h4 class="font-semibold text-gray-800">PostgreSQL</h4>
+                            <p class="text-sm text-gray-600">Database</p>
+                        </div>
+                        
+                        <div class="text-center p-4 bg-red-50 rounded-lg">
+                            <i class="fas fa-brain text-4xl text-red-600 mb-3"></i>
+                            <h4 class="font-semibold text-gray-800">OpenAI GPT</h4>
+                            <p class="text-sm text-gray-600">AI model</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-gray-800 mb-3">
+                                <i class="fas fa-server text-blue-600 mr-2"></i>
+                                Backend
+                            </h4>
+                            <ul class="space-y-2 text-gray-600">
+                                <li><i class="fas fa-check text-green-500 mr-2"></i>Redis for caching</li>
+                                <li><i class="fas fa-check text-green-500 mr-2"></i>RabbitMQ for messaging</li>
+                                <li><i class="fas fa-check text-green-500 mr-2"></i>Prometheus for monitoring</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-gray-800 mb-3">
+                                <i class="fas fa-plug text-purple-600 mr-2"></i>
+                                Integration
+                            </h4>
+                            <ul class="space-y-2 text-gray-600">
+                                <li><i class="fas fa-check text-green-500 mr-2"></i>APIs REST e GraphQL</li>
+                                <li><i class="fas fa-check text-green-500 mr-2"></i>OAuth 2.0 e JWT</li>
+                                <li><i class="fas fa-check text-green-500 mr-2"></i>Webhooks for chat</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <h3 class="text-xl font-bold">Capellaris</h3>
+                    <p class="text-gray-400">The distributed brain of your organization.</p>
+                </div>
+                <nav class="flex space-x-4">
+                    <a href="index.html" class="text-gray-400 hover:text-white">Home</a>
+                    <a href="architecture.html" class="text-gray-400 hover:text-white">Architecture</a>
+                    <a href="documentation.html" class="text-gray-400 hover:text-white">Documentation</a>
+                    <a href="https://capellaris.dscamargo.com.br" class="text-gray-400 hover:text-white">Demo</a>
+                </nav>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-700 text-center text-gray-400">
+                <p>&copy; 2026 Capellaris. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Initialize Mermaid
+        mermaid.initialize({ 
+            startOnLoad: true, 
+            theme: 'base',
+            themeVariables: {
+                primaryColor: '#dbeafe',
+                primaryTextColor: '#1e293b',
+                primaryBorderColor: '#93c5fd',
+                lineColor: '#9ca3af',
+                secondaryColor: '#fce7f3',
+                tertiaryColor: '#f0fdf4',
+                fontFamily: 'inherit',
+                nodeTextColor: '#1e293b',
+                edgeLabelBackground: '#fef3c7'
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const header = document.getElementById('header');
+            if (header) {
+                window.addEventListener('scroll', () => {
+                    header.classList.toggle('scrolled', window.scrollY > 50);
+                });
+            }
+            
+            if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+                gsap.registerPlugin(ScrollTrigger);
+                gsap.utils.toArray('.gsap-fade-up').forEach((el) => {
+                    gsap.fromTo(el, { opacity: 0, y: 50 }, {
+                        opacity: 1, y: 0, duration: 0.8, ease: 'power2.out',
+                        scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' }
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

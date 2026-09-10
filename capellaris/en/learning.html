@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning - Capellaris</title>
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="alternate" hreflang="pt-BR" href="https://www.dans.ch/capellaris/aprendizado.html">
+    <link rel="alternate" hreflang="en" href="https://www.dans.ch/capellaris/en/learning.html">
+    <link rel="alternate" hreflang="x-default" href="https://www.dans.ch/capellaris/aprendizado.html">
+    <link rel="icon" type="image/svg+xml" href="../../assets/images/capellaris_v3.svg" />
+    <link rel="shortcut icon" href="../assets/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Capellaris" />
+    <link rel="manifest" href="../assets/site.webmanifest" />
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Design System Styles -->
+    <link rel="stylesheet" href="../assets/style.css">
+    <!-- GSAP -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <!-- Mermaid -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-WXLHS7J8');</script>
+</head>
+
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WXLHS7J8" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <!-- Header -->
+    <div id="header" class="fixed-top">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand d-flex align-items-center" href="../../index.html">
+                        <img src="../../assets/images/dsc_white.svg" alt="Daniel Camargo" class="rounded-circle me-2" width="40" height="40">
+                    </a>
+                    <a class="navbar-brand d-flex align-items-center" href="index.html">
+                        <img src="../../assets/images/capellaris_v3.svg" alt="Capellaris" width="32" height="32" class="me-2 header-capellaris-logo">
+                        <span>Capellaris</span>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item"><a class="nav-link" href="index.html"><i class="fas fa-home me-1"></i> Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="architecture.html"><i class="fas fa-sitemap me-1"></i> Architecture</a></li>
+                            <li class="nav-item"><a class="nav-link" href="agents.html"><i class="fas fa-robot me-1"></i> Agents</a></li>
+                            <li class="nav-item"><a class="nav-link active" href="learning.html"><i class="fas fa-brain me-1"></i> Learning</a></li>
+                            <li class="nav-item"><a class="nav-link" href="integrations.html"><i class="fas fa-plug me-1"></i> Integrations</a></li>
+                            <li class="nav-item"><a class="nav-link" href="documentation.html"><i class="fas fa-book me-1"></i> Docs</a></li>
+                            <li class="nav-item"><a class="nav-link" href="https://capellaris.dscamargo.com.br" target="_blank"><i class="fas fa-external-link-alt me-1"></i> Demo</a></li>
+                            <li class="nav-item lang-switch">
+                                <a class="nav-link" href="../aprendizado.html" hreflang="pt-BR" lang="pt-BR"
+                                    title="Ler esta página em português">
+                                    <i class="fas fa-globe me-1"></i> PT
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="d-flex ms-3 social-icons">
+                            <a href="http://github.com/danielfloripa" class="me-2 text-light"><i class="fab fa-github"></i></a>
+                            <a href="https://www.linkedin.com/in/daniel13" class="me-2 text-light"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section hero-internal">
+        <div class="hero-bg"><div class="hero-gradient"></div></div>
+        <div class="hero-content gsap-fade-up">
+            <div class="capellaris-hero-logo mb-3">
+                <object type="image/svg+xml" data="../../assets/images/capellaris-animated.svg" class="w-24 h-24 mx-auto" aria-label="Capellaris Logo">
+                    <img src="../../assets/images/capellaris.svg" alt="Capellaris" class="w-24 h-24" />
+                </object>
+            </div>
+            <h1 class="text-3xl md:text-4xl font-bold mb-3">Learning system</h1>
+            <p class="text-lg max-w-2xl mx-auto opacity-90">
+                How Capellaris keeps improving, using the history of its interactions and the feedback
+                it receives.
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+            <!-- Overview -->
+            <section class="mb-16 gsap-fade-up">
+                <h2 class="section-title">The learning system at a glance</h2>
+                <div class="bg-white rounded-lg shadow-lg p-6 md:p-8">
+                    <p class="text-gray-600 mb-6">
+                        The learning system is what lets the agents get better over time. It stores the history of
+                        interactions, analyses it, and uses what it finds to tune how the agents
+                        perform.
+                    </p>
+
+                    <!-- Learning Cycle Diagram -->
+                    <div class="bg-blue-50 p-6 rounded-lg mb-8">
+                        <h3 class="text-xl font-semibold text-blue-800 mb-4">The continuous learning loop</h3>
+                        <div class="mermaid-container bg-white p-4 rounded-lg border border-blue-200">
+                            <pre class="mermaid">
+graph LR
+    A[📥 Interactions<br/>collected] --> B[💾 Structured<br/>storage]
+    B --> C[🔍 Pattern<br/>analysis]
+    C --> D[⚡ Prompt<br/>optimisation]
+    D --> E[🚀 Knowledge<br/>applied]
+    E --> F[📊 Feedback and<br/>evaluation]
+    F --> A
+    
+    style A fill:#e3f2fd
+    style C fill:#fff3e0
+    style E fill:#e8f5e9
+                            </pre>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="bg-blue-50 p-4 rounded-lg text-center">
+                            <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-database text-blue-600 text-2xl"></i>
+                            </div>
+                            <h3 class="font-semibold text-blue-800 mb-2">Storage</h3>
+                            <p class="text-gray-600 text-sm">
+                                A structured record of every interaction, prompt, response and piece of feedback.
+                            </p>
+                        </div>
+
+                        <div class="bg-green-50 p-4 rounded-lg text-center">
+                            <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-chart-bar text-green-600 text-2xl"></i>
+                            </div>
+                            <h3 class="font-semibold text-green-800 mb-2">Analysis</h3>
+                            <p class="text-gray-600 text-sm">
+                                Processing that history to find patterns and openings.
+                            </p>
+                        </div>
+
+                        <div class="bg-purple-50 p-4 rounded-lg text-center">
+                            <div class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-magic text-purple-600 text-2xl"></i>
+                            </div>
+                            <h3 class="font-semibold text-purple-800 mb-2">Application</h3>
+                            <p class="text-gray-600 text-sm">
+                                Using what it learned to tune prompts and improve responses.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Components -->
+            <section class="mb-16 gsap-fade-up">
+                <h2 class="section-title">System components</h2>
+
+                <div class="space-y-6">
+                    <!-- Knowledge Base -->
+                    <div class="card">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-server text-blue-600 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-800">Knowledge base</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">
+                            The system's memory. It holds every interaction between agents and users &mdash; prompts,
+                            responses, feedback and the metadata that goes with them.
+                        </p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-gray-50 p-3 rounded-lg">
+                                <div class="flex items-center mb-2">
+                                    <i class="fas fa-layer-group text-blue-500 mr-2"></i>
+                                    <span class="font-medium text-gray-700">Structured storage</span>
+                                </div>
+                                <p class="text-gray-600 text-sm">Organised by agent, domain and task type</p>
+                            </div>
+                            <div class="bg-gray-50 p-3 rounded-lg">
+                                <div class="flex items-center mb-2">
+                                    <i class="fas fa-search text-green-500 mr-2"></i>
+                                    <span class="font-medium text-gray-700">Efficient indexing</span>
+                                </div>
+                                <p class="text-gray-600 text-sm">Fast lookup of the relevant interactions</p>
+                            </div>
+                            <div class="bg-gray-50 p-3 rounded-lg">
+                                <div class="flex items-center mb-2">
+                                    <i class="fas fa-history text-purple-500 mr-2"></i>
+                                    <span class="font-medium text-gray-700">Versioning</span>
+                                </div>
+                                <p class="text-gray-600 text-sm">Tracks changes and how prompts evolve</p>
+                            </div>
+                            <div class="bg-gray-50 p-3 rounded-lg">
+                                <div class="flex items-center mb-2">
+                                    <i class="fas fa-shield-alt text-red-500 mr-2"></i>
+                                    <span class="font-medium text-gray-700">Privacy</span>
+                                </div>
+                                <p class="text-gray-600 text-sm">Protection of sensitive data, and compliance</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pattern Analyzer -->
+                    <div class="card">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-green-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-microscope text-green-600 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-800">Pattern analyser</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">
+                            Reads the interaction history for patterns, trends and correlations that can improve how
+                            the agents perform.
+                        </p>
+                        
+                        <div class="bg-green-50 p-4 rounded-lg">
+                            <div class="mermaid-container">
+                                <pre class="mermaid">
+graph LR
+    A[📝 History] --> B[🔎 Pattern<br/>identification]
+    B --> C[📊 Effectiveness<br/>analysis]
+    C --> D[🏷️ Topic<br/>extraction]
+    D --> E[😊 Sentiment<br/>analysis]
+    E --> F[⚠️ Anomaly<br/>detection]
+    F --> G[📈 Insights]
+                                </pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Prompt Optimizer -->
+                    <div class="card">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-purple-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-bolt text-purple-600 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-800">Prompt optimiser</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">
+                            Takes what the pattern analyser found and improves the prompts, which produces more
+                            accurate and more relevant responses.
+                        </p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                            <div class="flex items-center bg-purple-50 p-3 rounded-lg">
+                                <i class="fas fa-edit text-purple-600 mr-2"></i>
+                                <span class="text-gray-700 text-sm">Prompt rewriting</span>
+                            </div>
+                            <div class="flex items-center bg-purple-50 p-3 rounded-lg">
+                                <i class="fas fa-plus-circle text-purple-600 mr-2"></i>
+                                <span class="text-gray-700 text-sm">Added context</span>
+                            </div>
+                            <div class="flex items-center bg-purple-50 p-3 rounded-lg">
+                                <i class="fas fa-align-left text-purple-600 mr-2"></i>
+                                <span class="text-gray-700 text-sm">Output format</span>
+                            </div>
+                            <div class="flex items-center bg-purple-50 p-3 rounded-lg">
+                                <i class="fas fa-sliders-h text-purple-600 mr-2"></i>
+                                <span class="text-gray-700 text-sm">Parameter tuning</span>
+                            </div>
+                            <div class="flex items-center bg-purple-50 p-3 rounded-lg">
+                                <i class="fas fa-vials text-purple-600 mr-2"></i>
+                                <span class="text-gray-700 text-sm">A/B testing</span>
+                            </div>
+                            <div class="flex items-center bg-purple-50 p-3 rounded-lg">
+                                <i class="fas fa-check-double text-purple-600 mr-2"></i>
+                                <span class="text-gray-700 text-sm">Continuous validation</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Learning Process -->
+            <section class="mb-16 gsap-fade-up">
+                <h2 class="section-title">The learning process</h2>
+
+                <div class="bg-white rounded-lg shadow-lg p-6 md:p-8">
+                    <p class="text-gray-600 mb-6">
+                        Learning runs as a continuous loop: a handful of connected steps that keep raising how well
+                        the agents perform.
+                    </p>
+
+                    <!-- Step by Step -->
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-start">
+                            <div class="bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0">1</div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Data collection</h4>
+                                <p class="text-gray-600 text-sm">Every interaction is recorded: prompts, responses, feedback and context.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0">2</div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Structured storage</h4>
+                                <p class="text-gray-600 text-sm">The data is organised in the knowledge base and indexed properly.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0">3</div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Pattern analysis</h4>
+                                <p class="text-gray-600 text-sm">The system reads the history for trends and openings.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0">4</div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Prompt optimisation</h4>
+                                <p class="text-gray-600 text-sm">Prompts are refined automatically on the basis of those findings.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0">5</div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Applying the knowledge</h4>
+                                <p class="text-gray-600 text-sm">What the system learned is applied to new interactions.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-green-600 text-white rounded-full w-8 h-8 flex items-center justify-center mr-4 flex-shrink-0">6</div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Feedback and evaluation</h4>
+                                <p class="text-gray-600 text-sm">Those new interactions are evaluated, which feeds the loop again.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Example -->
+                    <div class="bg-yellow-50 p-6 rounded-lg border border-yellow-200">
+                        <h3 class="text-lg font-semibold text-yellow-800 mb-4 flex items-center">
+                            <i class="fas fa-lightbulb mr-2"></i>
+                            Example: tuning a marketing analysis
+                        </h3>
+                        <div class="mermaid-container bg-white p-4 rounded-lg">
+                            <pre class="mermaid">
+flowchart TB
+    A["👤 User asks:<br/>'Analyse our email campaign'"] --> B["🤖 Agent returns a<br/>basic analysis"]
+    B --> C["❌ User: 'Segmentation<br/>data is missing'"]
+    C --> D["💾 System stores the<br/>interaction + feedback"]
+    D --> E["🔍 Analysis finds:<br/>campaign reviews need<br/>segmentation"]
+    E --> F["⚡ Tuned prompt:<br/>'Analyse, including<br/>metrics and segmentation'"]
+    F --> G["✅ Similar requests now<br/>get the full<br/>analysis"]
+    
+    style A fill:#fff3e0
+    style G fill:#e8f5e9
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Metrics -->
+            <section class="gsap-fade-up">
+                <h2 class="section-title">Learning metrics</h2>
+
+                <div class="bg-white rounded-lg shadow-lg p-6 md:p-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
+                                <i class="fas fa-tachometer-alt text-blue-600 mr-2"></i>
+                                Performance metrics
+                            </h3>
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                    <span class="text-gray-700">Satisfaction rate</span>
+                                    <span class="text-green-600 font-semibold">📊 Positive feedback</span>
+                                </div>
+                                <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                    <span class="text-gray-700">Rejection rate</span>
+                                    <span class="text-red-600 font-semibold">📉 Rejected responses</span>
+                                </div>
+                                <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                    <span class="text-gray-700">Response time</span>
+                                    <span class="text-blue-600 font-semibold">⏱️ Mean latency</span>
+                                </div>
+                                <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                    <span class="text-gray-700">Precision</span>
+                                    <span class="text-purple-600 font-semibold">🎯 Accuracy</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
+                                <i class="fas fa-graduation-cap text-green-600 mr-2"></i>
+                                Evolution metrics
+                            </h3>
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                    <span class="text-gray-700">Improvement rate</span>
+                                    <span class="text-green-600 font-semibold">📈 Progress</span>
+                                </div>
+                                <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                    <span class="text-gray-700">Optimisation impact</span>
+                                    <span class="text-blue-600 font-semibold">⚡ Impact</span>
+                                </div>
+                                <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                    <span class="text-gray-700">Domain coverage</span>
+                                    <span class="text-purple-600 font-semibold">🌐 Breadth</span>
+                                </div>
+                                <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                    <span class="text-gray-700">Adaptability</span>
+                                    <span class="text-yellow-600 font-semibold">🔄 Flexibility</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 bg-blue-50 p-4 rounded-lg border border-blue-200">
+                        <div class="flex items-start">
+                            <i class="fas fa-info-circle text-blue-600 text-xl mr-3 mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold text-blue-800 mb-1">Transparency and control</h4>
+                                <p class="text-gray-600 text-sm">
+                                    Every optimisation is tested and validated before it ships. The system keeps a full
+                                    record of the changes, which is what makes it transparent and reversible
+                                    when it needs to be.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <h3 class="text-xl font-bold">Capellaris</h3>
+                    <p class="text-gray-400">The distributed brain of your organization.</p>
+                </div>
+                <nav class="flex space-x-4">
+                    <a href="index.html" class="text-gray-400 hover:text-white">Home</a>
+                    <a href="architecture.html" class="text-gray-400 hover:text-white">Architecture</a>
+                    <a href="documentation.html" class="text-gray-400 hover:text-white">Documentation</a>
+                    <a href="https://capellaris.dscamargo.com.br" class="text-gray-400 hover:text-white">Demo</a>
+                </nav>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-700 text-center text-gray-400">
+                <p>&copy; 2026 Capellaris. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        mermaid.initialize({ 
+            startOnLoad: true, 
+            theme: 'base',
+            themeVariables: {
+                primaryColor: '#dbeafe',
+                primaryTextColor: '#1e293b',
+                primaryBorderColor: '#93c5fd',
+                lineColor: '#9ca3af',
+                secondaryColor: '#fce7f3',
+                tertiaryColor: '#f0fdf4',
+                fontFamily: 'inherit',
+                nodeTextColor: '#1e293b',
+                edgeLabelBackground: '#fef3c7'
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const header = document.getElementById('header');
+            if (header) {
+                window.addEventListener('scroll', () => {
+                    header.classList.toggle('scrolled', window.scrollY > 50);
+                });
+            }
+            
+            if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+                gsap.registerPlugin(ScrollTrigger);
+                gsap.utils.toArray('.gsap-fade-up').forEach((el) => {
+                    gsap.fromTo(el, { opacity: 0, y: 50 }, {
+                        opacity: 1, y: 0, duration: 0.8, ease: 'power2.out',
+                        scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' }
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

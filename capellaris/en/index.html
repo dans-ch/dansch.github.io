@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capellaris - AI Agent Management Platform</title>
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="alternate" hreflang="pt-BR" href="https://www.dans.ch/capellaris/index.html">
+    <link rel="alternate" hreflang="en" href="https://www.dans.ch/capellaris/en/index.html">
+    <link rel="alternate" hreflang="x-default" href="https://www.dans.ch/capellaris/index.html">
+    <link rel="icon" type="image/svg+xml" href="../../assets/images/capellaris_v3.svg" />
+    <link rel="shortcut icon" href="../assets/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Capellaris" />
+    <link rel="manifest" href="../assets/site.webmanifest" />
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Tailwind CSS (for utility classes) -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Design System Styles -->
+    <link rel="stylesheet" href="../assets/style.css">
+    <!-- GSAP + ScrollTrigger -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-WXLHS7J8');</script>
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WXLHS7J8" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+
+    <!-- Header - Home Style -->
+    <div id="header" class="fixed-top">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand d-flex align-items-center" href="../../index.html">
+                        <img src="../../assets/images/dsc_white.svg" alt="Daniel Camargo" class="rounded-circle me-2" width="40" height="40">
+                    </a>
+                    <a class="navbar-brand d-flex align-items-center" href="index.html">
+                        <img src="../../assets/images/capellaris_v3.svg" alt="Capellaris" width="32" height="32" class="me-2">
+                        <span>Capellaris</span>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="index.html">
+                                    <i class="fas fa-home me-1"></i> Home
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="architecture.html">
+                                    <i class="fas fa-sitemap me-1"></i> Architecture
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="agents.html">
+                                    <i class="fas fa-robot me-1"></i> Agents
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="learning.html">
+                                    <i class="fas fa-brain me-1"></i> Learning
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="integrations.html">
+                                    <i class="fas fa-plug me-1"></i> Integrations
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="documentation.html">
+                                    <i class="fas fa-book me-1"></i> Docs
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://capellaris.dscamargo.com.br" target="_blank">
+                                    <i class="fas fa-external-link-alt me-1"></i> Demo
+                                </a>
+                            </li>
+                            <li class="nav-item lang-switch">
+                                <a class="nav-link" href="../index.html" hreflang="pt-BR" lang="pt-BR"
+                                    title="Ler esta página em português">
+                                    <i class="fas fa-globe me-1"></i> PT
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="d-flex ms-3 social-icons">
+                            <a href="http://github.com/danielfloripa" class="me-2 text-light"><i class="fab fa-github"></i></a>
+                            <a href="https://www.linkedin.com/in/daniel13" class="me-2 text-light"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Hero Section with Particles -->
+    <section class="hero-section">
+        <div class="hero-bg">
+            <div class="hero-gradient"></div>
+            <div id="particles-js" class="hero-particles"></div>
+        </div>
+        <div class="hero-content gsap-fade-up">
+            <!-- Logo Animado -->
+            <div class="capellaris-hero-logo mb-4">
+                <object type="image/svg+xml" data="../../assets/images/capellaris-animated.svg" class="w-48 h-48 md:w-64 md:h-64 mx-auto" aria-label="Capellaris Logo">
+                    <img src="../../assets/images/capellaris.svg" alt="Capellaris" class="w-48 h-48 md:w-64 md:h-64" />
+                </object>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Capellaris</h1>
+            <p class="text-xl md:text-2xl mb-2 opacity-90">AI Agent Management Platform</p>
+            <p class="text-lg max-w-3xl mx-auto mb-8 opacity-80">
+                A complete platform for managing AI agents specialised in different areas of a business, with
+                agent-to-agent communication, squads formed on demand and continuous learning.
+            </p>
+            <div class="flex justify-center gap-4 flex-wrap">
+                <a href="documentation.html" class="btn-primary px-6 py-3 rounded-full font-semibold">
+                    <i class="fas fa-book me-2"></i>Read the docs
+                </a>
+                <a href="https://capellaris.dscamargo.com.br" class="btn-secondary px-6 py-3 rounded-full font-semibold">
+                    <i class="fas fa-play me-2"></i>Live demo
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <!-- Features Section -->
+            <div class="mb-16">
+                <h2 class="section-title text-center mb-8 gsap-fade-up">Key capabilities</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="card gsap-fade-up">
+                        <div class="flex items-center mb-4">
+                            <svg class="h-8 w-8 text-blue-600 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                            </svg>
+                            <h3 class="text-xl font-semibold">Specialised agents</h3>
+                        </div>
+                        <p class="text-gray-600">
+                            AI agents specialised in distinct areas of a business: marketing, finance, engineering,
+                            HR, sales and operations.
+                        </p>
+                    </div>
+                    <div class="card gsap-fade-up">
+                        <div class="flex items-center mb-4">
+                            <svg class="h-8 w-8 text-green-600 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg>
+                            <h3 class="text-xl font-semibold">Agent-to-agent communication</h3>
+                        </div>
+                        <p class="text-gray-600">
+                            A communication layer built on Google's A2A protocol, so agents can share context and
+                            collaborate on a task.
+                        </p>
+                    </div>
+                    <div class="card gsap-fade-up">
+                        <div class="flex items-center mb-4">
+                            <svg class="h-8 w-8 text-purple-600 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                            </svg>
+                            <h3 class="text-xl font-semibold">Squads on demand</h3>
+                        </div>
+                        <p class="text-gray-600">
+                            Temporary teams of agents, assembled for complex tasks that need more than one
+                            speciality.
+                        </p>
+                    </div>
+                    <div class="card gsap-fade-up">
+                        <div class="flex items-center mb-4">
+                            <svg class="h-8 w-8 text-red-600 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                            </svg>
+                            <h3 class="text-xl font-semibold">Learning system</h3>
+                        </div>
+                        <p class="text-gray-600">
+                            A prompt history fed back into the system, so agents keep improving on the basis of
+                            earlier interactions.
+                        </p>
+                    </div>
+                    <div class="card gsap-fade-up">
+                        <div class="flex items-center mb-4">
+                            <svg class="h-8 w-8 text-yellow-600 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                            </svg>
+                            <h3 class="text-xl font-semibold">Chat integration</h3>
+                        </div>
+                        <p class="text-gray-600">
+                            Integration with chat tools such as Slack and Microsoft Teams, so people work with the
+                            agents where they already are.
+                        </p>
+                    </div>
+                    <div class="card gsap-fade-up">
+                        <div class="flex items-center mb-4">
+                            <svg class="h-8 w-8 text-indigo-600 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <h3 class="text-xl font-semibold">Human confirmation</h3>
+                        </div>
+                        <p class="text-gray-600">
+                            An approval step that requires a human operator to confirm before a task runs, which is
+                            where control and safety actually live.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- How It Works Section -->
+            <div class="mb-16">
+                <h2 class="section-title text-center mb-8 gsap-fade-up">How it works</h2>
+                <div class="bg-white rounded-lg shadow-lg p-6 md:p-8 gsap-fade-up">
+                    <div class="space-y-8">
+                        <div class="flex flex-col md:flex-row items-start">
+                            <div class="flex-shrink-0 bg-blue-100 rounded-full p-3 mr-6 mb-4 md:mb-0">
+                                <span class="text-blue-800 font-bold">1</span>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-3">Task request</h3>
+                                <p class="text-gray-600 mb-4">
+                                    A user requests a task in chat, saying what they want done. The system reads the request and
+                                    works out which agents it needs.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col md:flex-row items-start">
+                            <div class="flex-shrink-0 bg-blue-100 rounded-full p-3 mr-6 mb-4 md:mb-0">
+                                <span class="text-blue-800 font-bold">2</span>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-3">Human approval</h3>
+                                <p class="text-gray-600 mb-4">
+                                    The system sends an approval request to the human operator, spelling out the task and the
+                                    agents involved. The operator can approve, reject or ask for more detail.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col md:flex-row items-start">
+                            <div class="flex-shrink-0 bg-blue-100 rounded-full p-3 mr-6 mb-4 md:mb-0">
+                                <span class="text-blue-800 font-bold">3</span>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-3">Execution</h3>
+                                <p class="text-gray-600 mb-4">
+                                    Once approved, the system runs the task with the right agents. If it is complex, it forms a
+                                    squad of several agents that collaborate with each other.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col md:flex-row items-start">
+                            <div class="flex-shrink-0 bg-blue-100 rounded-full p-3 mr-6 mb-4 md:mb-0">
+                                <span class="text-blue-800 font-bold">4</span>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-3">Delivery</h3>
+                                <p class="text-gray-600 mb-4">
+                                    Results come back to the user in chat. The system also stores the interaction so it can
+                                    learn from it later.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col md:flex-row items-start">
+                            <div class="flex-shrink-0 bg-blue-100 rounded-full p-3 mr-6 mb-4 md:mb-0">
+                                <span class="text-blue-800 font-bold">5</span>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-3">Continuous learning</h3>
+                                <p class="text-gray-600 mb-4">
+                                    The system reviews the interaction history to improve how the agents perform. Prompts are
+                                    tuned against the patterns it finds and the feedback it receives.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Section -->
+            <div class="bg-blue-600 rounded-lg shadow-lg p-8 text-white text-center gsap-fade-up">
+                <h2 class="text-3xl font-bold mb-4">Ready to start?</h2>
+                <p class="text-xl mb-6">
+                    Read the full documentation and see how Capellaris changes the way your company puts
+                    artificial intelligence to work.
+                </p>
+                <div class="flex justify-center space-x-4">
+                    <a href="documentation.html" class="btn-secondary px-6 py-3 rounded-full font-semibold">
+                        Read the docs
+                    </a>
+                    <a href="https://capellaris.dscamargo.com.br" class="bg-blue-800 text-white px-6 py-3 rounded-full font-semibold">
+                        Try the demo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <h3 class="text-xl font-bold">Capellaris</h3>
+                    <p class="text-gray-400">The distributed brain of your organization.</p>
+                </div>
+                <nav class="flex space-x-4">
+                    <a href="index.html" class="text-gray-400 hover:text-white">Home</a>
+                    <a href="architecture.html" class="text-gray-400 hover:text-white">Architecture</a>
+                    <a href="documentation.html" class="text-gray-400 hover:text-white">Documentation</a>
+                    <a href="https://capellaris.dscamargo.com.br" class="text-gray-400 hover:text-white">Demo</a>
+                </nav>
+                <div class="mt-4 md:mt-0">
+                    <p class="text-gray-400">© 2026 Capellaris.<br>All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Particles.js & GSAP Initialization -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Header scroll effect
+            const header = document.getElementById('header');
+            if (header) {
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 50) {
+                        header.classList.add('scrolled');
+                    } else {
+                        header.classList.remove('scrolled');
+                    }
+                });
+            }
+            
+            // Lazy load particles.js
+            function loadParticlesJS() {
+                const particlesContainer = document.getElementById('particles-js');
+                if (particlesContainer && typeof particlesJS === 'undefined') {
+                    const script = document.createElement('script');
+                    script.src = 'https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js';
+                    script.onload = function() {
+                        particlesJS('particles-js', {
+                            particles: {
+                                number: { value: 80, density: { enable: true, value_area: 800 } },
+                                color: { value: '#ffffff' },
+                                shape: { type: 'circle' },
+                                opacity: { value: 0.5, random: true },
+                                size: { value: 3, random: true },
+                                line_linked: { enable: true, distance: 150, color: '#ffffff', opacity: 0.2, width: 1 },
+                                move: { enable: true, speed: 1, direction: 'none', random: true, out_mode: 'out' }
+                            },
+                            interactivity: {
+                                detect_on: 'canvas',
+                                events: { onhover: { enable: true, mode: 'grab' }, onclick: { enable: true, mode: 'push' } },
+                                modes: { grab: { distance: 140, line_linked: { opacity: 0.5 } }, push: { particles_nb: 4 } }
+                            },
+                            retina_detect: true
+                        });
+                        console.log('Particles.js loaded on Capellaris');
+                    };
+                    document.head.appendChild(script);
+                }
+            }
+            
+            // Load particles after a short delay
+            setTimeout(loadParticlesJS, 100);
+            
+            // GSAP ScrollTrigger Animations
+            if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+                gsap.registerPlugin(ScrollTrigger);
+                
+                // Animate all elements with gsap-fade-up class
+                gsap.utils.toArray('.gsap-fade-up').forEach((element, index) => {
+                    gsap.fromTo(element, 
+                        { opacity: 0, y: 50 },
+                        {
+                            opacity: 1,
+                            y: 0,
+                            duration: 0.8,
+                            ease: 'power2.out',
+                            scrollTrigger: {
+                                trigger: element,
+                                start: 'top 85%',
+                                toggleActions: 'play none none none'
+                            }
+                        }
+                    );
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -7,6 +7,19 @@
   <url><loc>https://www.dans.ch/greenhop.html</loc><priority>0.6</priority></url>
   <url><loc>https://www.dans.ch/files/</loc><priority>0.5</priority></url>
   <url><loc>https://www.dans.ch/capellaris/</loc><priority>0.7</priority></url>
+  <url><loc>https://www.dans.ch/capellaris/en/</loc><priority>0.7</priority></url>
+  <url><loc>https://www.dans.ch/capellaris/arquitetura.html</loc><priority>0.5</priority></url>
+  <url><loc>https://www.dans.ch/capellaris/agentes.html</loc><priority>0.5</priority></url>
+  <url><loc>https://www.dans.ch/capellaris/aprendizado.html</loc><priority>0.5</priority></url>
+  <url><loc>https://www.dans.ch/capellaris/integracao.html</loc><priority>0.5</priority></url>
+  <url><loc>https://www.dans.ch/capellaris/documentacao.html</loc><priority>0.5</priority></url>
+  <url><loc>https://www.dans.ch/capellaris/demo.html</loc><priority>0.5</priority></url>
+  <url><loc>https://www.dans.ch/capellaris/en/architecture.html</loc><priority>0.5</priority></url>
+  <url><loc>https://www.dans.ch/capellaris/en/agents.html</loc><priority>0.5</priority></url>
+  <url><loc>https://www.dans.ch/capellaris/en/learning.html</loc><priority>0.5</priority></url>
+  <url><loc>https://www.dans.ch/capellaris/en/integrations.html</loc><priority>0.5</priority></url>
+  <url><loc>https://www.dans.ch/capellaris/en/documentation.html</loc><priority>0.5</priority></url>
+  <url><loc>https://www.dans.ch/capellaris/en/demo.html</loc><priority>0.5</priority></url>
   <url><loc>https://www.dans.ch/blog/ai-is-an-accelerator-not-a-decision-maker.html</loc><lastmod>2026-09-07</lastmod><priority>0.7</priority></url>
   <url><loc>https://www.dans.ch/blog/you-have-to-be-bad-at-something-again.html</loc><lastmod>2026-08-31</lastmod><priority>0.7</priority></url>
   <url><loc>https://www.dans.ch/blog/planning-a-legacy-migration.html</loc><lastmod>2026-08-24</lastmod><priority>0.7</priority></url>
