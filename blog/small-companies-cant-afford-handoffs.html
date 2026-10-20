@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>End to end: why small companies can’t afford handoffs — Daniel Scheidemantel Camargo</title>
+    <meta name="description" content="Small companies have no buffer for handoffs. The most valuable engineering skill there is carrying a problem from the user’s real need through requirements, architecture, code and maintenance.">
+    <meta name="author" content="Daniel Scheidemantel Camargo">
+    <meta name="referrer" content="origin">
+    <link rel="canonical" href="https://www.dans.ch/blog/small-companies-cant-afford-handoffs.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Daniel Scheidemantel Camargo">
+    <meta property="og:locale" content="en">
+    <meta property="og:title" content="End to end: why small companies can’t afford handoffs">
+    <meta property="og:description" content="Small companies have no buffer for handoffs. The most valuable engineering skill there is carrying a problem from the user’s real need through requirements, architecture, code and maintenance.">
+    <meta property="og:url" content="https://www.dans.ch/blog/small-companies-cant-afford-handoffs.html">
+    <meta property="og:image" content="https://www.dans.ch/assets/images/blog/og-end-to-end.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Above, five faint nodes joined by short lines that stop before each next node; below, the same five nodes on one continuous bright line, with a dashed arc returning from the last node to the first.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://www.dans.ch/assets/images/blog/og-end-to-end.jpg">
+
+    <link rel="icon" href="../assets/ico/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/ico/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/ico/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/ico/apple-touch-icon.png">
+    <link rel="manifest" href="../assets/ico/site.webmanifest">
+    <link rel="alternate" type="application/rss+xml" title="DanSch — Writing" href="https://www.dans.ch/blog/feed.xml">
+    <meta name="theme-color" content="#08090b">
+    <meta name="color-scheme" content="dark">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+
+    <link rel="stylesheet" href="../design-system/variables.css">
+    <link rel="stylesheet" href="../assets/style.css">
+
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+            var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-WXLHS7J8');</script>
+    <!-- End Google Tag Manager -->
+    <meta property="article:published_time" content="2026-10-20T09:00:00+02:00">
+    <meta property="article:author" content="Daniel Scheidemantel Camargo">
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WXLHS7J8" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+
+    <!-- Icon sprite, inlined from assets/icons.svg. Embedded rather than
+         fetched so icons survive file:// and a JS-less load. -->
+    <svg class="sprite" style="display:none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+      <!-- Stroke icons (24x24, 1.6 stroke, inherit currentColor) -->
+      <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+      <symbol id="i-arrow-down" viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></symbol>
+      <symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="M8 16 16 8M9 8h7v7"/></symbol>
+      <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></symbol>
+      <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v11M7.5 10 12 14.5 16.5 10M4 18.5h16"/></symbol>
+      <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="16" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="m4.5 12.5 5 5 10-11"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="m3.5 7 8.5 6 8.5-6"/></symbol>
+      <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.5 3.5h-2a2 2 0 0 0-2 2.2 17 17 0 0 0 15.8 15.8 2 2 0 0 0 2.2-2v-2a1.6 1.6 0 0 0-1.3-1.6l-2.5-.5a1.6 1.6 0 0 0-1.6.7l-.8 1.2a13 13 0 0 1-5.8-5.8l1.2-.8a1.6 1.6 0 0 0 .7-1.6l-.5-2.5a1.6 1.6 0 0 0-1.4-1.1Z"/></symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/></symbol>
+      <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 3v5h5"/></symbol>
+      <symbol id="i-terminal" viewBox="0 0 24 24"><rect x="2.5" y="4" width="19" height="16" rx="2"/><path d="m7 10 3 2.5L7 15M13 15h4"/></symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+
+      <!-- Brand marks (filled) -->
+      <symbol id="i-github" viewBox="0 0 24 24"><path d="M12 1.8a10.2 10.2 0 0 0-3.23 19.88c.51.1.7-.22.7-.49l-.01-1.9c-2.6.5-3.27-.63-3.48-1.21-.12-.3-.63-1.23-1.07-1.48-.36-.2-.88-.67-.02-.69.81-.01 1.39.75 1.58 1.06.93 1.56 2.4 1.12 2.99.85.09-.67.36-1.12.66-1.38-2.3-.26-4.7-1.15-4.7-5.11 0-1.13.4-2.06 1.06-2.78-.1-.26-.46-1.32.1-2.74 0 0 .87-.27 2.85 1.06a9.6 9.6 0 0 1 5.18 0c1.97-1.34 2.84-1.06 2.84-1.06.57 1.42.21 2.48.1 2.74a4 4 0 0 1 1.07 2.78c0 3.98-2.42 4.85-4.72 5.1.37.33.7.95.7 1.92l-.01 2.85c0 .27.19.6.7.5A10.2 10.2 0 0 0 12 1.8Z"/></symbol>
+      <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5ZM3 9.5h4v11H3v-11Zm6.5 0h3.83v1.5h.05a4.2 4.2 0 0 1 3.78-2.08c4.04 0 4.79 2.66 4.79 6.11v5.47h-4v-4.85c0-1.16-.02-2.65-1.61-2.65-1.62 0-1.87 1.26-1.87 2.56v4.94h-4v-11Z"/></symbol>
+      <symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.94L2 22.5l5.7-1.5A9.9 9.9 0 1 0 12.04 2Zm0 1.8a8.1 8.1 0 1 1-4.15 15.06l-.3-.18-3.36.88.9-3.28-.2-.32A8.1 8.1 0 0 1 12.04 3.8Zm-3.6 4.05c-.18 0-.47.07-.72.34-.25.27-.95.93-.95 2.26s.98 2.62 1.11 2.8c.14.18 1.9 3.02 4.7 4.1 2.32.9 2.8.72 3.3.68.5-.05 1.6-.65 1.83-1.29.22-.63.22-1.17.16-1.29-.07-.11-.25-.18-.52-.31-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.13-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.14-.42-2.17-1.34-.8-.71-1.34-1.6-1.5-1.87-.16-.27-.02-.41.12-.55.12-.12.27-.31.4-.47.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.47-.07-.14-.6-1.47-.83-2.01-.21-.52-.43-.45-.6-.46l-.5-.01Z"/></symbol>
+      <symbol id="i-scholar" viewBox="0 0 24 24"><path d="M12 2 1 8l11 6 9-4.9v6.4h2V8L12 2ZM5 13.2v4.3c0 1.8 3.1 3.5 7 3.5s7-1.7 7-3.5v-4.3l-7 3.8-7-3.8Z"/></symbol>
+    </svg>
+
+    <div id="bg-net" aria-hidden="true"></div>
+    <div class="bg-veil" aria-hidden="true"></div>
+
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a class="brand" href="../index.html">
+                <img src="../assets/images/dsc_mark.svg" alt="" width="24" height="24">
+                <span>DANSCH</span>
+            </a>
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"
+                aria-label="Toggle navigation"><span></span></button>
+            <nav class="nav" id="site-nav" aria-label="Primary">
+                <ul>
+                    <li><a href="../index.html#work">Work</a></li>
+                    <li><a href="../capellaris/en/index.html" class="is-flagged">Capellaris</a></li>
+                    <li><a href="../index.html#papers">Publications</a></li>
+                    <li><a href="../curriculum.html">CV</a></li>
+                    <li><a href="../index.html#contact">Contact</a></li>
+                    <li><a href="../blog/" aria-current="page">Blog</a></li>
+                </ul>
+                <div class="header-social">
+                    <a href="https://www.linkedin.com/in/daniel13" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="icon icon--18 icon--solid" aria-hidden="true"><use href="#i-linkedin"></use></svg></a>
+                    <a href="https://api.whatsapp.com/send?phone=34674409270&amp;text=Contact%20from%20dans.ch" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="icon icon--18 icon--solid" aria-hidden="true"><use href="#i-whatsapp"></use></svg></a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <main id="main">
+        <section class="page-head page-head--post">
+            <div class="container">
+                <p class="breadcrumb"><a href="../index.html">Home</a>
+                    <svg class="icon icon--16" aria-hidden="true"><use href="#i-chevron-right"></use></svg>
+                    <a href="index.html">Writing</a></p>
+
+                <div class="post-head">
+                    <h1>End to end: why small companies can&rsquo;t afford handoffs</h1>
+                    <p class="post-meta">
+                        <time datetime="2026-10-20">2026-10-20</time>
+                        <span class="sep">&middot;</span><span>7 min</span>
+                        <span class="sep">&middot;</span><span>Architecture</span>
+                    </p>
+                    <div class="tag-row"><span class="tag">Small business</span><span class="tag">Architecture</span><span class="tag">Product</span><span class="tag">Operations</span></div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container rail-host">
+            <div class="rail" aria-hidden="true">
+                <div class="rail-progress"></div>
+                <div class="walker">
+                    <svg viewBox="0 0 48 60" role="presentation" focusable="false">
+                        <circle class="bot-halo" cx="24" cy="30" r="12" />
+                        <path class="bot-line" d="M24 8.5v4.5" />
+                        <circle class="bot-led" cx="24" cy="6" r="2.4" />
+                        <g class="bot-arm bot-arm--l"><path class="bot-limb" d="M14.5 35v9.5" /></g>
+                        <g class="bot-arm bot-arm--r"><path class="bot-limb" d="M33.5 35v9.5" /></g>
+                        <rect class="bot-shell" x="11" y="13" width="26" height="17" rx="5" />
+                        <rect class="bot-visor" x="15" y="17.5" width="18" height="8" rx="4" />
+                        <circle class="bot-eye" cx="20" cy="21.5" r="1.7" />
+                        <circle class="bot-eye" cx="28" cy="21.5" r="1.7" />
+                        <rect class="bot-shell" x="14" y="32" width="20" height="16" rx="4" />
+                        <path class="bot-line" d="M18.5 37.5h11M18.5 41.5h7" />
+                        <g class="bot-leg bot-leg--l"><path class="bot-limb" d="M19.5 48v9" /></g>
+                        <g class="bot-leg bot-leg--r"><path class="bot-limb" d="M28.5 48v9" /></g>
+                    </svg>
+                </div>
+            </div>
+
+            <section class="section">
+                <article class="post" data-reveal>
+                    <figure class="post-figure"><img src="../assets/images/blog/end-to-end.svg" alt="Above, five faint nodes joined by short lines that stop before each next node; below, the same five nodes on one continuous bright line, with a dashed arc returning from the last node to the first." width="1200" height="750" decoding="async"></figure>
+
+                    <p class="lead">In a large company, a feature passes through five pairs of hands before it
+                        reaches a user. In a small company it usually passes through one. That person's most valuable
+                        skill is not writing code &mdash; it is carrying a problem all the way from "what does this
+                        person actually need" to "it is still working six months later".</p>
+
+                    <p>I have worked at both ends of that spectrum. At Mercado Livre I was one of eight engineers on a
+                        simulation platform used by around five thousand supply-chain specialists, with product, data
+                        and platform teams around us. At <a class="link" href="../capellaris/en/index.html">Capellaris</a>,
+                        an agentic platform built for small and medium businesses, I was the only engineer: my business
+                        partner owned the commercial and financial side, and everything technical &mdash; from the
+                        first conversation with a pilot customer to post-sales support &mdash; was mine. Both are
+                        legitimate ways to build software. They need different people.</p>
+
+                    <h2>Five jobs, usually five job titles</h2>
+
+                    <p>Delivering something end to end means doing five distinct jobs. In a large organisation each
+                        one has its own title.</p>
+
+                    <ol>
+                        <li><strong>Understanding the need.</strong> What the user is trying to get done, as opposed
+                            to what they asked for.</li>
+                        <li><strong>Technical requirements.</strong> Volumes, budget, data, integrations, and what
+                            happens when it fails.</li>
+                        <li><strong>Architecture.</strong> The shape of the system, chosen for the team that will run
+                            it.</li>
+                        <li><strong>Implementation.</strong> The code.</li>
+                        <li><strong>Maintenance.</strong> Operating it, fixing it, and changing it as the business
+                            moves.</li>
+                    </ol>
+
+                    <p>Every handoff between those jobs loses a little context. A large company pays for that loss
+                        with headcount, documents and meetings, and it can afford to. A small company cannot. It has no
+                        product manager to translate the customer, no SRE to absorb the operational cost of a clever
+                        design, and often no second engineer to question the first one's assumptions. Every handoff it
+                        does have becomes a place where the original intent quietly leaks out.</p>
+
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr><th>Stage</th><th>Large company</th><th>Small company</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Understanding the need</td><td>Product, UX research</td><td>Whoever talks to the customer</td></tr>
+                                <tr><td>Technical requirements</td><td>Architects, tech leads</td><td>Nobody, unless the engineer asks</td></tr>
+                                <tr><td>Architecture</td><td>Review board, platform team</td><td>The engineer, bounded by the budget</td></tr>
+                                <tr><td>Implementation</td><td>Several engineers, code review</td><td>One or two engineers</td></tr>
+                                <tr><td>Maintenance</td><td>SRE, on-call rotation, support</td><td>The same engineer, indefinitely</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h2>Start with the need, not the request</h2>
+
+                    <p>Users describe solutions. That is not a failing &mdash; it is the only vocabulary most people
+                        have for a problem. The engineer's job is to work backwards from the request to the thing it is
+                        standing in for.</p>
+
+                    <p>At Busca&ocirc;nibus, a travel meta-search platform, five small bus companies had no digital
+                        integration at all. An integration in the usual sense was impossible: there was nothing on
+                        their side to connect to, and no one there to build it. What the business actually needed was
+                        for their routes to appear in search like everyone else's. Framed that way, the answer was
+                        on-demand scrapers running on Cloud Run, plus a monitoring dashboard that surfaced when a
+                        company stopped returning data.</p>
+
+                    <p>The Capellaris pilots were smaller still: an independent consultancy, a restaurant and an art
+                        atelier. For one pilot customer, the deliverable that mattered was a unified view of financial
+                        planning across departments, replacing fragmented manual processes. The agents were the means.
+                        Had I started from "what can agents do" instead of "where does this business lose track of its
+                        plan", I would have built a demo.</p>
+
+                    <p>This stage pays off at any scale. On the Mercado Livre simulators, splitting one large input
+                        spreadsheet into smaller sequential steps cut input errors by 17%. No model, no new service
+                        &mdash; just a closer look at how people were actually filling it in.</p>
+
+                    <h2>Requirements are where small projects quietly fail</h2>
+
+                    <p>In a small company, technical requirements are rarely written down, because writing them is
+                        nobody's job. They exist anyway, and they come due later. These are the questions I ask before
+                        designing anything:</p>
+
+                    <ul class="bullets">
+                        <li><strong>Who uses it, and how often?</strong> Ten people once a week and ten thousand people
+                            an hour are different systems.</li>
+                        <li><strong>What happens if it is down for an hour?</strong> For a day? The honest answer is
+                            often "not much", and that answer is worth a lot of money.</li>
+                        <li><strong>What data does it touch, and who owns it?</strong> Especially once an LLM sits in
+                            the path.</li>
+                        <li><strong>What does it cost per month</strong> at today's volume, and at ten times that?</li>
+                        <li><strong>Who fixes it at two in the morning?</strong> In a small company, this is the
+                            requirement that should shape every other one.</li>
+                    </ul>
+
+                    <h2>Architecture sized to the team, not the diagram</h2>
+
+                    <p>For a small company, an architecture decision is mostly an operations decision in disguise.
+                        Every service, queue and datastore is something somebody has to understand, upgrade, secure and
+                        pay for. The best design is rarely the most elegant one on a whiteboard.</p>
+
+                    <p>Capellaris is not a small system: multi-tenant, with a full RAG pipeline, hybrid search and
+                        hierarchical multi-agent orchestration. It still runs on managed pieces &mdash; Cloud Run and
+                        Firebase on GCP, Supabase PostgreSQL with pgvector, Cloudflare in front. Vectors live in the
+                        same Postgres as the rest of the data rather than in a separate vector database, and the models
+                        sit behind one interface so no single vendor owns the product. None of those choices wins a
+                        benchmark on its own. Together they let one engineer operate the whole thing.</p>
+
+                    <blockquote class="pull">
+                        The right architecture for a small company is the one its smallest realistic team can still
+                        operate at two in the morning.
+                    </blockquote>
+
+                    <h2>Implementation is the part everyone already sees</h2>
+
+                    <p>Writing the code is the stage people picture when they hear "engineer", and the one that has
+                        changed most. I use AI coding tools every day and they have made implementation genuinely
+                        cheaper. As I argued in <a class="link" href="ai-is-an-accelerator-not-a-decision-maker.html">AI
+                        is an accelerator, not a decision-maker</a>, that does not make the surrounding decisions
+                        cheaper &mdash; it makes them a larger share of the job. When code was slow to write, fuzzy
+                        requirements had time to surface before much was built on them. Now you can build the wrong
+                        thing in an afternoon.</p>
+
+                    <h2>Maintenance is where you find out whether you understood</h2>
+
+                    <p>Launch is the midpoint, not the finish line. Most of what I know about building systems I
+                        learned in the months after they shipped.</p>
+
+                    <p>At Stormtech I wrote about half of a fleet of RPA bots that scraped bank portals to update loan
+                        status across 18 integrated banks, and maintained all of them &mdash; which meant updating a
+                        bot every time a bank changed its portal. Maintaining your own code alongside other people's
+                        teaches you quickly which assumptions were fragile. It is also why I built a dashboard of bot
+                        health &mdash; running, failed, unused &mdash; that cut the time to spot a broken pipeline from
+                        about two hours to under one.</p>
+
+                    <p>At Busca&ocirc;nibus I was the sole technical owner of a backend handling millions of daily
+                        searches: on-call, incident response, the whole production lifecycle. When you know you are
+                        the one who gets paged, you build differently. You put feature flags with immediate rollback in
+                        place before you need them &mdash; the approach behind the platform migration I described in
+                        <a class="link" href="planning-a-legacy-migration.html">Planning a legacy migration</a>. You
+                        give each data source its own cache TTL and build a tool to inspect the keys, because you will
+                        be the one inspecting them.</p>
+
+                    <div class="callout">
+                        <strong>A quick test</strong>
+                        <p>Ask whoever built a system how they would find out it was broken. If the answer is "a user
+                            would tell us", it was built by someone who did not expect to maintain it.</p>
+                    </div>
+
+                    <h2>The loop is the point</h2>
+
+                    <p>The value of one person owning all five stages is not that they do five jobs. It is that the
+                        last stage feeds the first. The person who hears the complaint can change the requirement, the
+                        architecture or the code without a ticket crossing three teams first.</p>
+
+                    <p>On Capellaris, every project delivered by the manager agent received a one-to-five star rating
+                        from the user. I tracked it from the first single-agent deliveries through to hierarchical
+                        multi-agent runs, and later projects scored higher and needed fewer refinement rounds. That
+                        curve came from a short loop: the person reading the ratings was the same person deciding what
+                        to build next.</p>
+
+                    <h2>Where end to end goes wrong</h2>
+
+                    <p>This is not an argument for heroics. One person owning everything has real failure modes, and
+                        ignoring them is how small companies end up hostage to a single engineer.</p>
+
+                    <ul class="bullets">
+                        <li><strong>Bus factor.</strong> Knowledge that lives in one head is a risk, not an asset.
+                            Owning something end to end includes writing it down and choosing technology someone else
+                            can pick up.</li>
+                        <li><strong>Uneven depth.</strong> Nobody is equally strong at all five stages. Part of the
+                            skill is knowing which one is your weakest and when to bring in a specialist.</li>
+                        <li><strong>Bottleneck.</strong> Past a certain size, a single owner slows the company down.
+                            The goal then is to hand stages off deliberately, with their context, rather than by
+                            accident.</li>
+                        <li><strong>No guarantee of a product.</strong> At ReciclaComigo, a five-person startup, I
+                            built a reverse vending machine's edge software, its Arduino firmware and its AWS
+                            environment. The company closed before public launch. Owning every technical layer does not
+                            make a market exist.</li>
+                    </ul>
+
+                    <h2>If you are hiring for a small company</h2>
+
+                    <p>Do not only ask candidates what they built. Ask what they kept running, what broke, and what
+                        they changed because of it. The answers tell you whether someone has done the whole loop or
+                        only its visible middle.</p>
+
+                    <p>And if you are an engineer who wants this skill, there is no shortcut: stay with something after
+                        it ships. Be the person who gets the call. It is the least glamorous of the five stages, and it
+                        is the one that teaches you the other four.</p>
+
+                    <div class="post-nav">
+                        <a class="btn btn--quiet" href="index.html">&larr; All posts</a>
+                        <a class="btn btn--ghost" href="https://tidycal.com/danielsupervisao/30-minute-meeting"
+                            target="_blank" rel="noopener">
+                            <svg class="icon icon--16" aria-hidden="true"><use href="#i-calendar"></use></svg>
+                            Book a 30-min call</a>
+                    </div>
+                </article>
+            </section>
+        </div>
+    </main>
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h2>About</h2>
+                    <p>Applied AI Engineer and Senior Full-Stack Developer based in Barcelona. Cloud architecture,
+                        LLM-powered platforms, DevSecOps, IoT and system integration — from technical scoping through
+                        to production operation.</p>
+                    <div class="footer-social">
+                        <a href="https://github.com/danielfloripa" target="_blank" rel="noopener" aria-label="GitHub"><svg class="icon icon--18 icon--solid" aria-hidden="true"><use href="#i-github"></use></svg></a>
+                        <a href="https://www.linkedin.com/in/daniel13" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="icon icon--18 icon--solid" aria-hidden="true"><use href="#i-linkedin"></use></svg></a>
+                        <a href="https://api.whatsapp.com/send?phone=34674409270&amp;text=Contact%20from%20dans.ch" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="icon icon--18 icon--solid" aria-hidden="true"><use href="#i-whatsapp"></use></svg></a>
+                        <a href="https://scholar.google.com.br/citations?hl=pt-BR&amp;authuser=1&amp;user=mwcTdEEAAAAJ" target="_blank" rel="noopener" aria-label="Google Scholar"><svg class="icon icon--18 icon--solid" aria-hidden="true"><use href="#i-scholar"></use></svg></a>
+                    </div>
+                </div>
+                <div>
+                    <h2>Navigate</h2>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../index.html#work">Selected work</a></li>
+                        <li><a href="../capellaris/en/index.html">Capellaris</a></li>
+                        <li><a href="../index.html#papers">Publications</a></li>
+                        <li><a href="../curriculum.html">Curriculum vitae</a></li>
+                        <li><a href="../blog/">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h2>Contact</h2>
+                    <ul>
+                        <li><a href="https://tidycal.com/danielsupervisao/30-minute-meeting" target="_blank" rel="noopener">Book a 30-min call</a></li>
+                        <li><a href="../index.html#contact">hello at dans ch</a></li>
+                        <li><a href="tel:+34674409270">+34 674 40 92 70</a></li>
+                        <li><span class="dim">Barcelona, Spain</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-base">
+                <span>&copy; 2026 Daniel Scheidemantel Camargo</span>
+                <span>Built by hand — HTML, CSS, vanilla JS</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/app.js"></script>
+</body>
+
+</html>

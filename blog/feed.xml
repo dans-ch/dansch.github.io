@@ -9,6 +9,14 @@
     <managingEditor>hello@dans.ch (Daniel Scheidemantel Camargo)</managingEditor>
 
     <item>
+      <title>End to end: why small companies can’t afford handoffs</title>
+      <link>https://www.dans.ch/blog/small-companies-cant-afford-handoffs.html</link>
+      <guid isPermaLink="true">https://www.dans.ch/blog/small-companies-cant-afford-handoffs.html</guid>
+      <pubDate>Tue, 20 Oct 2026 09:00:00 +0200</pubDate>
+      <category>Architecture</category>
+      <description>A large company passes a feature through five pairs of hands. A small one usually has one. That person’s most valuable skill is not writing code — it is carrying the problem from the real need to years of maintenance.</description>
+    </item>
+    <item>
       <title>AI is an accelerator, not a decision-maker</title>
       <link>https://www.dans.ch/blog/ai-is-an-accelerator-not-a-decision-maker.html</link>
       <guid isPermaLink="true">https://www.dans.ch/blog/ai-is-an-accelerator-not-a-decision-maker.html</guid>

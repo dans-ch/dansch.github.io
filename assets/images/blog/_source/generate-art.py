@@ -1,4 +1,4 @@
-# Generates three original blog artworks. Pure geometry, no external assets,
+# Generates the original blog artworks. Pure geometry, no external assets,
 # no fonts. Palette follows design-system/variables.css.
 import math, pathlib
 
@@ -104,8 +104,34 @@ svg3 = head("Traffic moving from an old system to a new one in stages",
             "grows from a sliver to the whole column, with a dashed rollback arrow above.") \
        + "".join(p) + "</svg>"
 
+# ---------------------------------------------------------------- 4. end to end
+p = []
+xs = [180, 390, 600, 810, 1020]
+ya, yb = 250, 520
+p.append('<g stroke="#ffffff" stroke-opacity=".05" stroke-width="1">'
+         + "".join(f'<path d="M110 {y}h980"/>' for y in (ya, yb)) + '</g>')
+# the relay: five owners, a gap at every handoff
+p.append('<g stroke="#ffffff" stroke-opacity=".2" stroke-width="2" stroke-linecap="round">'
+         + "".join(f'<path d="M{a+26} {ya}H{b-70}"/>' for a, b in zip(xs, xs[1:])) + '</g>')
+p.append('<g fill="#ffffff" fill-opacity=".14">'
+         + "".join(f'<circle cx="{x}" cy="{ya}" r="10"/>' for x in xs) + '</g>')
+# one owner: a single continuous line, and the return path from operation back to the need
+p.append(f'<path d="M{xs[0]} {yb}H{xs[-1]}" stroke="{ACC}" stroke-width="3.2" stroke-linecap="round"/>')
+p.append(f'<path d="M{xs[-1]} {yb+28}C{xs[-1]} 668 {xs[0]} 668 {xs[0]} {yb+14}" stroke="{ACC2}" '
+         f'stroke-opacity=".55" stroke-width="2.2" stroke-dasharray="7 8" stroke-linecap="round"/>')
+p.append(f'<path d="M{xs[0]} {yb+16}l-10 19h20z" fill="{ACC2}" fill-opacity=".55"/>')
+p.append('<g>' + "".join(f'<circle cx="{x}" cy="{yb}" r="11" fill="{BG}" stroke="{ACC}" stroke-width="3"/>'
+                          for x in xs[:-1]) + '</g>')
+p.append(f'<circle cx="{xs[-1]}" cy="{yb}" r="13" fill="{ACC}"/>'
+         f'<circle cx="{xs[-1]}" cy="{yb}" r="26" stroke="{ACC}" stroke-opacity=".3" stroke-width="1.5"/>')
+svg4 = head("Five stages handed off between owners, versus one owner carrying them all",
+            "Above, five faint nodes joined by short lines that stop before each next node; below, the same "
+            "five nodes on one continuous bright line, with a dashed arc returning from the last node to the first.") \
+       + "".join(p) + "</svg>"
+
 for name, svg in (("ai-accelerator.svg", svg1),
                   ("beginner-again.svg", svg2),
-                  ("legacy-rollout.svg", svg3)):
+                  ("legacy-rollout.svg", svg3),
+                  ("end-to-end.svg", svg4)):
     (OUT / name).write_text(svg)
     print(name, len(svg), "bytes")

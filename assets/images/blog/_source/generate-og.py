@@ -3,6 +3,7 @@ posts = [
     ("ai-accelerator", "Engineering", "AI is an accelerator,<br>not a decision-maker", 58),
     ("beginner-again", "Career", "You have to be bad<br>at something again", 58),
     ("legacy-rollout", "Architecture", "Planning a legacy migration:<br>the rollout is the hard part", 49),
+    ("end-to-end", "Architecture", "End to end:<br>why small companies<br>can’t afford handoffs", 54),
 ]
 TPL = """<style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap');
