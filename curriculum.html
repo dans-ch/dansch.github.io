@@ -98,7 +98,7 @@
                 </ul>
                 <div class="header-social">
                     <a href="https://www.linkedin.com/in/daniel13" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="icon icon--18 icon--solid" aria-hidden="true"><use href="#i-linkedin"></use></svg></a>
-                    <a href="https://api.whatsapp.com/send?phone=41779680561&amp;text=Contact%20from%20dans.ch" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="icon icon--18 icon--solid" aria-hidden="true"><use href="#i-whatsapp"></use></svg></a>
+                    <a href="https://api.whatsapp.com/send?phone=34674409270&amp;text=Contact%20from%20dans.ch" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="icon icon--18 icon--solid" aria-hidden="true"><use href="#i-whatsapp"></use></svg></a>
                 </div>
             </nav>
         </div>
@@ -161,7 +161,6 @@
                     <div class="cv-contact-grid">
                         <span><svg class="icon icon--16" aria-hidden="true"><use href="#i-mail"></use></svg> hello at dans ch</span>
                         <span><svg class="icon icon--16" aria-hidden="true"><use href="#i-phone"></use></svg> <a href="tel:+34674409270">+34 674 40 92 70</a> <span class="dim">(ES)</span></span>
-                        <span><svg class="icon icon--16" aria-hidden="true"><use href="#i-phone"></use></svg> <a href="tel:+41779680561">+41 77 968 0561</a> <span class="dim">(CH)</span></span>
                         <span><svg class="icon icon--16" aria-hidden="true"><use href="#i-pin"></use></svg> Barcelona, Spain</span>
                         <span><svg class="icon icon--16 icon--solid" aria-hidden="true"><use href="#i-linkedin"></use></svg> <a href="https://www.linkedin.com/in/daniel13" target="_blank"
                                 rel="noopener">linkedin.com/in/daniel13</a></span>
@@ -173,17 +172,18 @@
                 </div>
 
                 <div class="stack measure mt-12" data-reveal>
-                    <p class="lead">Applied AI Engineer and Senior Full-Stack Developer with 8+ years of experience
-                        building and operating scalable, high-traffic systems across cloud environments (AWS, GCP).
-                        Specialised in deploying production-grade LLM-powered agentic platforms and modernising legacy
-                        microservices architectures to drive business efficiency.</p>
+                    <p class="lead">Applied AI Engineer and Senior Full-Stack Developer with 10 years in software engineering,
+                        10+ of them building and operating high-traffic APIs and data-intensive services on AWS and GCP.
+                        Hands-on experience shipping production AI systems: multi-agent architectures, RAG pipelines with
+                        hybrid search and reranking, LLM integration (OpenAI, Gemini, Anthropic), embeddings, pgvector
+                        and tool-calling workflows.</p>
                     <p class="lead">Strong track record in the full software lifecycle &mdash; from technical scoping
                         and solution architecture to deployment and post-implementation iteration. Proven ability to
                         translate complex business requirements into high-performance technical solutions, with a deep
                         focus on cloud-native patterns, data pipelines, and MLOps.</p>
                     <p class="lead">Barcelona-based, experienced in multi-cultural and remote-first engineering teams.
-                        13 peer-reviewed publications in distributed systems and cloud computing; passionate about
-                        open source and AI-driven automation.</p>
+                        13 peer-reviewed publications in distributed systems and cloud computing; 1st place at the
+                        Ignition AI Hackathon (EPFL); passionate about open source and AI-driven automation.</p>
                 </div>
             </section>
 
@@ -197,82 +197,98 @@
                 <ul class="timeline">
                     <li data-reveal>
                         <div class="job-head">
-                            <h3>Founder &amp; Lead Applied AI Engineer</h3>
-                            <span class="badge-now">Current</span>
+                            <h3>Founder &amp; Lead AI/Backend Engineer</h3>
                         </div>
-                        <p class="job-org"><a href="https://capellaris.dscamargo.com.br" target="_blank" rel="noopener">Capellaris AI</a> <small>(SaaS, self-funded)</small></p>
-                        <p class="job-date">March 2025 &mdash; Present</p>
+                        <p class="job-org"><a href="https://capellaris.dscamargo.com.br" target="_blank" rel="noopener">Capellaris AI</a> <small>(SaaS, agentic AI platform for SMBs)</small></p>
+                        <p class="job-date">November 2024 &mdash; September 2025</p>
                         <ul class="bullets">
-                            <li>Designed, built and operate a production-grade, LLM-agnostic multi-tenant SaaS platform end-to-end &mdash; covering marketing, finance and legal automation use cases for enterprise customers.</li>
-                            <li>Full-stack delivery: Python/FastAPI backend, Node.js middleware layer, React front-end, PostgreSQL + pgvector, Redis, Supabase, Cloudflare WAF; GCP infrastructure (CloudRun, Firebase); OAuth 2.0, IAM, secrets management and tenant isolation.</li>
-                            <li>Built a reusable agent-orchestration layer (CrewAI + MCP) with embeddings, hybrid search (pgvector + BM25), chunking, reranking and tool-calling; integrated Anthropic Claude, OpenAI and Gemini APIs behind a unified multi-LLM abstraction.</li>
-                            <li>Implemented full MLOps lifecycle: prompt versioning, model evaluation, observability (Cloud Logging) and continuous delivery (GitLab CI/CD).</li>
-                            <li>Pilot enterprise customer live in production; direct technical account management &mdash; requirement scoping, integration support and product iteration based on customer feedback.</li>
+                            <li>Designed and built an <strong>LLM-agnostic multi-tenant agentic SaaS platform</strong> end-to-end as sole engineer (business partner owned commercial, financial and business processes), enabling SMBs to deploy specialised AI agents across business domains; also owned post-sales and customer training.</li>
+                            <li>Built a full <strong>RAG pipeline</strong>: document ingestion, chunking, embedding generation, pgvector storage, hybrid search, reranking and source-grounded answers, reused across all agent domains.</li>
+                            <li>Implemented a <strong>hierarchical multi-agent orchestration layer</strong> (manager agent + specialists; CrewAI + MCP) with tool-calling and memory management.</li>
+                            <li>Designed a <strong>two-tier agent memory</strong>: long-term RAG over business rules, the business plan and previously well-rated answer formats (appended to the vector DB), plus dynamic short-term memory where an automatic cyclic summary of the chat and prior context is written at <strong>60% of the agent&rsquo;s context window</strong>, prioritising newer context.</li>
+                            <li>Tracked a <strong>1&ndash;5 star user rating</strong> for every project delivered by the manager agent, from the first single-agent deliveries through hierarchical multi-agent runs: later projects scored higher and needed <strong>fewer refinement rounds</strong>.</li>
+                            <li>Piloted with <strong>three small businesses</strong> (an independent consultancy, a restaurant and an art atelier) plus internal use.</li>
+                            <li>Delivered financial control agents that gave a pilot customer a <strong>unified view of financial planning</strong> across departments, replacing fragmented manual processes.</li>
+                            <li>Implemented the MLOps lifecycle: model integration, prompt versioning, evaluation, observability and <strong>CI/CD with GitHub Actions</strong>.</li>
+                            <li>Full-stack delivery: React front-end with a Node.js backend-for-frontend (BFF).</li>
+                            <li>Infrastructure: GCP (Cloud Run, Firebase), Supabase PostgreSQL + pgvector, Cloudflare; OAuth 2.0, IAM, multi-tenant secrets management.</li>
                         </ul>
                     </li>
                     <li data-reveal>
                         <div class="job-head">
-                            <h3>Senior Software Engineer &ndash; Platform &amp; Data APIs</h3>
-                            <span class="badge-now">Current</span>
+                            <h3>Senior Software Engineer &ndash; Platform &amp; AI Integrations</h3>
                         </div>
-                        <p class="job-org"><a href="https://www.mercadolivre.com.br" target="_blank" rel="noopener">Mercado Livre</a> <small>(e-commerce, logistics)</small></p>
-                        <p class="job-date">August 2025 &mdash; Present</p>
+                        <p class="job-org"><a href="https://www.mercadolivre.com.br" target="_blank" rel="noopener">Mercado Livre</a> <small>(logistics network &amp; facility simulators, ~5k internal users, LATAM)</small></p>
+                        <p class="job-date">August 2025 &mdash; August 2026</p>
                         <ul class="bullets">
-                            <li>Design, build and operate internal platform APIs for large-scale logistics operations serving millions of daily transactions; cross-functional Scrum team of 7, on-call rotation, incident management and post-mortems.</li>
-                            <li>Develop Python (FastAPI) and Go services; contribute to React-based internal tooling; own full production lifecycle on containerised multi-cloud infrastructure (Docker, AWS/GCP via MELI&rsquo;s internal Fury platform).</li>
-                            <li>Integrate Claude and OpenAI APIs into production workflows as autonomous decision-support agents for logistics capacity planning; mentor team members on AI integration patterns and backend best practices.</li>
-                            <li>Build and maintain CI/CD pipelines (GitHub Actions) with automated testing, observability (structured logging, metrics, alerting) and progressive rollout strategies.</li>
-                            <li>Design ETL pipelines (Python/Pandas/Polars on BigQuery) feeding demand forecasting and capacity planning simulators used by commercial and operations teams for high-volume, data-driven decision-support.</li>
+                            <li>Integrated OpenAI and Claude APIs as <strong>decision-support agents</strong> in a production simulation platform used by ~5k supply-chain specialists across LATAM: agents validate user-entered parameters and suggest corrections (<strong>~25% fewer input errors</strong> vs. before the agents) and interpret computed KPIs by comparing a summary of the full dataset against the desired behaviour.</li>
+                            <li>Evaluated the agents on <strong>p95 latency under 30s</strong>, <strong>user-rated quality (4.6/5 average)</strong> and token consumption per user; owned the lifecycle from prompt design and versioning through deployment and iteration.</li>
+                            <li>Redesigned the simulation data-input flow, splitting one large spreadsheet into smaller sequential steps, <strong>reducing input errors by 17%</strong>.</li>
+                            <li>Built data pipelines over <strong>terabytes in BigQuery</strong>: chained queries and transformations that break down real historical demand and apply leadership growth forecasts by category, region and facility type, producing demand projections over an adjusted logistics network.</li>
+                            <li>Designed the <strong>async FastAPI</strong> layer between frontend and backend: receives user parameters, handles database operations and job status without blocking other requests, so the application keeps scaling.</li>
+                            <li>Moved data processing from Pandas to <strong>Polars</strong>, absorbing a <strong>2x increase in input rows</strong> from user-submitted Excel files.</li>
+                            <li>Used <strong>Dataiku</strong> for transformations holding business rules owned by domain specialists, so rules could be edited without a code deploy.</li>
+                            <li>Mentored 2 mid-level engineers in an 8-person team; one was promoted to senior.</li>
+                            <li>Maintained CI/CD pipelines (<strong>GitHub Actions</strong>) and observability (<strong>Datadog</strong>, <strong>Grafana</strong>); added new metrics through new endpoints.</li>
+                            <li>Stack: Python, FastAPI, BigQuery, MySQL, Dataiku, Docker, React (front-end); limited exposure to Go (edited one microservice).</li>
+                            <li>Placed <strong>4th of 22 teams</strong> in an internal AI hackathon (02/2026, team of 6), using <strong>n8n</strong> to evaluate operational metrics.</li>
                         </ul>
                     </li>
                     <li data-reveal>
                         <div class="job-head">
-                            <h3>Senior Full Stack / Platform Engineer</h3>
+                            <h3>Senior Python Backend / Platform Engineer</h3>
                         </div>
-                        <p class="job-org"><a href="https://www.buscaonibus.com.br" target="_blank" rel="noopener">Busca&ocirc;nibus / De&Ocirc;nibus / Travelier</a> <small>(travel, meta-search)</small></p>
-                        <p class="job-date">April 2021 &mdash; August 2025</p>
+                        <p class="job-org"><a href="https://www.buscaonibus.com.br" target="_blank" rel="noopener">Busca&ocirc;nibus / De&Ocirc;nibus / Travelier</a> <small>(travel meta-search and BI platform)</small></p>
+                        <p class="job-date">April 2021 &mdash; January 2025</p>
                         <ul class="bullets">
-                            <li>Primary owner of a high-traffic travel search and ticketing platform processing millions of passenger queries: design, development, maintenance and on-call support.</li>
-                            <li>Operated and monetised passenger demand and pricing data pipelines &mdash; aggregating real-time availability, route coverage and fare data across hundreds of bus operators to power commercial analytics and revenue optimisation.</li>
-                            <li>Led full platform modernisation: Python 2.7/App Engine to Python 3.12/FastAPI/CloudRun (Docker), cutting average API latency by 25% and GCP infrastructure cost by 40%; directly improved search response quality and conversion.</li>
-                            <li>Designed and shipped a route intelligence and demand analytics layer (BigQuery + Looker Studio) used by business stakeholders to evaluate route performance, passenger volume trends and pricing opportunities.</li>
-                            <li>Built Gemini-based AI agents for internal operations and demand-signal processing via reusable backend APIs.</li>
-                            <li>Mentored junior engineers on Python best practices, API design and cloud-native deployment.</li>
+                            <li>Sole technical owner of a high-traffic Python backend processing <strong>millions of daily searches</strong> across hundreds of bus operators (on-call, incident response, full production lifecycle); platform ranked 4th-largest in Brazil by web traffic (SEMrush).</li>
+                            <li>Led a complete platform migration (<strong>Python 2.7 to 3.10, Django 1.9 to 5, App Engine to Cloud Run</strong>) in well-defined stages, using <strong>feature flags backed by cached keys</strong> for immediate rollback; new complex APIs on Cloud Run were built in <strong>FastAPI</strong> and specific microservices as <strong>Flask</strong> Cloud Functions. <strong>Average API latency &minus;25%</strong> and <strong>cloud cost &minus;40%</strong> (mean before vs. after the migration).</li>
+                            <li>Redesigned the <strong>Redis caching layer</strong>: all database and partner data cached with per-source TTLs, structured key management, and a Redis manager to inspect and manipulate keys. Reached a <strong>92% cache hit ratio</strong> (GCP Redis metric, 30-day average).</li>
+                            <li>Built on-demand <strong>scrapers</strong> (Python, Playwright, Selenium, Beautiful Soup on Cloud Run/Docker) for 5 small bus companies without digital integration, and built a monitoring dashboard that surfaced when a company stopped returning data.</li>
+                            <li>Built a <strong>Gemini RAG agent</strong> with engineered prompting to automate triage and responses for customer emails from the website contact forms, with responses rated <strong>89% accurate on average</strong> by the support specialist who handled these emails.</li>
+                            <li>Designed a BigQuery analytics layer delivered through <strong>Plotly Dash</strong> dashboards (Pandas/NumPy) and Looker Studio views: market, competitor and route-coverage intelligence for partner bus companies&rsquo; strategic decisions, plus an internal sales BI for the commercial team.</li>
+                            <li>Mentored a junior engineer (a content copywriter turned frontend developer) toward full-stack on seniority, project management, ticket lifecycle and pull-request practices.</li>
                         </ul>
                     </li>
                     <li data-reveal>
                         <div class="job-head">
-                            <h3>Software Engineer &ndash; Integrations &amp; CI/CD</h3>
+                            <h3>Software Engineer &ndash; Integrations &amp; Backend</h3>
                         </div>
-                        <p class="job-org"><a href="https://www.portobelloshop.com.br" target="_blank" rel="noopener">Portobello Group</a> <small>(retail, ERP, CRM, data)</small></p>
+                        <p class="job-org"><a href="https://www.portobello.com.br" target="_blank" rel="noopener">Portobello Group</a> <small>(ceramics manufacturing &amp; retail, ~4,000 employees)</small></p>
                         <p class="job-date">December 2019 &mdash; April 2021</p>
                         <ul class="bullets">
-                            <li>Built Python/Django backend integrations between Salesforce, on-prem ERPs and downstream microservices; designed data pipelines for the commercial analytics stack.</li>
-                            <li>Operated Kubernetes CI/CD pipelines (Rancher + Jenkins) with Docker; maintained MSSQL Server (job scheduling, data pipeline architecture).</li>
-                            <li>Led technical design and stakeholder support for company-wide Salesforce rollout; developed a full financial simulator embedded in Salesforce with a Python backend.</li>
+                            <li>Built and maintained a <strong>regional fiscal discount simulator</strong> (Python/Django on <strong>Heroku</strong> with <strong>PostgreSQL</strong>) that calculates the full tax burden of lists of complex, diverse products, integrated into Salesforce (Apex API layer and UI button) and rendered there as HTML served by the service; worked with fiscal stakeholders to raise <strong>fiscal-rule coverage from 70% to 96%</strong>.</li>
+                            <li>Part of the team that delivered the company&rsquo;s 2021 digital transformation, including the CRM/ERP migration to <strong>Salesforce</strong> across <strong>124 retail stores (mostly franchises)</strong>, with <strong>no integration-related incident tickets</strong> (only usage questions); designed the product data model and the product-to-order connection.</li>
+                            <li>Administered the <strong>Microsoft SQL Server</strong> database that held company-wide data and integrated multiple ERPs and CRMs (ETLs, transformations) ahead of the Salesforce migration, hosted on an <strong>AWS EC2</strong> virtual machine.</li>
+                            <li>Worked across <strong>Microsoft Azure</strong>, where every new service was a microservice (serverless functions and a data pipeline), and <strong>AWS</strong> (SQL Server on EC2).</li>
+                            <li>Operated <strong>Kubernetes (Rancher)</strong> and <strong>Jenkins</strong> in an API-management integration epic with attached microservices.</li>
                         </ul>
                     </li>
                     <li data-reveal>
                         <div class="job-head">
                             <h3>Software Developer &ndash; Automation &amp; Cloud</h3>
                         </div>
-                        <p class="job-org">Stormtech <small>(consumer loans, regulated)</small></p>
+                        <p class="job-org"><a href="https://www.stormtecnologia.com.br" target="_blank" rel="noopener">Stormtech</a> <small>(consumer loans, regulated)</small></p>
                         <p class="job-date">August 2018 &mdash; November 2019</p>
                         <ul class="bullets">
-                            <li>Developed Python automations and data pipeline integrations with a PHP monolith in a regulated financial environment.</li>
-                            <li>Built and operated an AWS-native platform (EC2, Lambda, Step Functions, DynamoDB, RDS-MySQL, Route53); tracked and resolved production incidents in a fast-paced support context.</li>
+                            <li>Developed RPA bots (Python, Scrapy, Selenium, Beautiful Soup) that scrape Brazilian loan-bank portals to update loan status automatically in an internal PHP loan-management system; wrote about half of the bots and maintained the rest, updating them whenever a bank changed its contract or portal.</li>
+                            <li>Implemented a <strong>TypeScript dashboard</strong> with real-time visibility of bot health (running, failed, unused), cutting the time to identify a broken pipeline from about 2 hours to under 1 hour. The dashboard also showed stability per bank and alerts.</li>
+                            <li>Automated roughly half of the operators&rsquo; manual workload by adding bots for new banks.</li>
+                            <li>Ran the bots mostly on <strong>AWS Lambda</strong> (EC2 for those requiring Windows), with <strong>Step Functions</strong>-orchestrated Lambda ETL feeding <strong>DynamoDB</strong> (bank update data) and MySQL (client data and security layer), across 18 integrated banks.</li>
                         </ul>
                     </li>
                     <li data-reveal>
                         <div class="job-head">
-                            <h3>Software Developer &ndash; IoT &amp; Automation</h3>
+                            <h3>Internet of Things Engineer</h3>
                         </div>
-                        <p class="job-org"><a href="https://www.youtube.com/watch?v=xnjFuktG8hw&amp;list=PLJTKT2lsLu5aMJd07lw4lr5GI3E-l7SDp&amp;index=3" target="_blank" rel="noopener">ReciclaComigo</a> <small>(ESG, waste management startup)</small></p>
+                        <p class="job-org"><a href="https://www.youtube.com/watch?v=xnjFuktG8hw&amp;list=PLJTKT2lsLu5aMJd07lw4lr5GI3E-l7SDp&amp;index=3" target="_blank" rel="noopener">ReciclaComigo</a> <small>(startup, cloud-connected reverse vending machine, beta stage)</small></p>
                         <p class="job-date">July 2016 &mdash; February 2018</p>
                         <ul class="bullets">
-                            <li>Designed, prototyped and developed a Reverse Vending Machine using MQTT, AWS IoT Core, Raspberry Pi, Arduino, Computer Vision (OpenCV) and Python.</li>
-                            <li>Connected to an AWS architecture (EC2, Lambda, RDS-MySQL) to manage machine operations and collect data from users and collectors.</li>
-                            <li>Innovation, Lean Startup, Design Thinking, UX, user research, business model generation, MVP, pitching and acceleration programs.</li>
+                            <li>Developed the edge software of a beta <strong>reverse vending machine</strong> for PET bottles and aluminum cans: a conveyor brings each item to a camera where <strong>Python + OpenCV</strong> reads the barcode, shape and label; after validating product and user against the database, the machine credits points to the user.</li>
+                            <li>Wrote the <strong>Arduino (C++)</strong> firmware for motors and presence sensing and the <strong>Raspberry Pi</strong> Python and Shell scripts (GPIO automation) that tie the microcontroller, an <strong>RFID</strong> reader/keypad and the cloud together.</li>
+                            <li>Designed and configured the company&rsquo;s <strong>AWS</strong> environment (EC2 on Linux, RDS MySQL, S3, security groups, IAM roles) accessed over Wi-Fi/HTTP by the machine; managed the developer who designed the database schema and built the HTML/JavaScript/CSS front-end.</li>
+                            <li>Took part in startup and product definition applying Lean Startup practices (MVP, Design Thinking, business model canvas, competitor analysis, business plan led by the CEO). Team of five; single unit tested in a controlled environment; the company closed before public launch.</li>
+                            <li>Trello for task management and Bitbucket for version control.</li>
                         </ul>
                     </li>
                     <li data-reveal>
@@ -284,27 +300,53 @@
                         <ul class="bullets">
                             <li>Developed energy monitoring solutions for data centers (GreenHop project).</li>
                             <li>Created algorithms for virtual machine consolidation (CHAVE project).</li>
-                            <li>Published 13 peer-reviewed research papers in international conferences.</li>
+                            <li>Published 13 peer-reviewed research papers (journals and conferences).</li>
                         </ul>
                     </li>
                 </ul>
             </section>
 
-            <!-- 03 — Skills -->
+            <!-- 03 — Projects & awards -->
+            <section id="awards" class="section" data-node>
+                <header class="section-head">
+                    <span class="node"></span>
+                    <span class="label">03 &mdash; Awards</span>
+                    <h2>Projects &amp; awards</h2>
+                </header>
+                <ul class="timeline">
+                    <li data-reveal>
+                        <div class="job-head">
+                            <h3>Heatsink &mdash; 1st place, Ignition AI Hackathon (EPFL, Lausanne)</h3>
+                        </div>
+                        <p class="job-org">25 teams, 36h, live demos to investors <small>(prize: cash + 1-week residency at the Swiss Data Science Center)</small></p>
+                        <p class="job-date">May 2026</p>
+                        <ul class="bullets">
+                            <li>Co-built a simulated 256-rack datacenter where three specialist LLM agents (thermal, workload, energy; Pydantic AI + OpenAI) propose actions in sequence and a deterministic resolver enforces SLA and safety rules.</li>
+                            <li>Owned datacenter requirements, PUE/cost metrics and simulator realism, plus the manager-facing view (Phaser, TypeScript); <strong>39% lower energy vs. a no-agent baseline in a simulated 10-min failure scenario</strong>.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- 04 — Skills -->
             <section id="skills" class="section" data-node>
                 <header class="section-head">
                     <span class="node"></span>
-                    <span class="label">03 &mdash; Toolbox</span>
+                    <span class="label">04 &mdash; Toolbox</span>
                     <h2>Skills</h2>
                 </header>
                 <div class="skill-grid">
                     <div class="skill-group" data-reveal>
                         <h3>AI / LLM Engineering</h3>
-                        <div class="tag-row"><span class="tag tag--accent">Claude</span><span class="tag tag--accent">OpenAI</span><span class="tag tag--accent">Gemini</span><span class="tag">CrewAI</span><span class="tag">MCP</span><span class="tag">pgvector</span><span class="tag">RAG</span><span class="tag">MLOps</span></div>
+                        <div class="tag-row"><span class="tag tag--accent">OpenAI</span><span class="tag tag--accent">Gemini</span><span class="tag tag--accent">Claude</span><span class="tag">Pydantic AI</span><span class="tag">CrewAI</span><span class="tag">MCP</span><span class="tag">pgvector</span><span class="tag">RAG</span><span class="tag">Prompt versioning</span><span class="tag">Evals &amp; observability</span><span class="tag">MLOps</span></div>
                     </div>
                     <div class="skill-group" data-reveal>
                         <h3>Back-end &amp; APIs</h3>
-                        <div class="tag-row"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">Go</span><span class="tag">Node.js</span><span class="tag">REST</span><span class="tag">gRPC</span><span class="tag">Django / Flask</span></div>
+                        <div class="tag-row"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">Django</span><span class="tag">Flask</span><span class="tag">Node.js</span><span class="tag">REST</span><span class="tag">gRPC</span><span class="tag">Go (limited)</span><span class="tag">C/C++</span><span class="tag">Java (academic)</span></div>
+                    </div>
+                    <div class="skill-group" data-reveal>
+                        <h3>Scraping &amp; Automation</h3>
+                        <div class="tag-row"><span class="tag">Playwright</span><span class="tag">Selenium</span><span class="tag">Scrapy</span><span class="tag">Beautiful Soup</span><span class="tag">RPA bots</span><span class="tag">n8n</span></div>
                     </div>
                     <div class="skill-group" data-reveal>
                         <h3>Front-end</h3>
@@ -312,19 +354,23 @@
                     </div>
                     <div class="skill-group" data-reveal>
                         <h3>Databases &amp; Storage</h3>
-                        <div class="tag-row"><span class="tag">PostgreSQL</span><span class="tag">MySQL</span><span class="tag">Redis</span><span class="tag">BigQuery</span><span class="tag">Cloud Spanner</span><span class="tag">DynamoDB</span></div>
+                        <div class="tag-row"><span class="tag">PostgreSQL</span><span class="tag">MySQL</span><span class="tag">SQL Server (DBA)</span><span class="tag">Redis</span><span class="tag">BigQuery</span><span class="tag">DynamoDB</span></div>
                     </div>
                     <div class="skill-group" data-reveal>
                         <h3>Cloud &amp; Infrastructure</h3>
-                        <div class="tag-row"><span class="tag tag--accent">GCP</span><span class="tag tag--accent">AWS</span><span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">Cloudflare</span><span class="tag">Terraform</span></div>
+                        <div class="tag-row"><span class="tag tag--accent">GCP</span><span class="tag tag--accent">AWS</span><span class="tag">Azure</span><span class="tag">Docker</span><span class="tag">Heroku</span><span class="tag">Kubernetes (Rancher)</span><span class="tag">Cloudflare</span><span class="tag">Terraform</span></div>
                     </div>
                     <div class="skill-group" data-reveal>
                         <h3>CI/CD &amp; Observability</h3>
-                        <div class="tag-row"><span class="tag">GitHub Actions</span><span class="tag">GitLab CI/CD</span><span class="tag">Jenkins</span><span class="tag">Cloud Logging</span><span class="tag">CloudWatch</span></div>
+                        <div class="tag-row"><span class="tag">GitHub Actions</span><span class="tag">Jenkins</span><span class="tag">Datadog</span><span class="tag">Grafana</span><span class="tag">Cloud Logging</span><span class="tag">CloudWatch</span></div>
                     </div>
                     <div class="skill-group" data-reveal>
                         <h3>Data &amp; Analytics</h3>
-                        <div class="tag-row"><span class="tag">Pandas</span><span class="tag">Polars</span><span class="tag">Looker Studio</span><span class="tag">ETL</span></div>
+                        <div class="tag-row"><span class="tag">Pandas</span><span class="tag">Polars</span><span class="tag">Dataiku</span><span class="tag">Plotly Dash</span><span class="tag">Looker Studio</span><span class="tag">ETL</span></div>
+                    </div>
+                    <div class="skill-group" data-reveal>
+                        <h3>AI coding tools (daily use)</h3>
+                        <div class="tag-row"><span class="tag">Cursor</span><span class="tag">Claude Code</span><span class="tag">Codex</span><span class="tag">Antigravity</span><span class="tag">OpenCode</span></div>
                     </div>
                     <div class="skill-group" data-reveal>
                         <h3>Customer-Facing</h3>
@@ -333,11 +379,11 @@
                 </div>
             </section>
 
-            <!-- 04 — Languages & certifications -->
+            <!-- 05 — Languages & certifications -->
             <section id="certifications" class="section" data-node>
                 <header class="section-head">
                     <span class="node"></span>
-                    <span class="label">04 &mdash; Credentials</span>
+                    <span class="label">05 &mdash; Credentials</span>
                     <h2>Languages &amp; certifications</h2>
                 </header>
                 <div class="contact-layout">
@@ -351,18 +397,18 @@
                             </li>
                             <li>
                                 <span class="lang-name">English</span>
-                                <span class="lang-level">Proficient</span>
-                                <span class="meter" style="--level: 70%"><i></i></span>
-                            </li>
-                            <li>
-                                <span class="lang-name">French</span>
-                                <span class="lang-level">Basic</span>
-                                <span class="meter" style="--level: 40%"><i></i></span>
+                                <span class="lang-level">C1</span>
+                                <span class="meter" style="--level: 85%"><i></i></span>
                             </li>
                             <li>
                                 <span class="lang-name">Spanish</span>
-                                <span class="lang-level">Basic</span>
-                                <span class="meter" style="--level: 30%"><i></i></span>
+                                <span class="lang-level">B1</span>
+                                <span class="meter" style="--level: 55%"><i></i></span>
+                            </li>
+                            <li>
+                                <span class="lang-name">French</span>
+                                <span class="lang-level">A2&ndash;B1</span>
+                                <span class="meter" style="--level: 40%"><i></i></span>
                             </li>
                         </ul>
                     </div>
@@ -384,11 +430,11 @@
                 </div>
             </section>
 
-            <!-- 05 — Education -->
+            <!-- 06 — Education -->
             <section id="education" class="section" data-node>
                 <header class="section-head">
                     <span class="node"></span>
-                    <span class="label">05 &mdash; Academic</span>
+                    <span class="label">06 &mdash; Academic</span>
                     <h2>Education</h2>
                 </header>
                 <div class="card-grid">
@@ -396,22 +442,22 @@
                         <h3>Master&rsquo;s Degree in Applied Computing</h3>
                         <p class="org">Santa Catarina State University (UDESC)</p>
                         <p class="job-date">2016 &mdash; 2018</p>
-                        <p>Focus: cloud computing, virtualisation and energy efficiency.</p>
+                        <p>Thesis: <em>Resource Consolidation with High Availability on Virtualized Environments</em>. Focus: distributed systems, cloud computing, virtualisation and energy efficiency (6 peer-reviewed articles).</p>
                     </div>
                     <div class="card" data-reveal>
                         <h3>Bachelor&rsquo;s Degree in Computer Science</h3>
                         <p class="org">Santa Catarina State University (UDESC)</p>
                         <p class="job-date">2011 &mdash; 2016</p>
-                        <p>Focus: software engineering and system development.</p>
+                        <p>Focus: software engineering and system development; IoT, automation and energy efficiency (7 peer-reviewed articles).</p>
                     </div>
                 </div>
             </section>
 
-            <!-- 06 — Teaching -->
+            <!-- 07 — Teaching -->
             <section id="teaching" class="section" data-node>
                 <header class="section-head">
                     <span class="node"></span>
-                    <span class="label">06 &mdash; Teaching</span>
+                    <span class="label">07 &mdash; Teaching</span>
                     <h2>Teaching &amp; research projects</h2>
                     <p class="section-aside">UDESC, 2013&ndash;2016 &middot; volunteer</p>
                 </header>
@@ -463,11 +509,11 @@
                 </ul>
             </section>
 
-            <!-- 07 — Publications -->
+            <!-- 08 — Publications -->
             <section id="papers" class="section" data-node>
                 <header class="section-head">
                     <span class="node"></span>
-                    <span class="label">07 &mdash; Research</span>
+                    <span class="label">08 &mdash; Research</span>
                     <h2>All publications</h2>
                     <p class="section-aside"><a class="link" href="https://scholar.google.com.br/citations?hl=pt-BR&amp;authuser=1&amp;user=mwcTdEEAAAAJ" target="_blank"
                             rel="noopener">Google Scholar</a></p>
@@ -700,7 +746,7 @@
             <section id="booking" class="section" data-node>
                 <header class="section-head">
                     <span class="node"></span>
-                    <span class="label">08</span>
+                    <span class="label">09</span>
                     <h2>Book a call</h2>
                     <p class="section-aside">Free &middot; no commitment</p>
                 </header>
@@ -744,7 +790,7 @@
                     <div class="footer-social">
                         <a href="https://github.com/danielfloripa" target="_blank" rel="noopener" aria-label="GitHub"><svg class="icon icon--18 icon--solid" aria-hidden="true"><use href="#i-github"></use></svg></a>
                         <a href="https://www.linkedin.com/in/daniel13" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="icon icon--18 icon--solid" aria-hidden="true"><use href="#i-linkedin"></use></svg></a>
-                        <a href="https://api.whatsapp.com/send?phone=41779680561&amp;text=Contact%20from%20dans.ch" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="icon icon--18 icon--solid" aria-hidden="true"><use href="#i-whatsapp"></use></svg></a>
+                        <a href="https://api.whatsapp.com/send?phone=34674409270&amp;text=Contact%20from%20dans.ch" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="icon icon--18 icon--solid" aria-hidden="true"><use href="#i-whatsapp"></use></svg></a>
                         <a href="https://scholar.google.com.br/citations?hl=pt-BR&amp;authuser=1&amp;user=mwcTdEEAAAAJ" target="_blank" rel="noopener" aria-label="Google Scholar"><svg class="icon icon--18 icon--solid" aria-hidden="true"><use href="#i-scholar"></use></svg></a>
                     </div>
                 </div>
@@ -765,7 +811,6 @@
                         <li><a href="https://tidycal.com/danielsupervisao/30-minute-meeting" target="_blank" rel="noopener">Book a 30-min call</a></li>
                         <li><a href="index.html#contact">hello at dans ch</a></li>
                         <li><a href="tel:+34674409270">+34 674 40 92 70</a></li>
-                        <li><a href="tel:+41779680561">+41 77 968 0561</a></li>
                         <li><span class="dim">Barcelona, Spain</span></li>
                     </ul>
                 </div>
