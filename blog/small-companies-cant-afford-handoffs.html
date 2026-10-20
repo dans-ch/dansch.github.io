@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>End to end: why small companies can’t afford handoffs — Daniel Scheidemantel Camargo</title>
-    <meta name="description" content="Small companies have no buffer for handoffs. The most valuable engineering skill there is carrying a problem from the user’s real need through requirements, architecture, code and maintenance.">
+    <meta name="description" content="Small companies have no slack for handoffs. The engineering skill they need most is carrying a problem from the user's need through requirements, architecture, code and maintenance.">
     <meta name="author" content="Daniel Scheidemantel Camargo">
     <meta name="referrer" content="origin">
     <link rel="canonical" href="https://www.dans.ch/blog/small-companies-cant-afford-handoffs.html">
@@ -14,7 +14,7 @@
     <meta property="og:site_name" content="Daniel Scheidemantel Camargo">
     <meta property="og:locale" content="en">
     <meta property="og:title" content="End to end: why small companies can’t afford handoffs">
-    <meta property="og:description" content="Small companies have no buffer for handoffs. The most valuable engineering skill there is carrying a problem from the user’s real need through requirements, architecture, code and maintenance.">
+    <meta property="og:description" content="Small companies have no slack for handoffs. The engineering skill they need most is carrying a problem from the user's need through requirements, architecture, code and maintenance.">
     <meta property="og:url" content="https://www.dans.ch/blog/small-companies-cant-afford-handoffs.html">
     <meta property="og:image" content="https://www.dans.ch/assets/images/blog/og-end-to-end.jpg">
     <meta property="og:image:width" content="1200">
@@ -156,26 +156,26 @@
                     <figure class="post-figure"><img src="../assets/images/blog/end-to-end.svg" alt="Above, five faint nodes joined by short lines that stop before each next node; below, the same five nodes on one continuous bright line, with a dashed arc returning from the last node to the first." width="1200" height="750" decoding="async"></figure>
 
                     <p class="lead">In a large company, a feature passes through five pairs of hands before it
-                        reaches a user. In a small company it usually passes through one. That person's most valuable
-                        skill is not writing code &mdash; it is carrying a problem all the way from "what does this
-                        person actually need" to "it is still working six months later".</p>
+                        reaches a user. In a small company it usually passes through one. What that person needs most
+                        is the ability to carry a problem from "what does this person need?" all the way to "is it
+                        still working six months later?", and writing the code is only one part of that.</p>
 
-                    <p>I have worked at both ends of that spectrum. At Mercado Livre I was one of eight engineers on a
-                        simulation platform used by around five thousand supply-chain specialists, with product, data
-                        and platform teams around us. At <a class="link" href="../capellaris/en/index.html">Capellaris</a>,
-                        an agentic platform built for small and medium businesses, I was the only engineer: my business
-                        partner owned the commercial and financial side, and everything technical &mdash; from the
-                        first conversation with a pilot customer to post-sales support &mdash; was mine. Both are
-                        legitimate ways to build software. They need different people.</p>
+                    <p>I've worked at both ends. At Mercado Livre I was one of eight engineers on a simulation
+                        platform used by around five thousand supply-chain specialists, with product, data and platform
+                        teams around us. At <a class="link" href="../capellaris/en/index.html">Capellaris</a>, an
+                        agentic platform built for small and medium businesses, I was the only engineer. My business
+                        partner handled the commercial and financial side, and everything technical, from the first
+                        conversation with a pilot customer to post-sales support, was mine. Both setups work, and they
+                        need different kinds of engineers.</p>
 
-                    <h2>Five jobs, usually five job titles</h2>
+                    <h2>Five jobs</h2>
 
-                    <p>Delivering something end to end means doing five distinct jobs. In a large organisation each
-                        one has its own title.</p>
+                    <p>Delivering something end to end means doing five jobs. In a large organisation each one has its
+                        own title:</p>
 
                     <ol>
-                        <li><strong>Understanding the need.</strong> What the user is trying to get done, as opposed
-                            to what they asked for.</li>
+                        <li><strong>Understanding the need.</strong> What the user is trying to get done, which isn't
+                            always what they asked for.</li>
                         <li><strong>Technical requirements.</strong> Volumes, budget, data, integrations, and what
                             happens when it fails.</li>
                         <li><strong>Architecture.</strong> The shape of the system, chosen for the team that will run
@@ -185,11 +185,11 @@
                             moves.</li>
                     </ol>
 
-                    <p>Every handoff between those jobs loses a little context. A large company pays for that loss
-                        with headcount, documents and meetings, and it can afford to. A small company cannot. It has no
-                        product manager to translate the customer, no SRE to absorb the operational cost of a clever
-                        design, and often no second engineer to question the first one's assumptions. Every handoff it
-                        does have becomes a place where the original intent quietly leaks out.</p>
+                    <p>Each handoff between those jobs loses some context. A large company covers the loss with
+                        headcount, documents and meetings, and it can afford to. A small company has no product manager
+                        to translate the customer, no SRE to absorb the operational cost of a clever design, and often
+                        no second engineer to question the first one's assumptions. Wherever it does hand work off,
+                        some of the original intent gets lost on the way.</p>
 
                     <div class="table-wrap">
                         <table>
@@ -206,142 +206,136 @@
                         </table>
                     </div>
 
-                    <h2>Start with the need, not the request</h2>
+                    <h2>Work back from the request</h2>
 
-                    <p>Users describe solutions. That is not a failing &mdash; it is the only vocabulary most people
-                        have for a problem. The engineer's job is to work backwards from the request to the thing it is
-                        standing in for.</p>
+                    <p>Users describe solutions, because that's the vocabulary most people have for a problem. The
+                        engineer's job is to work back from the request to whatever it stands for.</p>
 
-                    <p>At Busca&ocirc;nibus, a travel meta-search platform, five small bus companies had no digital
-                        integration at all. An integration in the usual sense was impossible: there was nothing on
-                        their side to connect to, and no one there to build it. What the business actually needed was
-                        for their routes to appear in search like everyone else's. Framed that way, the answer was
-                        on-demand scrapers running on Cloud Run, plus a monitoring dashboard that surfaced when a
-                        company stopped returning data.</p>
+                    <p>At Buscaônibus, a travel meta-search platform, five small bus companies had no digital
+                        integration at all. There was nothing on their side to connect to and nobody there to build it,
+                        so a normal integration was off the table. What the business needed was for their routes to
+                        show up in search like everyone else's. Put that way, the answer was on-demand scrapers on
+                        Cloud Run and a monitoring dashboard that flagged when a company stopped returning data.</p>
 
                     <p>The Capellaris pilots were smaller still: an independent consultancy, a restaurant and an art
-                        atelier. For one pilot customer, the deliverable that mattered was a unified view of financial
-                        planning across departments, replacing fragmented manual processes. The agents were the means.
-                        Had I started from "what can agents do" instead of "where does this business lose track of its
-                        plan", I would have built a demo.</p>
+                        atelier. For one of them, what mattered was a single view of financial planning across
+                        departments, to replace fragmented manual processes. Agents were how I built it. If I'd started
+                        from "what can agents do?" instead of "where does this business lose track of its plan?", I'd
+                        have ended up with a demo.</p>
 
-                    <p>This stage pays off at any scale. On the Mercado Livre simulators, splitting one large input
-                        spreadsheet into smaller sequential steps cut input errors by 17%. No model, no new service
-                        &mdash; just a closer look at how people were actually filling it in.</p>
+                    <p>This works at any scale. On the Mercado Livre simulators, splitting one large input spreadsheet
+                        into smaller sequential steps cut input errors by 17%. That needed no model and no new service,
+                        only a closer look at how people were filling the spreadsheet in.</p>
 
-                    <h2>Requirements are where small projects quietly fail</h2>
+                    <h2>Requirements nobody writes down</h2>
 
-                    <p>In a small company, technical requirements are rarely written down, because writing them is
-                        nobody's job. They exist anyway, and they come due later. These are the questions I ask before
-                        designing anything:</p>
+                    <p>Small companies rarely write technical requirements down, because it isn't anyone's job. The
+                        requirements exist anyway, and they come due later. Before I design anything, I ask:</p>
 
                     <ul class="bullets">
-                        <li><strong>Who uses it, and how often?</strong> Ten people once a week and ten thousand people
-                            an hour are different systems.</li>
-                        <li><strong>What happens if it is down for an hour?</strong> For a day? The honest answer is
-                            often "not much", and that answer is worth a lot of money.</li>
-                        <li><strong>What data does it touch, and who owns it?</strong> Especially once an LLM sits in
-                            the path.</li>
-                        <li><strong>What does it cost per month</strong> at today's volume, and at ten times that?</li>
-                        <li><strong>Who fixes it at two in the morning?</strong> In a small company, this is the
-                            requirement that should shape every other one.</li>
+                        <li>Who uses it, and how often? Ten people once a week and ten thousand people an hour need
+                            different systems.</li>
+                        <li>What happens if it's down for an hour, or for a day? The honest answer is often "not much",
+                            and knowing that saves a lot of money.</li>
+                        <li>What data does it touch, and who owns that data? This gets more pressing once an LLM sits
+                            in the path.</li>
+                        <li>What does it cost per month at today's volume, and at ten times that?</li>
+                        <li>Who fixes it at two in the morning? In a small company I let this answer shape all the
+                            others.</li>
                     </ul>
 
-                    <h2>Architecture sized to the team, not the diagram</h2>
+                    <h2>Architecture for the team you have</h2>
 
-                    <p>For a small company, an architecture decision is mostly an operations decision in disguise.
-                        Every service, queue and datastore is something somebody has to understand, upgrade, secure and
-                        pay for. The best design is rarely the most elegant one on a whiteboard.</p>
+                    <p>In a small company, most architecture decisions turn out to be operations decisions. Every
+                        service, queue and datastore is something someone has to understand, upgrade, secure and pay
+                        for, so the design that looks best on a whiteboard is rarely the right one.</p>
 
-                    <p>Capellaris is not a small system: multi-tenant, with a full RAG pipeline, hybrid search and
-                        hierarchical multi-agent orchestration. It still runs on managed pieces &mdash; Cloud Run and
-                        Firebase on GCP, Supabase PostgreSQL with pgvector, Cloudflare in front. Vectors live in the
-                        same Postgres as the rest of the data rather than in a separate vector database, and the models
-                        sit behind one interface so no single vendor owns the product. None of those choices wins a
-                        benchmark on its own. Together they let one engineer operate the whole thing.</p>
+                    <p>Capellaris isn't a small system. It's multi-tenant, with a full RAG pipeline, hybrid search and
+                        hierarchical multi-agent orchestration. It still runs on managed services: Cloud Run and
+                        Firebase on GCP, Supabase PostgreSQL with pgvector, and Cloudflare in front. The vectors sit in
+                        the same Postgres as the rest of the data instead of in a separate vector database, and the
+                        models are behind one interface so no single vendor owns the product. I made those choices so
+                        that one engineer could run the whole thing.</p>
 
                     <blockquote class="pull">
-                        The right architecture for a small company is the one its smallest realistic team can still
-                        operate at two in the morning.
+                        For a small company, I pick the architecture that the smallest realistic team could still run
+                        at two in the morning.
                     </blockquote>
 
-                    <h2>Implementation is the part everyone already sees</h2>
+                    <h2>Implementation got cheaper</h2>
 
-                    <p>Writing the code is the stage people picture when they hear "engineer", and the one that has
-                        changed most. I use AI coding tools every day and they have made implementation genuinely
-                        cheaper. As I argued in <a class="link" href="ai-is-an-accelerator-not-a-decision-maker.html">AI
-                        is an accelerator, not a decision-maker</a>, that does not make the surrounding decisions
-                        cheaper &mdash; it makes them a larger share of the job. When code was slow to write, fuzzy
-                        requirements had time to surface before much was built on them. Now you can build the wrong
-                        thing in an afternoon.</p>
+                    <p>Writing code is what people picture when they hear "engineer", and it's the stage that has
+                        changed most. I use AI coding tools every day, and they've made implementation cheaper. As I
+                        argued in <a class="link" href="ai-is-an-accelerator-not-a-decision-maker.html">AI is an
+                        accelerator, not a decision-maker</a>, the decisions around the code haven't got any cheaper,
+                        so they're now a bigger share of the job. When code was slow to write, fuzzy requirements had
+                        time to surface before much was built on them. Now you can build the wrong thing in an
+                        afternoon.</p>
 
-                    <h2>Maintenance is where you find out whether you understood</h2>
+                    <h2>Maintenance tests whether you understood</h2>
 
-                    <p>Launch is the midpoint, not the finish line. Most of what I know about building systems I
-                        learned in the months after they shipped.</p>
+                    <p>Launch is roughly the middle of the work. Most of what I know about building systems I learned
+                        in the months after they shipped.</p>
 
-                    <p>At Stormtech I wrote about half of a fleet of RPA bots that scraped bank portals to update loan
-                        status across 18 integrated banks, and maintained all of them &mdash; which meant updating a
-                        bot every time a bank changed its portal. Maintaining your own code alongside other people's
-                        teaches you quickly which assumptions were fragile. It is also why I built a dashboard of bot
-                        health &mdash; running, failed, unused &mdash; that cut the time to spot a broken pipeline from
-                        about two hours to under one.</p>
+                    <p>At Stormtech I wrote about half of a set of RPA bots that scraped bank portals to update loan
+                        status across 18 integrated banks, and I maintained all of them, which meant updating a bot
+                        every time a bank changed its portal. Maintaining your own code next to other people's shows
+                        you fast which assumptions were fragile. It's also why I built a dashboard of bot health
+                        (running, failed, unused), which cut the time to spot a broken pipeline from about two hours to
+                        under one.</p>
 
-                    <p>At Busca&ocirc;nibus I was the sole technical owner of a backend handling millions of daily
-                        searches: on-call, incident response, the whole production lifecycle. When you know you are
-                        the one who gets paged, you build differently. You put feature flags with immediate rollback in
-                        place before you need them &mdash; the approach behind the platform migration I described in
-                        <a class="link" href="planning-a-legacy-migration.html">Planning a legacy migration</a>. You
-                        give each data source its own cache TTL and build a tool to inspect the keys, because you will
-                        be the one inspecting them.</p>
+                    <p>At Buscaônibus I was the sole technical owner of a backend handling millions of daily searches,
+                        so on-call and incident response were mine along with the rest of the production lifecycle.
+                        Knowing you'll be the one paged changes how you build. You put feature flags with immediate
+                        rollback in place before you need them; that's the approach behind the platform migration I
+                        described in <a class="link" href="planning-a-legacy-migration.html">Planning a legacy
+                        migration</a>. You give each data source its own cache TTL and build a tool to inspect the
+                        keys, because you'll be the one inspecting them.</p>
 
                     <div class="callout">
                         <strong>A quick test</strong>
-                        <p>Ask whoever built a system how they would find out it was broken. If the answer is "a user
-                            would tell us", it was built by someone who did not expect to maintain it.</p>
+                        <p>Ask whoever built a system how they'd find out it was broken. If the answer is "a user would
+                            tell us", they didn't expect to maintain it.</p>
                     </div>
 
-                    <h2>The loop is the point</h2>
+                    <h2>Maintenance feeds the next requirement</h2>
 
-                    <p>The value of one person owning all five stages is not that they do five jobs. It is that the
-                        last stage feeds the first. The person who hears the complaint can change the requirement, the
+                    <p>When one person owns all five stages, what they learn in maintenance goes straight back into
+                        understanding the need. Whoever hears the complaint can change the requirement, the
                         architecture or the code without a ticket crossing three teams first.</p>
 
-                    <p>On Capellaris, every project delivered by the manager agent received a one-to-five star rating
-                        from the user. I tracked it from the first single-agent deliveries through to hierarchical
-                        multi-agent runs, and later projects scored higher and needed fewer refinement rounds. That
-                        curve came from a short loop: the person reading the ratings was the same person deciding what
-                        to build next.</p>
+                    <p>On Capellaris, users rated every project the manager agent delivered on a one-to-five star
+                        scale. I tracked that rating from the first single-agent deliveries through to hierarchical
+                        multi-agent runs, and later projects scored higher and needed fewer refinement rounds. I put
+                        that down to a short loop: the person reading the ratings was also deciding what to build
+                        next.</p>
 
                     <h2>Where end to end goes wrong</h2>
 
-                    <p>This is not an argument for heroics. One person owning everything has real failure modes, and
-                        ignoring them is how small companies end up hostage to a single engineer.</p>
+                    <p>One person owning everything has its own failure modes, and ignoring them is how a small
+                        company ends up depending on a single engineer.</p>
 
                     <ul class="bullets">
-                        <li><strong>Bus factor.</strong> Knowledge that lives in one head is a risk, not an asset.
-                            Owning something end to end includes writing it down and choosing technology someone else
-                            can pick up.</li>
-                        <li><strong>Uneven depth.</strong> Nobody is equally strong at all five stages. Part of the
-                            skill is knowing which one is your weakest and when to bring in a specialist.</li>
-                        <li><strong>Bottleneck.</strong> Past a certain size, a single owner slows the company down.
-                            The goal then is to hand stages off deliberately, with their context, rather than by
-                            accident.</li>
-                        <li><strong>No guarantee of a product.</strong> At ReciclaComigo, a five-person startup, I
-                            built a reverse vending machine's edge software, its Arduino firmware and its AWS
-                            environment. The company closed before public launch. Owning every technical layer does not
-                            make a market exist.</li>
+                        <li>Knowledge that lives in one head is a risk to the company. Owning something end to end
+                            includes writing it down and choosing technology someone else can pick up.</li>
+                        <li>Nobody is equally strong at all five stages. Part of the skill is knowing which one is your
+                            weakest and when to bring in a specialist.</li>
+                        <li>Past a certain size, a single owner slows the company down. At that point the job is to hand
+                            stages off on purpose, with their context.</li>
+                        <li>It doesn't guarantee a product. At ReciclaComigo, a five-person startup, I built a reverse
+                            vending machine's edge software, its Arduino firmware and its AWS environment, and the
+                            company closed before public launch.</li>
                     </ul>
 
-                    <h2>If you are hiring for a small company</h2>
+                    <h2>If you're hiring for a small company</h2>
 
-                    <p>Do not only ask candidates what they built. Ask what they kept running, what broke, and what
-                        they changed because of it. The answers tell you whether someone has done the whole loop or
-                        only its visible middle.</p>
+                    <p>Besides asking candidates what they built, ask what they kept running, what broke, and what they
+                        changed because of it. The answers show whether someone has done the whole loop or only the
+                        middle of it.</p>
 
-                    <p>And if you are an engineer who wants this skill, there is no shortcut: stay with something after
-                        it ships. Be the person who gets the call. It is the least glamorous of the five stages, and it
-                        is the one that teaches you the other four.</p>
+                    <p>If you're an engineer and want this skill, stay with something after it ships and be the person
+                        who gets the call. It's the least glamorous of the five stages, and it's taught me more about
+                        the other four than anything else.</p>
 
                     <div class="post-nav">
                         <a class="btn btn--quiet" href="index.html">&larr; All posts</a>

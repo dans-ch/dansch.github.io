@@ -14,7 +14,7 @@
       <guid isPermaLink="true">https://www.dans.ch/blog/small-companies-cant-afford-handoffs.html</guid>
       <pubDate>Tue, 20 Oct 2026 09:00:00 +0200</pubDate>
       <category>Architecture</category>
-      <description>A large company passes a feature through five pairs of hands. A small one usually has one. That person’s most valuable skill is not writing code — it is carrying the problem from the real need to years of maintenance.</description>
+      <description>A large company passes a feature through five pairs of hands; a small one usually has one. What that person needs most is the ability to carry a problem from the user's need through to years of maintenance.</description>
     </item>
     <item>
       <title>AI is an accelerator, not a decision-maker</title>
@@ -22,7 +22,7 @@
       <guid isPermaLink="true">https://www.dans.ch/blog/ai-is-an-accelerator-not-a-decision-maker.html</guid>
       <pubDate>Mon, 07 Sep 2026 09:00:00 +0200</pubDate>
       <category>Engineering</category>
-      <description>I build a platform whose job is running AI agents in production, and I have every commercial reason to say they are close to autonomous. They are not, and the gap does not close with a bigger model.</description>
+      <description>I build a platform that runs AI agents in production, so I have every commercial reason to say they're close to autonomous. They aren't, and I don't think a bigger model changes that.</description>
     </item>
     <item>
       <title>You have to be bad at something again</title>
@@ -30,7 +30,7 @@
       <guid isPermaLink="true">https://www.dans.ch/blog/you-have-to-be-bad-at-something-again.html</guid>
       <pubDate>Mon, 31 Aug 2026 09:00:00 +0200</pubDate>
       <category>Career</category>
-      <description>Competence is pleasant, and it is where learning quietly stops. What a new country does is expose your defaults as defaults — and you can trigger that without a plane ticket.</description>
+      <description>Competence feels good, and it's often where learning stops. Moving country showed me which of my habits were only defaults, and you can get the same jolt without a plane ticket.</description>
     </item>
     <item>
       <title>Planning a legacy migration: the rollout is the hard part</title>
@@ -38,7 +38,7 @@
       <guid isPermaLink="true">https://www.dans.ch/blog/planning-a-legacy-migration.html</guid>
       <pubDate>Mon, 24 Aug 2026 09:00:00 +0200</pubDate>
       <category>Architecture</category>
-      <description>Writing the new system is the part you can estimate. Moving real traffic and real people onto it is where migrations actually die — and it is consistently planned last.</description>
+      <description>Writing the new system is the part you can estimate. Moving real traffic and real people onto it is where migrations fail, and it's usually the part planned last.</description>
     </item>
 
     <!-- Add one <item> per post, newest first. pubDate must be RFC-822:

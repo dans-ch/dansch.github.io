@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>AI is an accelerator, not a decision-maker — Daniel Scheidemantel Camargo</title>
-    <meta name="description" content="Building a production AI agent platform taught me where agents stop. Producing options is nearly free now; choosing between them is the whole job.">
+    <meta name="description" content="What building a production AI agent platform taught me about where agents stop: producing options is nearly free now, and choosing between them is still most of the job.">
     <meta name="author" content="Daniel Scheidemantel Camargo">
     <meta name="referrer" content="origin">
     <link rel="canonical" href="https://www.dans.ch/blog/ai-is-an-accelerator-not-a-decision-maker.html">
@@ -14,7 +14,7 @@
     <meta property="og:site_name" content="Daniel Scheidemantel Camargo">
     <meta property="og:locale" content="en">
     <meta property="og:title" content="AI is an accelerator, not a decision-maker">
-    <meta property="og:description" content="Building a production AI agent platform taught me where agents stop. Producing options is nearly free now; choosing between them is the whole job.">
+    <meta property="og:description" content="What building a production AI agent platform taught me about where agents stop: producing options is nearly free now, and choosing between them is still most of the job.">
     <meta property="og:url" content="https://www.dans.ch/blog/ai-is-an-accelerator-not-a-decision-maker.html">
     <meta property="og:image" content="https://www.dans.ch/assets/images/blog/og-ai-accelerator.jpg">
     <meta property="og:image:width" content="1200">
@@ -155,115 +155,108 @@
                 <article class="post" data-reveal>
                     <figure class="post-figure"><img src="../assets/images/blog/ai-accelerator.svg" alt="Seventeen faint paths fan out from one node and stop at a dashed gate; a single bright path passes through it." width="1200" height="750" decoding="async"></figure>
 
-                    <p class="lead">Every few weeks someone asks me whether AI is going to replace engineers. It
-                        is the wrong question, and answering it honestly matters more to me than usual, because
-                        I spend my days building a platform whose entire job is to run AI agents in production.</p>
+                    <p class="lead">Every few weeks someone asks me whether AI is going to replace engineers. I
+                        spend my days building a platform that runs AI agents in production, so I have a stake in the
+                        answer, and I think the question is framed wrong.</p>
 
-                    <p>I founded <a class="link" href="../capellaris/en/index.html">Capellaris</a> in March 2025. It is a
-                        multi-tenant platform for managing AI agents specialised in different business areas &mdash;
-                        marketing, finance, legal. The agents talk to each other, form squads on demand, and keep
-                        learning from what they are given. Underneath there is an orchestration layer built on CrewAI
-                        and MCP, hybrid retrieval over pgvector and BM25, and a unified abstraction sitting in front of
-                        Claude, OpenAI and Gemini so no single model vendor owns the product.</p>
+                    <p>I founded <a class="link" href="../capellaris/en/index.html">Capellaris</a> in November 2024. It's a
+                        multi-tenant platform for managing AI agents specialised in different business areas, such as
+                        marketing, finance and legal. The agents talk to each other, form squads on demand, and keep
+                        learning from what they're given. Underneath there's an orchestration layer built on CrewAI and
+                        MCP, hybrid retrieval over pgvector and BM25, and one abstraction in front of Claude, OpenAI
+                        and Gemini so that no single model vendor owns the product.</p>
 
-                    <p>I have every commercial reason to tell you these systems are close to autonomous. They are not,
-                        and the gap is not the kind that closes with a bigger model.</p>
+                    <p>I have every commercial reason to tell you these systems are close to autonomous. They aren't,
+                        and I don't think a bigger model closes the gap.</p>
 
-                    <h2>What agents are genuinely good at</h2>
+                    <h2>What agents are good at</h2>
 
-                    <p>The honest answer is throughput. Agents are very good at the work that is well specified and
-                        tedious: pulling the right five documents out of ten thousand, drafting the first version of
-                        something, triaging a queue, translating an intent into an API call, holding more context than
-                        a person can hold at once.</p>
+                    <p>Throughput. Agents handle well-specified, tedious work very well: pulling the right five
+                        documents out of ten thousand, drafting a first version, triaging a queue, turning an intent
+                        into an API call, holding more context than a person can keep in their head.</p>
 
-                    <p>That is not a small category. A large share of knowledge work is exactly this. When you automate
-                        it properly the effect is real &mdash; not "the AI did my job" but "the eight hours of
-                        preparation before the decision became forty minutes."</p>
-
-                    <p>The interesting part is what happens to the forty minutes that are left. They get harder.</p>
+                    <p>A large share of knowledge work looks like this, and automating it properly has a real effect.
+                        The eight hours of preparation before a decision become forty minutes. What's left in those
+                        forty minutes is harder than before.</p>
 
                     <h2>Where they stop</h2>
 
-                    <p>A model will happily generate ten plausible directions for a product. It cannot tell you which
-                        one is worth building, because that judgement is loaded with context that never makes it into
-                        the prompt: what this particular customer actually meant as opposed to what they asked for,
-                        which internal team will quietly refuse to adopt it, what you will regret having committed to
-                        in two years, whether the thing is honest.</p>
+                    <p>A model will happily generate ten plausible directions for a product. It can't tell you which
+                        one is worth building, because that judgement depends on context that never makes it into the
+                        prompt: what this customer meant as opposed to what they asked for, which internal team will
+                        refuse to adopt it, what you'll regret committing to in two years, whether the thing is
+                        honest.</p>
 
-                    <p>This is the part people call taste, and calling it taste makes it sound decorative. It is not.
-                        It is the load-bearing decision. Producing options is now nearly free; choosing between them is
-                        the entire job, and it is the one part that has not got cheaper.</p>
+                    <p>People call this taste, which makes it sound decorative. In my experience it's the decision
+                        everything else rests on. Producing options is now nearly free. Choosing between them costs
+                        what it always did, and that's most of the job.</p>
 
                     <blockquote class="pull">
-                        AI collapsed the cost of producing options. It did nothing to the cost of choosing between
-                        them.
+                        AI made producing options cheap. Choosing between them costs as much as it ever did.
                     </blockquote>
 
-                    <p>There is a second failure that is quieter and more dangerous. Agents optimise for what you
-                        measured. If your evaluation rewards answers that look complete, you will get answers that look
-                        complete. Nobody in the loop is asking whether the user is better off &mdash; that question has
-                        no gradient.</p>
+                    <p>The second failure is harder to see and more dangerous. Agents optimise for what you measured.
+                        If your evaluation rewards answers that look complete, you get answers that look complete, and
+                        nobody in the loop asks whether the user is better off. That question has no gradient.</p>
 
-                    <h2>The evaluation trap</h2>
+                    <h2>What evaluation can and can't tell you</h2>
 
-                    <p>On Capellaris I run the full MLOps lifecycle: prompt versioning, model evaluation, observability
-                        through Cloud Logging, continuous delivery on GitLab CI/CD. This machinery is not optional. If
-                        you ship LLM features without it you are flying blind, because a prompt change can degrade
-                        quality in a way no unit test will catch.</p>
+                    <p>On Capellaris I run the full MLOps lifecycle: model integration, prompt versioning,
+                        evaluation, observability, and CI/CD with GitHub Actions. You need this
+                        machinery. A prompt change can degrade quality in ways no unit test catches, and without
+                        evaluation you won't see it happen.</p>
 
-                    <p>But it is worth being precise about what evaluation buys you. It catches
-                        <strong>regression</strong> &mdash; the new version is worse than the old one on cases you
-                        already thought about. It does not catch <strong>wrongness of direction</strong> &mdash; the
-                        whole feature is a well-executed answer to a question nobody asked.</p>
+                    <p>Evaluation catches <strong>regression</strong>, where the new version does worse than the old
+                        one on cases you already thought about. It doesn't catch a <strong>wrong direction</strong>,
+                        where the whole feature is a well-executed answer to a question nobody asked.</p>
 
                     <div class="callout">
-                        <strong>The distinction that matters</strong>
-                        <p>Evaluation tells you whether the system got better at the thing you told it to do. It has
-                            nothing to say about whether that was the right thing. Only a person who understands the
-                            customer can answer the second question, and no amount of tooling removes them from the
-                            loop.</p>
+                        <strong>The limit</strong>
+                        <p>Evaluation measures whether the system got better at the task you gave it. Whether that was
+                            the right task is a question for someone who understands the customer, and no tooling
+                            removes the need for that person.</p>
                     </div>
 
                     <h2>What this means for how you build</h2>
 
-                    <p>Once you accept that, the architecture follows. You put humans at the two boundaries and let the
-                        agents own the middle.</p>
+                    <p>Once you accept that, the architecture follows. People sit at the two boundaries and the agents
+                        own the middle.</p>
 
                     <ol>
-                        <li><strong>Scoping in.</strong> A person decides what problem the agent is pointed at, and
-                            what "good" means for this customer. That framing is the highest-leverage decision in the
-                            whole system and it is made before any token is generated.</li>
-                        <li><strong>Execution.</strong> The agents run. Retrieval, tool-calling, drafting, chaining.
-                            This is where you want maximum throughput and minimum human involvement, and where the
-                            orchestration layer earns its keep.</li>
-                        <li><strong>Accepting out.</strong> A person decides whether the output actually helps
-                            somebody. Not whether it is well formed &mdash; whether it helps. This is where most
-                            AI products quietly fail, because it is the step teams are most tempted to automate away.</li>
+                        <li><strong>Scoping in.</strong> A person decides what problem the agent works on and what
+                            "good" means for this customer. It's the highest-leverage decision in the system, and it
+                            happens before any token is generated.</li>
+                        <li><strong>Execution.</strong> The agents run retrieval, tool calls, drafting and chaining.
+                            Here you want maximum throughput and as little human involvement as possible. This is the
+                            work the orchestration layer exists for.</li>
+                        <li><strong>Accepting out.</strong> A person decides whether the output helps somebody.
+                            Checking that it's well formed is easy; checking that it's useful isn't, and this is the
+                            step teams are most tempted to automate away. I think it's where most AI products
+                            fail.</li>
                     </ol>
 
-                    <p>Note that agent orchestration and agent autonomy are different things, and the industry uses
-                        them interchangeably. Orchestration means many specialised agents coordinating on a task you
-                        defined. Autonomy means nobody defined the task. I build the first one on purpose.</p>
+                    <p>The industry uses agent orchestration and agent autonomy interchangeably, and they're different
+                        things. Orchestration is many specialised agents coordinating on a task you defined. Autonomy
+                        means nobody defined the task. I build orchestration on purpose.</p>
 
                     <h2>What that looks like in practice</h2>
 
-                    <p>Capellaris has a pilot enterprise customer running in production. The most useful thing I do for
-                        that account is not model work. It is sitting with them to scope requirements, supporting the
-                        integration, and iterating the product on what they tell me afterwards &mdash; technical
-                        account management, in plain terms.</p>
+                    <p>Capellaris was piloted with three small businesses (an independent consultancy, a restaurant and
+                        an art atelier) plus internal use. The most useful work I do for those customers has little to
+                        do with models. I sit with them to scope requirements, support the integration, and change the
+                        product based on what they tell me afterwards. In plain terms,
+                        it's technical account management.</p>
 
-                    <p>The platform is the accelerator. The relationship is where the product actually gets decided.
-                        If I removed myself from that loop and let the agents infer what the customer needed, I would
-                        ship faster and build the wrong thing faster.</p>
+                    <p>The platform speeds things up, and the product gets decided in that relationship. If I stepped
+                        out of the loop and let the agents infer what the customer needed, I'd ship faster and build
+                        the wrong thing faster.</p>
 
-                    <h2>So, will it replace engineers</h2>
+                    <h2>So, will it replace engineers?</h2>
 
-                    <p>It will replace the part of engineering that was already mechanical, and that part was never
-                        where the value was. What it leaves behind is a job that is more concentrated and less
-                        forgiving: deciding what to build, judging whether it worked, and taking responsibility for the
-                        answer.</p>
-
-                    <p>That is a harder job than the one it replaces. It is also a better one.</p>
+                    <p>It will replace the part of engineering that was already mechanical, which was never where most
+                        of the value sat. What's left is a smaller and less forgiving job: deciding what to build,
+                        judging whether it worked, and owning the answer. I find it harder than the job it replaces,
+                        and I like it more.</p>
 
                     <div class="post-nav">
                         <a class="btn btn--quiet" href="index.html">&larr; All posts</a>

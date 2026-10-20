@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Planning a legacy migration: the rollout is the hard part — Daniel Scheidemantel Camargo</title>
-    <meta name="description" content="Lessons from two very different migrations — a Python 2.7 to FastAPI platform move, and a company-wide Salesforce rollout. The rewrite is estimable; the cutover is what kills you.">
+    <meta name="description" content="Lessons from two very different migrations, a Python 2.7 to 3.10 platform move and a company-wide Salesforce rollout. You can estimate the rewrite; the cutover is where things go wrong.">
     <meta name="author" content="Daniel Scheidemantel Camargo">
     <meta name="referrer" content="origin">
     <link rel="canonical" href="https://www.dans.ch/blog/planning-a-legacy-migration.html">
@@ -14,7 +14,7 @@
     <meta property="og:site_name" content="Daniel Scheidemantel Camargo">
     <meta property="og:locale" content="en">
     <meta property="og:title" content="Planning a legacy migration: the rollout is the hard part">
-    <meta property="og:description" content="Lessons from two very different migrations — a Python 2.7 to FastAPI platform move, and a company-wide Salesforce rollout. The rewrite is estimable; the cutover is what kills you.">
+    <meta property="og:description" content="Lessons from two very different migrations, a Python 2.7 to 3.10 platform move and a company-wide Salesforce rollout. You can estimate the rewrite; the cutover is where things go wrong.">
     <meta property="og:url" content="https://www.dans.ch/blog/planning-a-legacy-migration.html">
     <meta property="og:image" content="https://www.dans.ch/assets/images/blog/og-legacy-rollout.jpg">
     <meta property="og:image:width" content="1200">
@@ -155,132 +155,135 @@
                 <article class="post" data-reveal>
                     <figure class="post-figure"><img src="../assets/images/blog/legacy-rollout.svg" alt="Eight columns in which the bright share of traffic on the new system grows from a sliver to the whole column." width="1200" height="750" decoding="async"></figure>
 
-                    <p class="lead">The rewrite is not the risky part of a legacy migration. Writing the new system is
-                        the part you can estimate. The cutover &mdash; moving real traffic and real people onto it
-                        without breaking the business &mdash; is where migrations actually die, and it is consistently
-                        the part that gets planned last.</p>
+                    <p class="lead">Writing the new system is the part of a legacy migration you can estimate. The
+                        cutover, moving real traffic and real people onto it without breaking the business, is where
+                        migrations fail, and it's usually the part that gets planned last.</p>
 
-                    <p>I have run two migrations that were nothing alike, and the lesson from both was the same one.</p>
+                    <p>I've run two migrations that had little in common, and both taught me the same thing.</p>
 
-                    <h2>Two migrations, two shapes</h2>
+                    <h2>Two very different migrations</h2>
 
-                    <p>At <strong>Buscaônibus / Travelier</strong>, a high-traffic travel search and ticketing platform
-                        processing millions of passenger queries, the problem was the runtime. The platform ran on
-                        Python 2.7 on App Engine. We moved it to Python 3.12 on FastAPI and CloudRun, containerised.
-                        Average API latency came down 25% and GCP infrastructure cost came down 40%.</p>
+                    <p>At Buscaônibus / Travelier, a high-traffic travel search platform handling millions of daily
+                        searches across hundreds of bus operators, the problem was the runtime. The platform ran on
+                        Python 2.7 and Django 1.9 on App Engine. I led the move to Python 3.10 and Django 5 on Cloud
+                        Run, in stages, with new complex APIs built in FastAPI and some microservices as Flask Cloud
+                        Functions. Comparing the mean before and after, average API latency dropped 25% and cloud cost
+                        dropped 40%.</p>
 
-                    <p>At <strong>Portobello</strong>, the problem was not a runtime at all. It was integration: Python
-                        and Django services wiring Salesforce to on-prem ERPs and downstream microservices, with
-                        Kubernetes CI/CD on Rancher and Jenkins, and an MSSQL Server underneath handling job scheduling
-                        and the data pipelines. I led the technical design and stakeholder support for a company-wide
-                        Salesforce rollout.</p>
+                    <p>At Portobello, a ceramics manufacturer and retailer with around 4,000 employees, the problem
+                        was integration. I was part of the team that delivered the company's 2021 digital
+                        transformation, including the move of CRM and ERP to Salesforce across 124 retail stores, most
+                        of them franchises. Before the migration I administered the Microsoft SQL Server database that
+                        held company-wide data and integrated several ERPs and CRMs into it. For the rollout I designed
+                        the product data model and the connection between products and orders.</p>
 
-                    <p>One was a technical migration where the users never knew anything happened. The other was an
-                        organisational migration where the software was the easy half. Both hinged on the same thing:
-                        how carefully the rollout was planned before anyone wrote code.</p>
+                    <p>Users never noticed the first migration. The second was an organisational change in which the
+                        software was the easier half. Both depended on how carefully the rollout was planned before
+                        anyone wrote code.</p>
 
                     <h2>Before you touch the code</h2>
 
-                    <h3>Find out what actually calls it</h3>
+                    <h3>Find out what calls it</h3>
 
-                    <p>Not what the documentation says calls it. What actually does. On a system that has been running
-                        for years there is always a consumer nobody remembers: a scheduled job, a partner integration,
-                        an internal dashboard, a script on somebody's machine. Instrument the old system and log every
-                        caller for a period long enough to catch the monthly ones.</p>
+                    <p>The documentation tells you what is supposed to call the old system. The logs tell you what
+                        does. A system that has been running for years always has a consumer nobody remembers: a
+                        scheduled job, a partner integration, an internal dashboard, a script on someone's laptop.
+                        Instrument the old system and log every caller for long enough to catch the monthly ones.</p>
 
                     <h3>Find the real contract</h3>
 
-                    <p>The real contract is not the API spec. It is the observable behaviour consumers have come to
-                        depend on, and it includes the bugs. If an endpoint returns <code>200</code> with an empty body
-                        where it should return <code>404</code>, something downstream is almost certainly relying on
-                        that. Decide deliberately whether you are preserving each quirk or fixing it, and if you are
-                        fixing it, that is a breaking change with its own communication plan.</p>
+                    <p>The contract is the observable behaviour consumers depend on, bugs included, and the API spec
+                        only covers part of it. If an endpoint returns <code>200</code> with an empty body where it
+                        should return <code>404</code>, something downstream almost certainly relies on that. Decide
+                        for each quirk whether you'll preserve it or fix it. A fix is a breaking change and needs its
+                        own communication plan.</p>
 
-                    <h3>Establish a baseline you can be held to</h3>
+                    <h3>Measure a baseline</h3>
 
                     <p>Measure the old system before you replace it: latency percentiles, error rate, throughput,
-                        infrastructure cost. Percentiles, not averages &mdash; an average hides exactly the tail that
-                        users complain about.</p>
+                        infrastructure cost. Use percentiles, because an average hides the tail that users complain
+                        about.</p>
 
                     <div class="callout">
-                        <strong>Why this is not optional</strong>
-                        <p>If you have no baseline, you cannot prove the migration worked, and more importantly you
-                            cannot tell whether a complaint two months in is a real regression or something that was
-                            always broken. "It feels slower" is unfalsifiable without numbers from before.</p>
+                        <strong>Why the baseline matters</strong>
+                        <p>Without a baseline you can't prove the migration worked. You also can't tell whether a
+                            complaint two months later is a real regression or something that was always broken.
+                            Without numbers from before, "it feels slower" can't be checked.</p>
                     </div>
 
-                    <h2>Migrate in slices, not in a weekend</h2>
+                    <h2>Migrate in slices</h2>
 
-                    <p>The big-bang cutover is attractive because it is conceptually simple and because it lets you
-                        stop maintaining two systems sooner. It is also the version where you discover every wrong
-                        assumption simultaneously, at night, with the business offline.</p>
+                    <p>A big-bang cutover is tempting because it's simple to explain and you stop maintaining two
+                        systems sooner. It's also how you discover every wrong assumption at once, at night, with the
+                        business offline.</p>
 
-                    <p>The alternative is the strangler pattern, which in practice means:</p>
+                    <p>The alternative is the strangler pattern. In practice:</p>
 
                     <ol>
-                        <li>Put a routing layer in front of the old system, so traffic can be directed per endpoint
-                            rather than all at once.</li>
-                        <li>Reimplement one endpoint in the new system. Pick the highest-traffic read endpoint with the
-                            simplest contract &mdash; you want real load early, and you want to be able to reason about
+                        <li>Put a routing layer in front of the old system, so you can direct traffic per endpoint
+                            instead of all at once.</li>
+                        <li>Reimplement one endpoint in the new system. I'd pick the highest-traffic read endpoint with
+                            the simplest contract, so you get real load early and can still reason about
                             correctness.</li>
-                        <li>Shadow it: send production traffic to both, serve the old response, and compare. This is
-                            how you find the differences that no test suite predicted, without a user ever seeing
+                        <li>Shadow it: send production traffic to both systems, serve the old response, and compare.
+                            That's how you find the differences no test suite predicted, before any user sees
                             them.</li>
                         <li>Move a small percentage of live traffic over. Watch. Increase.</li>
                         <li>Repeat, keeping both systems alive until the last consumer has moved.</li>
                     </ol>
 
-                    <p>Running two systems in parallel is genuinely annoying and it is the price of not betting the
-                        business on a single evening.</p>
+                    <p>Running two systems in parallel is annoying. It's what you pay to avoid betting the business on
+                        a single evening.</p>
 
                     <h2>Write the rollback criteria first</h2>
 
-                    <p>This is the part I would defend hardest, because it is the cheapest and the most often skipped.</p>
+                    <p>I'd defend this step hardest, because it's the cheapest and the most often skipped.</p>
 
-                    <p>Before you deploy, write down what would make you roll back. Specific and numeric: error rate
-                        above <em>x</em> for <em>y</em> minutes, p95 latency above <em>z</em>, any data-integrity
-                        mismatch at all. Write down who is allowed to make that call, and make sure that person does
-                        not need to find anyone else at 3am to do it.</p>
+                    <p>Before you deploy, write down what would make you roll back, in numbers: error rate above
+                        <em>x</em> for <em>y</em> minutes, p95 latency above <em>z</em>, any data-integrity mismatch at
+                        all. Write down who can make that call, and make sure that person won't need to find anyone
+                        else at 3am to do it.</p>
 
-                    <p>Doing this before deployment is not paperwork. It is the only moment you will define those
-                        thresholds calmly. Once traffic is on the new system and a graph is moving in the wrong
-                        direction, everyone in the room has an incentive to interpret it optimistically &mdash; you
-                        have all been working on this for months. Pre-committing removes the judgement call from the
-                        worst possible moment to make it.</p>
+                    <p>Before deployment is the only time you'll set those thresholds calmly. Once traffic is on the
+                        new system and a graph moves the wrong way, everyone in the room wants to read it
+                        optimistically, because you've all been working on this for months. Committing in advance
+                        takes the judgement call away from the worst possible moment to make it.</p>
 
                     <blockquote class="pull">
-                        A rollback plan written during an incident is not a plan. It is a negotiation between tired
-                        people who want the migration to have worked.
+                        A rollback plan written during an incident turns into a negotiation between tired people who
+                        want the migration to have worked.
                     </blockquote>
 
                     <h2>The organisational half</h2>
 
-                    <p>The Portobello rollout is the one that taught me this. Technically it was integration work:
-                        Django services, ERP connectors, pipelines, CI/CD. But the thing that determined whether it
-                        succeeded was whether people used Salesforce afterwards, and that is not an engineering
-                        variable.</p>
+                    <p>The Portobello rollout taught me this. Technically it was integration work: ETLs between ERPs
+                        and CRMs, the product data model, microservices. It produced no integration-related incident
+                        tickets, only usage questions. Whether it succeeded, though, depended on whether people used
+                        Salesforce afterwards, and engineering doesn't control that.</p>
 
-                    <p>The most useful thing I built there was arguably not an integration at all. It was a financial
-                        simulator embedded directly in Salesforce, with a Python backend &mdash; a tool that gave the
-                        commercial team a concrete reason to be in the new system rather than a mandate to be.</p>
+                    <p>The most useful thing I built there was arguably the regional fiscal discount simulator, a
+                        Python/Django service that calculates the full tax burden of a list of products and shows the
+                        result inside Salesforce through an Apex API layer and a button. Working with the fiscal
+                        stakeholders, we raised its coverage of fiscal rules from 70% to 96%. It gave the commercial
+                        team their own reason to work in the new system, where otherwise they'd only have had an order
+                        to.</p>
 
-                    <p>That generalises. In any migration where humans change how they work:</p>
+                    <p>The same applies to any migration where people change how they work:</p>
 
                     <ul class="bullets">
-                        <li><strong>Find the group that benefits first</strong> and migrate them first. You want your
-                            earliest reference to be somebody who is happier afterwards.</li>
-                        <li><strong>Give people a reason, not an instruction.</strong> A feature that only exists in the
-                            new system beats a deadline email.</li>
-                        <li><strong>Budget for support explicitly.</strong> The weeks after cutover need staffed
-                            attention, and if you have not planned for it, it comes out of the migration team's
-                            evenings.</li>
-                        <li><strong>Do not turn the old system off early.</strong> The cost of keeping it read-only for
-                            another quarter is far smaller than the cost of being wrong about who still needed it.</li>
+                        <li>Migrate the group that benefits most first. You want your earliest reference to be someone
+                            who is happier afterwards.</li>
+                        <li>Give people a reason to move. A feature that only exists in the new system works better
+                            than a deadline email.</li>
+                        <li>Budget for support explicitly. The weeks after cutover need staffed attention, and if you
+                            haven't planned for it, it comes out of the migration team's evenings.</li>
+                        <li>Leave the old system on longer than feels necessary. Keeping it read-only for another
+                            quarter costs far less than being wrong about who still needed it.</li>
                     </ul>
 
-                    <h2>The checklist</h2>
+                    <h2>A checklist</h2>
 
-                    <p>If you are starting one of these, this is what I would want on the wall before any code is
+                    <p>If I were starting one of these, this is what I'd want on the wall before any code is
                         written:</p>
 
                     <div class="table-wrap">
@@ -300,8 +303,8 @@
                         </table>
                     </div>
 
-                    <p>The migration that goes well is boring. Nobody outside the team notices it happened, the graphs
-                        move in the right direction, and there is no story to tell afterwards. That is the target.</p>
+                    <p>A migration that goes well is boring. Nobody outside the team notices it happened, the graphs
+                        move the right way, and there's no story to tell afterwards.</p>
 
                     <div class="post-nav">
                         <a class="btn btn--quiet" href="index.html">&larr; All posts</a>
